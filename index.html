@@ -52,7 +52,7 @@ body{background:var(--bg);color:var(--text);font-family:'Courier New',monospace;
 .hero-sub{font-size:16px;color:var(--text-mid);letter-spacing:2px;font-weight:normal}
 
 /* ── GRID ── */
-.main{display:grid;grid-template-columns:1fr 1fr;grid-template-areas:"inv feed" "kanban kanban" "alerts kpi" "sim sim";gap:10px;padding:10px}
+.main{display:grid;grid-template-columns:1fr 1fr;grid-template-areas:"inv feed" "kanban kanban" "alerts kpi" "sim sim";grid-template-rows:520px auto auto auto;gap:10px;padding:10px}
 
 /* ── PANEL ── */
 .panel{background:var(--bg2);border:1px solid var(--border);border-radius:5px;overflow:hidden;display:flex;flex-direction:column}
@@ -83,8 +83,8 @@ body{background:var(--bg);color:var(--text);font-family:'Courier New',monospace;
 .inv-slider{width:100%;accent-color:var(--accent);margin-top:5px;cursor:pointer;height:14px}
 
 /* ── FEED ── */
-#feedPanel{grid-area:feed}
-.feed-wrap{flex:1;min-height:0;overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--border) transparent}
+#feedPanel{grid-area:feed;min-height:0;overflow:hidden}
+.feed-wrap{flex:1;min-height:0;overflow-y:auto;overflow-x:hidden;scrollbar-width:thin;scrollbar-color:var(--border) transparent}
 .feed-wrap::-webkit-scrollbar{width:3px}
 .feed-wrap::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
 .feed-item{padding:10px 0;border-bottom:1px solid var(--border);animation:slideIn .35s ease}
@@ -292,6 +292,7 @@ body{background:var(--bg);color:var(--text);font-family:'Courier New',monospace;
   .main{
     grid-template-columns:1fr;
     grid-template-areas:"inv" "feed" "kanban" "alerts" "kpi" "sim";
+    grid-template-rows:unset;
     padding:8px;
     gap:8px;
     overflow-x:hidden
@@ -788,14 +789,15 @@ function updateInvBadge() {
 // ════════════════════════════════════════════
 // ACTIVITY FEED
 // ════════════════════════════════════════════
-function addFeed(type, text, prepend=true) {
+function addFeed(type, text, prepend=false) {
   const wrap = document.getElementById('feedWrap');
   const div = document.createElement('div');
   div.className = 'feed-item';
   div.innerHTML = `<div class="feed-ts">${nowTime()} CT</div><div class="feed-msg ${type}">${text}</div>`;
   if (prepend) wrap.insertBefore(div, wrap.firstChild);
   else wrap.appendChild(div);
-  while (wrap.children.length > 28) wrap.removeChild(wrap.lastChild);
+  if (wrap.children.length > 50) wrap.removeChild(wrap.firstChild);
+  wrap.scrollTop = wrap.scrollHeight;
   bumpAuto();
 }
 
@@ -817,7 +819,7 @@ function startFeed() {
   setInterval(() => {
     if (document.hidden || simRunning) return;
     const ev = FEED_POOL[feedIdx % FEED_POOL.length];
-    addFeed(ev.type, ev.text, true);
+    addFeed(ev.type, ev.text, false);
     feedIdx++;
   }, 3200);
 }
