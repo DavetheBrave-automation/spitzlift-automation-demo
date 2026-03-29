@@ -121,7 +121,7 @@ body{background:var(--bg);color:var(--text);font-family:'Courier New',monospace;
 .zoho-note span{color:var(--accent);font-weight:bold}
 
 /* ── KANBAN ── */
-#kanbanPanel{grid-area:kanban}
+#kanbanPanel{grid-area:kanban;overflow:hidden}
 .kb-board{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
 .kb-col{background:var(--bg3);border:1px solid var(--border);border-radius:4px;padding:9px;min-height:180px;transition:border-color .2s,background .2s}
 .kb-col.drag-over{border-color:var(--accent);background:rgba(232,160,32,.05)}
@@ -206,6 +206,166 @@ body{background:var(--bg);color:var(--text);font-family:'Courier New',monospace;
 ::-webkit-scrollbar{width:4px;height:4px}
 ::-webkit-scrollbar-track{background:transparent}
 ::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
+
+/* ══════════════════════════════════════════
+   MOBILE — max-width: 768px
+══════════════════════════════════════════ */
+@media (max-width:768px){
+
+  /* ── BASE ── */
+  body{font-size:15px}
+
+  /* ── HEADER ── */
+  .header{flex-direction:column;align-items:flex-start;gap:8px;padding:10px 14px}
+  .hdr-left{width:100%}
+  .hdr-title{font-size:15px;letter-spacing:2px}
+  .hdr-sub{font-size:11px;letter-spacing:1px}
+  .hdr-right{width:100%;flex-wrap:wrap;gap:8px;justify-content:flex-start}
+  .hdr-right .kpi-chip{display:none}
+  .live-clock{min-width:unset;font-size:12px;text-align:left}
+  .sys-ok{font-size:11px}
+  .sim-active-badge{font-size:10px}
+
+  /* ── HERO ── */
+  .hero{padding:18px 14px 14px}
+  .hero-title{font-size:22px;letter-spacing:2px}
+  .hero-sub{font-size:14px;letter-spacing:1px}
+
+  /* ── MAIN GRID — single column ── */
+  .main{
+    grid-template-columns:1fr;
+    grid-template-areas:"inv" "feed" "dept" "kanban" "alerts" "kpi" "sim";
+    padding:8px;
+    gap:8px;
+    overflow-x:hidden
+  }
+
+  /* ── PANEL BASE ── */
+  .panel{width:100%}
+  .pb{padding:12px}
+  .ph{padding:8px 12px}
+  .pt{font-size:13px;letter-spacing:1px}
+  .phase1-pill{font-size:9px}
+
+  /* ── INVENTORY ── */
+  .inv-name{font-size:13px;max-width:60%}
+  .inv-qty{font-size:14px}
+  .inv-meta{font-size:13px}
+
+  /* ── FEED ── */
+  .feed-wrap{height:260px}
+  .feed-msg{font-size:14px;line-height:1.8}
+  .feed-ts{font-size:13px}
+
+  /* ── DEPT MAP — vertical stack instead of ring ── */
+  .dept-wrap{
+    position:static !important;
+    height:auto !important;
+    display:flex !important;
+    flex-direction:column !important;
+    gap:6px;
+    padding:4px 0 8px;
+    margin:0
+  }
+  .dept-svg{display:none !important}
+  .dept-hub{
+    position:relative !important;
+    left:auto !important;
+    top:auto !important;
+    transform:none !important;
+    width:100% !important;
+    height:48px !important;
+    border-radius:5px !important;
+    flex-direction:row !important;
+    gap:8px !important
+  }
+  .dept-hub-icon{font-size:18px;margin-bottom:0}
+  .dept-hub-lbl{font-size:9px;text-align:left;line-height:1.3}
+  .dept-node{
+    position:relative !important;
+    left:auto !important;
+    top:auto !important;
+    transform:none !important;
+    width:100% !important;
+    height:auto !important;
+    flex-direction:row !important;
+    justify-content:flex-start !important;
+    padding:10px 12px !important;
+    gap:10px;
+    min-height:48px
+  }
+  .node-dot{margin-bottom:0;flex-shrink:0}
+  .node-name{font-size:13px;text-align:left;margin-bottom:0;white-space:normal}
+  .node-metric{font-size:12px;text-align:left;line-height:1.4}
+
+  /* ── KANBAN — horizontal scroll ── */
+  #kanbanPanel .pb{overflow-x:auto;padding:8px;-webkit-overflow-scrolling:touch}
+  .kb-board{
+    display:flex !important;
+    flex-wrap:nowrap;
+    gap:8px;
+    overflow-x:auto;
+    padding-bottom:8px;
+    grid-template-columns:unset
+  }
+  .kb-col{min-width:200px;flex-shrink:0}
+  .kb-card .cli{font-size:13px}
+  .kb-card .prd{font-size:13px}
+  .kb-card .qty{font-size:13px}
+
+  /* ── ALERTS ── */
+  .alert-item{min-height:48px;padding:12px}
+  .al-title{font-size:15px}
+  .al-body{font-size:13px;line-height:1.7}
+  .resolve-btn{min-height:44px;padding:10px 16px;font-size:13px}
+
+  /* ── KPI — 2-column already, keep ── */
+  .kpi-card .kc-val{font-size:26px !important}
+  .kpi-card .kc-lbl{font-size:11px}
+  .kpi-card .kc-sub{font-size:11px}
+
+  /* ── BIG RED BUTTON PANEL ── */
+  #simPanel{padding:14px 12px;width:100%}
+  .big-btn{
+    min-height:56px;
+    width:100%;
+    font-size:16px !important;
+    padding:16px 20px;
+    letter-spacing:2px;
+    white-space:normal;
+    line-height:1.3
+  }
+  .progress-bar{width:100% !important}
+  .sim-status{font-size:13px}
+  .sim-lbl{font-size:11px;text-align:center}
+
+  /* ── BEFORE / AFTER ── */
+  .ba-wrap{grid-template-columns:1fr;gap:10px}
+  .ba-close{
+    position:static;
+    display:block;
+    margin-bottom:8px;
+    min-height:36px;
+    padding:6px 14px;
+    width:100%;
+    text-align:center
+  }
+  .ba-card{padding:14px}
+  .ba-list li{font-size:13px}
+  .ba-title{font-size:11px}
+
+  /* ── ZOHO NOTE ── */
+  .zoho-note{font-size:11px}
+
+  /* ── NO TEXT SMALLER THAN 13px — catch-all ── */
+  .badge{font-size:10px}
+  .sev{font-size:10px}
+  .al-time{font-size:11px}
+  .kb-col-hdr{font-size:11px}
+  .ord{font-size:11px}
+  .warn-tag{font-size:8px}
+
+}
 </style>
 </head>
 <body>
