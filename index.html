@@ -66,7 +66,7 @@ body{background:var(--bg);color:var(--text);font-family:'Courier New',monospace;
 .badge.b{border-color:var(--blue);color:var(--blue)}
 /* Phase 1 pill */
 .phase1-pill{font-size:9px;letter-spacing:1px;padding:2px 8px;border-radius:10px;background:rgba(232,160,32,.18);border:1px solid var(--accent);color:var(--accent);font-weight:bold;white-space:nowrap;flex-shrink:0}
-.pb{padding:10px 12px;flex:1;overflow:hidden}
+.pb{padding:10px 12px;flex:1;overflow:hidden;display:flex;flex-direction:column}
 
 /* ── INVENTORY ── */
 #invPanel{grid-area:inv}
@@ -84,7 +84,7 @@ body{background:var(--bg);color:var(--text);font-family:'Courier New',monospace;
 
 /* ── FEED ── */
 #feedPanel{grid-area:feed}
-.feed-wrap{height:340px;overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--border) transparent}
+.feed-wrap{flex:1;min-height:0;overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--border) transparent}
 .feed-wrap::-webkit-scrollbar{width:3px}
 .feed-wrap::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
 .feed-item{padding:10px 0;border-bottom:1px solid var(--border);animation:slideIn .35s ease}
@@ -169,8 +169,8 @@ body{background:var(--bg);color:var(--text);font-family:'Courier New',monospace;
 
 /* ── KPI PANEL ── */
 #kpiPanel{grid-area:kpi}
-.kpi-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.kpi-card{background:var(--bg3);border:1px solid var(--border);border-radius:4px;padding:12px;text-align:center}
+.kpi-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:8px;flex:1;min-height:0}
+.kpi-card{background:var(--bg3);border:1px solid var(--border);border-radius:4px;padding:12px;text-align:center;display:flex;flex-direction:column;justify-content:center}
 .kpi-card .kc-val{font-size:32px;font-weight:bold;color:var(--accent);line-height:1;margin-bottom:4px;transition:all .3s}
 .kpi-card .kc-lbl{font-size:11px;color:var(--text-dim);letter-spacing:1px;text-transform:uppercase}
 .kpi-card .kc-sub{font-size:11px;color:var(--green);margin-top:3px}
