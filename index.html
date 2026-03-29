@@ -40,8 +40,9 @@ body{background:var(--bg);color:var(--text);font-family:'Courier New',monospace;
 @keyframes fadeUp{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
 @keyframes flashAlert{0%,100%{background:var(--bg3)}40%{background:rgba(231,76,60,.18)}}
 @keyframes glow{0%,100%{box-shadow:0 0 20px rgba(232,160,32,.2)}50%{box-shadow:0 0 40px rgba(232,160,32,.5)}}
-@keyframes dashFlow{to{stroke-dashoffset:-40}}
+@keyframes dashFlow{to{stroke-dashoffset:-20}}
 @keyframes shimmer{0%{left:-100%}100%{left:200%}}
+@keyframes svgGlow{0%,100%{opacity:.15}50%{opacity:.5}}
 @keyframes cascadeRipple{0%{box-shadow:0 0 0 0 rgba(231,76,60,.6)}70%{box-shadow:0 0 0 12px rgba(231,76,60,0)}100%{box-shadow:0 0 0 0 rgba(231,76,60,0)}}
 @keyframes baSlideIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
 
@@ -106,14 +107,14 @@ body{background:var(--bg);color:var(--text);font-family:'Courier New',monospace;
 /* ── DEPT MAP ── */
 #deptPanel{background:transparent;border:1px solid rgba(232,160,32,.2);border-radius:6px;overflow:visible}
 #deptPanel .ph{background:var(--bg4);border-bottom:1px solid var(--border);border-radius:6px 6px 0 0}
-.dept-wrap{position:relative;height:360px;margin:0 auto;max-width:1000px}
+.dept-wrap{position:relative;width:100%;max-width:900px;margin:0 auto;aspect-ratio:900/700}
 .dept-svg{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;overflow:visible}
-.conn-line{stroke:var(--accent);stroke-width:1.2;fill:none;opacity:.25;stroke-dasharray:6,4;animation:dashFlow 4s linear infinite}
-.conn-line.active{opacity:.85;stroke:var(--accent2);stroke-width:2;animation:dashFlow 1.2s linear infinite}
+.conn-line{fill:none;stroke-dasharray:12,8;animation:dashFlow 3s linear infinite}
+.conn-line.active{stroke-dasharray:8,5;animation:dashFlow 1.5s linear infinite}
 .dept-hub{position:absolute;width:100px;height:100px;background:var(--bg4);border:2px solid var(--accent);border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:10;animation:glow 3s ease-in-out infinite;cursor:default;transform:translate(-50%,-50%)}
 .dept-hub-icon{font-size:26px;margin-bottom:3px}
 .dept-hub-lbl{font-size:8px;letter-spacing:1px;color:var(--accent);text-align:center;line-height:1.3;text-transform:uppercase}
-.dept-node{position:absolute;width:98px;height:78px;background:var(--bg3);border:1px solid var(--border);border-radius:4px;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:border-color .4s,box-shadow .4s;z-index:5;transform:translate(-50%,-50%);cursor:default}
+.dept-node{position:absolute;width:98px;height:78px;background:var(--bg3);border:1px solid var(--border);border-radius:4px;display:none;flex-direction:column;align-items:center;justify-content:center;transition:border-color .4s,box-shadow .4s;z-index:5;transform:translate(-50%,-50%);cursor:default}
 .dept-node.ok{border-color:rgba(46,204,113,.5)}
 .dept-node.amberS{border-color:rgba(232,160,32,.7);box-shadow:0 0 8px rgba(232,160,32,.2)}
 .dept-node.redS{border-color:rgba(231,76,60,.8);box-shadow:0 0 12px rgba(231,76,60,.35)}
@@ -122,6 +123,8 @@ body{background:var(--bg);color:var(--text);font-family:'Courier New',monospace;
 .node-name{font-size:10px;color:var(--text);text-transform:uppercase;letter-spacing:1px;text-align:center;font-weight:bold;margin-bottom:3px}
 .node-icon{font-size:16px;margin-bottom:3px}
 .node-metric{font-size:8px;color:var(--text-mid);text-align:center;line-height:1.4}
+.hub-glow-ring{animation:svgGlow 3s ease-in-out infinite}
+#deptHub{display:none}
 /* Zoho footnote */
 .zoho-note{font-size:10px;color:var(--text-dim);text-align:center;padding:6px 10px 8px;border-top:1px solid var(--border);line-height:1.5;letter-spacing:.3px}
 .zoho-note span{color:var(--accent);font-weight:bold}
@@ -243,6 +246,7 @@ body{background:var(--bg);color:var(--text);font-family:'Courier New',monospace;
   .dept-wrap{
     position:static !important;
     height:auto !important;
+    aspect-ratio:unset !important;
     max-width:100% !important;
     display:flex !important;
     flex-direction:column !important;
@@ -250,6 +254,7 @@ body{background:var(--bg);color:var(--text);font-family:'Courier New',monospace;
     padding:4px 0 8px;
     margin:0 !important
   }
+  #deptHub{display:flex !important}
   .dept-svg{display:none !important}
   .dept-hub{
     position:relative !important;
@@ -265,6 +270,7 @@ body{background:var(--bg);color:var(--text);font-family:'Courier New',monospace;
   .dept-hub-icon{font-size:20px;margin-bottom:0}
   .dept-hub-lbl{font-size:9px;text-align:left;line-height:1.3}
   .dept-node{
+    display:flex !important;
     position:relative !important;
     left:auto !important;
     top:auto !important;
@@ -914,33 +920,136 @@ function addAlert(a) {
 // ════════════════════════════════════════════
 function renderDeptMap() {
   const wrap = document.getElementById('deptWrap');
-  const svg = document.getElementById('deptSvg');
-  const W = wrap.offsetWidth || 310;
-  const H = 260;
-  const cx = W / 2, cy = H / 2;
-  const R = Math.min(W, H) * 0.37;
+  const svg  = document.getElementById('deptSvg');
 
-  svg.innerHTML = '';
-  svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+  // Clear existing HTML nodes
   Array.from(wrap.querySelectorAll('.dept-node')).forEach(el => el.remove());
 
+  // Fixed viewBox
+  svg.setAttribute('viewBox', '0 0 900 700');
+  svg.setAttribute('preserveAspectRatio', 'xMidYMid meet');
+  svg.innerHTML = '';
+
+  const HUB = {x:450, y:350};
+  const NODE_POS    = [{x:250,y:150},{x:650,y:150},{x:750,y:350},{x:650,y:550},{x:250,y:550},{x:150,y:350}];
+  const NODE_COLORS = ['#00bcd4','#e8a020','#e06438','#3498db','#2ecc71','#9b59b6'];
+  const NODE_SHORT  = ['SALES','MFG','PROC','DIST','SERVICE','GOV'];
+  const NR = 52; // node radius — 104px diameter
+
+  // Defs: hub glow filter
+  const defs = document.createElementNS('http://www.w3.org/2000/svg','defs');
+  defs.innerHTML = '<filter id="hgf" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur in="SourceGraphic" stdDeviation="10" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>';
+  svg.appendChild(defs);
+
+  // Connection lines (drawn first — behind nodes)
   DEPTS.forEach((d, i) => {
-    const ang = DEPT_ANGLES_DEG[i] * Math.PI / 180;
-    const nx = cx + R * Math.cos(ang);
-    const ny = cy + R * Math.sin(ang);
+    const p   = NODE_POS[i];
+    const col = NODE_COLORS[i];
+    // Dim background track
+    const bg = document.createElementNS('http://www.w3.org/2000/svg','line');
+    bg.setAttribute('x1',HUB.x); bg.setAttribute('y1',HUB.y);
+    bg.setAttribute('x2',p.x);   bg.setAttribute('y2',p.y);
+    bg.style.cssText = `stroke:${col};stroke-width:1.5;opacity:.1;fill:none`;
+    svg.appendChild(bg);
+    // Animated dash line
+    const ln = document.createElementNS('http://www.w3.org/2000/svg','line');
+    ln.id = 'dline-' + d.id;
+    ln.setAttribute('x1',HUB.x); ln.setAttribute('y1',HUB.y);
+    ln.setAttribute('x2',p.x);   ln.setAttribute('y2',p.y);
+    ln.style.cssText = `stroke:${col};stroke-width:${d.state!=='ok'?'2.5':'2'};opacity:${d.state!=='ok'?'.9':'.5'}`;
+    ln.setAttribute('class', d.state!=='ok' ? 'conn-line active' : 'conn-line');
+    svg.appendChild(ln);
+  });
 
-    const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-    line.id = 'dline-' + d.id;
-    line.setAttribute('x1', cx); line.setAttribute('y1', cy);
-    line.setAttribute('x2', nx); line.setAttribute('y2', ny);
-    line.setAttribute('class', d.state !== 'ok' ? 'conn-line active' : 'conn-line');
-    svg.appendChild(line);
+  // Hub outer glow ring
+  const ring = document.createElementNS('http://www.w3.org/2000/svg','circle');
+  ring.setAttribute('cx',HUB.x); ring.setAttribute('cy',HUB.y);
+  ring.setAttribute('r','84'); ring.setAttribute('fill','rgba(232,160,32,0.1)');
+  ring.setAttribute('class','hub-glow-ring');
+  svg.appendChild(ring);
 
+  // Hub circle
+  const hc = document.createElementNS('http://www.w3.org/2000/svg','circle');
+  hc.setAttribute('cx',HUB.x); hc.setAttribute('cy',HUB.y);
+  hc.setAttribute('r','60'); hc.setAttribute('fill','#e8a020');
+  hc.setAttribute('filter','url(#hgf)');
+  svg.appendChild(hc);
+
+  // Hub text elements
+  [['⚙', HUB.y-11, 28, '#000', '', ''],
+   ['AUTOMATION', HUB.y+17, 10, '#000', 'bold', '2'],
+   ['HUB', HUB.y+31, 10, '#000', 'bold', '4']
+  ].forEach(([txt,y,sz,fill,wt,ls])=>{
+    const t = document.createElementNS('http://www.w3.org/2000/svg','text');
+    t.setAttribute('x',HUB.x); t.setAttribute('y',y);
+    t.setAttribute('text-anchor','middle'); t.setAttribute('dominant-baseline','middle');
+    t.setAttribute('font-size',sz); t.setAttribute('fill',fill);
+    if(wt) t.setAttribute('font-weight',wt);
+    if(ls) t.setAttribute('letter-spacing',ls);
+    t.textContent = txt;
+    svg.appendChild(t);
+  });
+
+  // Department nodes — SVG circles + HTML divs (mobile)
+  DEPTS.forEach((d, i) => {
+    const p   = NODE_POS[i];
+    const col = NODE_COLORS[i];
+    const sn  = NODE_SHORT[i];
+
+    // SVG background circle
+    const bgc = document.createElementNS('http://www.w3.org/2000/svg','circle');
+    bgc.setAttribute('cx',p.x); bgc.setAttribute('cy',p.y);
+    bgc.setAttribute('r',NR); bgc.setAttribute('fill','#0d1117');
+    svg.appendChild(bgc);
+
+    // SVG border circle
+    const bc = document.createElementNS('http://www.w3.org/2000/svg','circle');
+    bc.id = 'dcirc-' + d.id;
+    bc.setAttribute('cx',p.x); bc.setAttribute('cy',p.y);
+    bc.setAttribute('r',NR); bc.setAttribute('fill','none');
+    bc.style.cssText = `stroke:${col};stroke-width:${d.state==='ok'?'2':'3'};opacity:${d.state==='ok'?'.7':'1'}`;
+    svg.appendChild(bc);
+
+    // SVG icon
+    const icon = document.createElementNS('http://www.w3.org/2000/svg','text');
+    icon.setAttribute('x',p.x); icon.setAttribute('y',p.y-16);
+    icon.setAttribute('text-anchor','middle'); icon.setAttribute('dominant-baseline','middle');
+    icon.setAttribute('font-size','22');
+    icon.textContent = d.icon;
+    svg.appendChild(icon);
+
+    // SVG department short name
+    const lbl = document.createElementNS('http://www.w3.org/2000/svg','text');
+    lbl.id = 'dlbl-' + d.id;
+    lbl.setAttribute('x',p.x); lbl.setAttribute('y',p.y+7);
+    lbl.setAttribute('text-anchor','middle'); lbl.setAttribute('dominant-baseline','middle');
+    lbl.setAttribute('font-size','12'); lbl.setAttribute('font-weight','bold');
+    lbl.setAttribute('fill',col); lbl.setAttribute('letter-spacing','1');
+    lbl.textContent = sn;
+    svg.appendChild(lbl);
+
+    // SVG first metric
+    const met = document.createElementNS('http://www.w3.org/2000/svg','text');
+    met.id = 'dmet1-' + d.id;
+    met.setAttribute('x',p.x); met.setAttribute('y',p.y+24);
+    met.setAttribute('text-anchor','middle'); met.setAttribute('dominant-baseline','middle');
+    met.setAttribute('font-size','9'); met.setAttribute('fill','#7a8a9a');
+    met.textContent = d.metrics[0];
+    svg.appendChild(met);
+
+    // SVG status dot (bottom-right of circle)
+    const dotEl = document.createElementNS('http://www.w3.org/2000/svg','circle');
+    dotEl.id = 'ddot-' + d.id;
+    dotEl.setAttribute('cx', p.x + NR*0.707); dotEl.setAttribute('cy', p.y + NR*0.707);
+    dotEl.setAttribute('r','7');
+    dotEl.setAttribute('fill', d.state==='ok'?'#2ecc71':d.state==='amberS'?'#e8a020':'#e74c3c');
+    dotEl.setAttribute('stroke','#0a0c0f'); dotEl.setAttribute('stroke-width','2');
+    svg.appendChild(dotEl);
+
+    // HTML node — hidden on desktop, shown as card stack on mobile
     const node = document.createElement('div');
     node.id = 'dnode-' + d.id;
     node.className = `dept-node ${d.state}`;
-    node.style.left = nx + 'px';
-    node.style.top = ny + 'px';
     node.innerHTML = `<div class="node-icon">${d.icon}</div>
       <div class="node-dot ${d.state}"></div>
       <div class="node-name">${d.name}</div>
@@ -952,14 +1061,43 @@ function renderDeptMap() {
 function setDept(id, state, metrics) {
   const d = DEPTS.find(x => x.id === id);
   if (d) { d.state = state; if (metrics) d.metrics = metrics; }
+
+  // SVG border circle
+  const circ = document.getElementById('dcirc-' + id);
+  if (circ) {
+    circ.style.strokeWidth = state === 'ok' ? '2' : '3';
+    circ.style.opacity     = state === 'ok' ? '0.7' : '1';
+  }
+
+  // SVG status dot
+  const dot = document.getElementById('ddot-' + id);
+  if (dot) dot.setAttribute('fill', state==='ok'?'#2ecc71':state==='amberS'?'#e8a020':'#e74c3c');
+
+  // SVG metric text
+  if (metrics) {
+    const m1 = document.getElementById('dmet1-' + id);
+    if (m1) m1.textContent = metrics[0];
+  }
+
+  // SVG connection line
+  const line = document.getElementById('dline-' + id);
+  if (line) {
+    line.setAttribute('class', state !== 'ok' ? 'conn-line active' : 'conn-line');
+    line.style.strokeWidth = state !== 'ok' ? '2.5' : '2';
+    line.style.opacity     = state !== 'ok' ? '0.9' : '0.5';
+  }
+
+  // HTML node (mobile card)
   const node = document.getElementById('dnode-' + id);
   if (node) {
     node.className = `dept-node ${state}`;
-    node.querySelector('.node-dot').className = `node-dot ${state}`;
-    if (metrics) node.querySelector('.node-metric').innerHTML = metrics[0] + '<br>' + metrics[1];
+    const dotEl = node.querySelector('.node-dot');
+    if (dotEl) dotEl.className = `node-dot ${state}`;
+    if (metrics) {
+      const metEl = node.querySelector('.node-metric');
+      if (metEl) metEl.innerHTML = metrics[0] + '<br>' + metrics[1];
+    }
   }
-  const line = document.getElementById('dline-' + id);
-  if (line) line.setAttribute('class', state !== 'ok' ? 'conn-line active' : 'conn-line');
 }
 
 // ════════════════════════════════════════════
