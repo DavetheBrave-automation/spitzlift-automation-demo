@@ -10,27 +10,30 @@
   --bg:#0a0c0f;--bg2:#0d1117;--bg3:#111820;--bg4:#131b24;
   --border:#1c2530;--border2:#243040;
   --accent:#e8a020;--accent2:#f5b845;--accent3:#ffd080;
-  --text:#c8d6e5;--text-dim:#5a7080;--text-mid:#8a9fb0;
+  --text:#c8d6e5;--text-dim:#7a8a9a;--text-mid:#9aafbf;
   --green:#2ecc71;--amber:#e8a020;--red:#e74c3c;--blue:#3498db;--purple:#9b59b6;--cyan:#00bcd4;
 }
-body{background:var(--bg);color:var(--text);font-family:'Courier New',monospace;min-height:100vh;overflow-x:hidden}
+body{background:var(--bg);color:var(--text);font-family:'Courier New',monospace;font-size:16px;min-height:100vh;overflow-x:hidden}
 
 /* ── HEADER ── */
 .header{background:linear-gradient(135deg,#0d1117 0%,#111820 60%,#131b24 100%);border-bottom:2px solid var(--accent);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
 .hdr-left{display:flex;align-items:center;gap:16px}
 .logo{width:46px;height:46px;background:var(--accent);display:flex;align-items:center;justify-content:center;font-weight:900;color:#000;font-size:13px;letter-spacing:1px;clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);flex-shrink:0}
 .hdr-title{font-size:17px;letter-spacing:3px;color:var(--accent);font-weight:bold;text-transform:uppercase;line-height:1.2}
-.hdr-sub{font-size:10px;color:var(--text-dim);letter-spacing:2px;margin-top:2px}
-.hdr-right{display:flex;align-items:center;gap:28px}
+.hdr-sub{font-size:12px;color:var(--text-dim);letter-spacing:2px;margin-top:2px}
+.hdr-right{display:flex;align-items:center;gap:24px}
 .kpi-chip{display:flex;flex-direction:column;align-items:center;gap:1px}
-.kpi-chip .lbl{font-size:8px;color:var(--text-dim);letter-spacing:1px;text-transform:uppercase}
-.kpi-chip .val{font-size:22px;font-weight:bold;color:var(--accent);line-height:1;transition:color .3s}
+.kpi-chip .lbl{font-size:11px;color:var(--text-dim);letter-spacing:1px;text-transform:uppercase}
+.kpi-chip .val{font-size:26px;font-weight:bold;color:var(--accent);line-height:1;transition:color .3s}
 .kpi-chip .val.flash{color:var(--accent3)}
-.sys-ok{display:flex;align-items:center;gap:7px;font-size:10px;color:var(--green);letter-spacing:1px}
+.sys-ok{display:flex;align-items:center;gap:7px;font-size:11px;color:var(--green);letter-spacing:1px}
 .dot{width:8px;height:8px;border-radius:50%;background:var(--green);animation:pulse 2s infinite;flex-shrink:0}
 .dot.amber{background:var(--amber);animation:pulse 1s infinite}
 .dot.red{background:var(--red);animation:pulse .6s infinite}
 .live-clock{font-size:13px;color:var(--accent);letter-spacing:2px;font-family:monospace;min-width:110px;text-align:right}
+/* ── SIMULATION ACTIVE badge ── */
+.sim-active-badge{display:flex;align-items:center;gap:6px;font-size:10px;color:var(--green);letter-spacing:1px;border:1px solid rgba(46,204,113,.4);border-radius:10px;padding:3px 10px;background:rgba(46,204,113,.06)}
+.sim-active-badge .rec-dot{width:7px;height:7px;border-radius:50%;background:var(--green);animation:pulse 1.4s infinite;flex-shrink:0}
 
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.3)}}
 @keyframes slideIn{from{opacity:0;transform:translateX(-12px)}to{opacity:1;transform:translateX(0)}}
@@ -39,57 +42,66 @@ body{background:var(--bg);color:var(--text);font-family:'Courier New',monospace;
 @keyframes glow{0%,100%{box-shadow:0 0 20px rgba(232,160,32,.2)}50%{box-shadow:0 0 40px rgba(232,160,32,.5)}}
 @keyframes dashFlow{to{stroke-dashoffset:-40}}
 @keyframes shimmer{0%{left:-100%}100%{left:200%}}
-@keyframes countUp{0%{transform:scale(1.4);color:var(--accent3)}100%{transform:scale(1);color:var(--accent)}}
 @keyframes cascadeRipple{0%{box-shadow:0 0 0 0 rgba(231,76,60,.6)}70%{box-shadow:0 0 0 12px rgba(231,76,60,0)}100%{box-shadow:0 0 0 0 rgba(231,76,60,0)}}
+@keyframes baSlideIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── HERO SECTION ── */
+.hero{text-align:center;padding:28px 24px 20px;border-bottom:1px solid var(--border);background:linear-gradient(180deg,rgba(232,160,32,.05) 0%,transparent 100%)}
+.hero-title{font-size:32px;font-weight:900;letter-spacing:4px;color:var(--accent);text-transform:uppercase;line-height:1.1;margin-bottom:8px}
+.hero-sub{font-size:16px;color:var(--text-mid);letter-spacing:2px;font-weight:normal}
 
 /* ── GRID ── */
 .main{display:grid;grid-template-columns:1fr 1fr 1fr;grid-template-areas:"inv feed dept" "kanban kanban kanban" "alerts alerts kpi" "sim sim sim";gap:10px;padding:10px}
 
 /* ── PANEL ── */
 .panel{background:var(--bg2);border:1px solid var(--border);border-radius:5px;overflow:hidden;display:flex;flex-direction:column}
-.ph{background:var(--bg4);border-bottom:1px solid var(--border);padding:9px 14px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
-.pt{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);font-weight:bold}
-.badge{font-size:8px;padding:2px 8px;border-radius:10px;border:1px solid;letter-spacing:.5px;white-space:nowrap}
+.ph{background:var(--bg4);border-bottom:1px solid var(--border);padding:9px 14px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;gap:8px}
+.ph-left{display:flex;align-items:center;gap:8px;flex:1;min-width:0}
+.pt{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);font-weight:bold;white-space:nowrap}
+.badge{font-size:10px;padding:2px 8px;border-radius:10px;border:1px solid;letter-spacing:.5px;white-space:nowrap}
 .badge.g{border-color:var(--green);color:var(--green)}
 .badge.a{border-color:var(--amber);color:var(--amber)}
 .badge.r{border-color:var(--red);color:var(--red)}
 .badge.b{border-color:var(--blue);color:var(--blue)}
+/* Phase 1 pill */
+.phase1-pill{font-size:9px;letter-spacing:1px;padding:2px 8px;border-radius:10px;background:rgba(232,160,32,.18);border:1px solid var(--accent);color:var(--accent);font-weight:bold;white-space:nowrap;flex-shrink:0}
 .pb{padding:10px 12px;flex:1;overflow:hidden}
 
 /* ── INVENTORY ── */
 #invPanel{grid-area:inv}
-.inv-item{margin-bottom:9px;padding-bottom:9px;border-bottom:1px solid var(--border)}
+.inv-item{margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid var(--border)}
 .inv-item:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
-.inv-row1{display:flex;justify-content:space-between;align-items:center;margin-bottom:3px}
-.inv-name{font-size:10px;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:65%}
-.inv-qty{font-size:12px;font-weight:bold;transition:color .4s}
+.inv-row1{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px}
+.inv-name{font-size:13px;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:65%}
+.inv-qty{font-size:14px;font-weight:bold;transition:color .4s}
 .inv-qty.ok{color:var(--green)}.inv-qty.low{color:var(--amber)}.inv-qty.crit{color:var(--red)}
-.bar-track{height:4px;background:var(--border);border-radius:2px;overflow:hidden;margin-bottom:3px}
+.bar-track{height:4px;background:var(--border);border-radius:2px;overflow:hidden;margin-bottom:4px}
 .bar-fill{height:100%;border-radius:2px;transition:width .6s ease,background .6s ease}
 .bar-fill.ok{background:var(--green)}.bar-fill.low{background:var(--amber)}.bar-fill.crit{background:var(--red)}
-.inv-meta{display:flex;justify-content:space-between;font-size:8px;color:var(--text-dim)}
-.inv-slider{width:100%;accent-color:var(--accent);margin-top:4px;cursor:pointer;height:14px}
+.inv-meta{display:flex;justify-content:space-between;font-size:11px;color:var(--text-dim)}
+.inv-slider{width:100%;accent-color:var(--accent);margin-top:5px;cursor:pointer;height:14px}
 
 /* ── FEED ── */
 #feedPanel{grid-area:feed}
-.feed-wrap{height:330px;overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--border) transparent}
+.feed-wrap{height:340px;overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--border) transparent}
 .feed-wrap::-webkit-scrollbar{width:3px}
 .feed-wrap::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
-.feed-item{padding:7px 0;border-bottom:1px solid var(--border);animation:slideIn .35s ease}
+.feed-item{padding:10px 0;border-bottom:1px solid var(--border);animation:slideIn .35s ease}
 .feed-item:last-child{border-bottom:none}
-.feed-ts{font-size:8px;color:var(--text-dim);letter-spacing:.5px}
-.feed-msg{font-size:10px;color:var(--text);margin-top:2px;padding-left:9px;border-left:2px solid var(--border);line-height:1.4}
+.feed-ts{font-size:11px;color:var(--text-dim);letter-spacing:.5px}
+.feed-msg{font-size:14px;color:var(--text);margin-top:3px;padding-left:10px;border-left:2px solid var(--border);line-height:1.7}
 .feed-msg.sales{border-color:var(--blue);color:#b0d4f5}
 .feed-msg.manufacturing{border-color:var(--green);color:#a0e0b0}
 .feed-msg.inventory{border-color:var(--amber);color:#f0d090}
 .feed-msg.procurement{border-color:var(--purple);color:#c8a8e8}
 .feed-msg.service{border-color:var(--cyan);color:#90d8e8}
 .feed-msg.government{border-color:#ff6b6b;color:#f8a8a8}
+.feed-msg.finance{border-color:#f5b845;color:#f5e4a0}
 .feed-msg.alert{border-color:var(--red);color:var(--red);font-weight:bold}
 
 /* ── DEPT MAP ── */
 #deptPanel{grid-area:dept}
-.dept-wrap{position:relative;height:290px;margin:6px 4px}
+.dept-wrap{position:relative;height:260px;margin:4px 4px 0}
 .dept-svg{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;overflow:visible}
 .conn-line{stroke:var(--accent);stroke-width:1.2;fill:none;opacity:.25;stroke-dasharray:6,4;animation:dashFlow 4s linear infinite}
 .conn-line.active{opacity:.85;stroke:var(--accent2);stroke-width:2;animation:dashFlow 1.2s linear infinite}
@@ -103,57 +115,60 @@ body{background:var(--bg);color:var(--text);font-family:'Courier New',monospace;
 .node-dot{width:7px;height:7px;border-radius:50%;margin-bottom:3px;transition:background .4s}
 .node-dot.ok{background:var(--green)}.node-dot.amberS{background:var(--amber);animation:pulse 1.2s infinite}.node-dot.redS{background:var(--red);animation:pulse .7s infinite}
 .node-name{font-size:8px;color:var(--text);text-transform:uppercase;letter-spacing:1px;text-align:center;font-weight:bold;margin-bottom:3px}
-.node-metric{font-size:7px;color:var(--text-dim);text-align:center;line-height:1.35}
+.node-metric{font-size:7px;color:var(--text-mid);text-align:center;line-height:1.35}
+/* Zoho footnote */
+.zoho-note{font-size:10px;color:var(--text-dim);text-align:center;padding:6px 10px 8px;border-top:1px solid var(--border);line-height:1.5;letter-spacing:.3px}
+.zoho-note span{color:var(--accent);font-weight:bold}
 
 /* ── KANBAN ── */
 #kanbanPanel{grid-area:kanban}
 .kb-board{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
 .kb-col{background:var(--bg3);border:1px solid var(--border);border-radius:4px;padding:9px;min-height:180px;transition:border-color .2s,background .2s}
 .kb-col.drag-over{border-color:var(--accent);background:rgba(232,160,32,.05)}
-.kb-col-hdr{font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--text-dim);padding-bottom:7px;border-bottom:1px solid var(--border);margin-bottom:7px;display:flex;justify-content:space-between;align-items:center}
-.kb-col-cnt{background:var(--border);color:var(--accent);font-size:9px;width:17px;height:17px;border-radius:50%;display:flex;align-items:center;justify-content:center}
-.kb-card{background:var(--bg2);border:1px solid var(--border);border-radius:3px;padding:7px;margin-bottom:5px;cursor:grab;transition:border-color .2s,transform .15s,box-shadow .2s;position:relative;animation:fadeUp .3s ease}
+.kb-col-hdr{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--text-dim);padding-bottom:7px;border-bottom:1px solid var(--border);margin-bottom:7px;display:flex;justify-content:space-between;align-items:center}
+.kb-col-cnt{background:var(--border);color:var(--accent);font-size:10px;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.kb-card{background:var(--bg2);border:1px solid var(--border);border-radius:3px;padding:12px 14px;margin-bottom:6px;cursor:grab;transition:border-color .2s,transform .15s,box-shadow .2s;position:relative;animation:fadeUp .3s ease}
 .kb-card:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.4)}
 .kb-card.dragging{opacity:.45;cursor:grabbing;transform:rotate(2deg)}
-.kb-card .ord{font-size:8px;color:var(--accent);font-weight:bold;letter-spacing:1px}
-.kb-card .cli{font-size:11px;color:var(--text);font-weight:bold;margin:2px 0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.kb-card .prd{font-size:9px;color:var(--text-dim)}
-.kb-card .qty{font-size:9px;color:var(--accent);margin-top:4px}
-.warn-tag{position:absolute;top:4px;right:4px;background:var(--red);color:#fff;font-size:7px;padding:1px 5px;border-radius:2px;letter-spacing:.5px;animation:cascadeRipple 1.5s 1}
+.kb-card .ord{font-size:11px;color:var(--accent);font-weight:bold;letter-spacing:1px}
+.kb-card .cli{font-size:14px;color:var(--text);font-weight:bold;margin:3px 0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.kb-card .prd{font-size:13px;color:var(--text-dim)}
+.kb-card .qty{font-size:13px;color:var(--accent);margin-top:5px}
+.warn-tag{position:absolute;top:5px;right:5px;background:var(--red);color:#fff;font-size:8px;padding:2px 6px;border-radius:2px;letter-spacing:.5px;animation:cascadeRipple 1.5s 1}
 
 /* ── ALERTS ── */
 #alertPanel{grid-area:alerts}
-.alert-item{background:var(--bg3);border:1px solid var(--border);border-radius:4px;padding:11px 12px;margin-bottom:8px;transition:opacity .4s,transform .4s}
+.alert-item{background:var(--bg3);border:1px solid var(--border);border-radius:4px;padding:13px 14px;margin-bottom:9px;transition:opacity .4s,transform .4s}
 .alert-item:last-child{margin-bottom:0}
 .alert-item.crit{border-left:3px solid var(--red)}
 .alert-item.warn{border-left:3px solid var(--amber)}
 .alert-item.info{border-left:3px solid var(--blue)}
 .alert-item.new-a{animation:flashAlert .7s ease 3}
-.al-hdr{display:flex;align-items:center;gap:8px;margin-bottom:5px}
-.sev{font-size:7px;letter-spacing:1px;padding:2px 7px;border-radius:2px;font-weight:bold;border:1px solid;flex-shrink:0}
+.al-hdr{display:flex;align-items:center;gap:9px;margin-bottom:6px}
+.sev{font-size:10px;letter-spacing:1px;padding:3px 8px;border-radius:2px;font-weight:bold;border:1px solid;flex-shrink:0}
 .sev.crit{background:rgba(231,76,60,.2);color:var(--red);border-color:var(--red)}
 .sev.warn{background:rgba(232,160,32,.2);color:var(--amber);border-color:var(--amber)}
 .sev.info{background:rgba(52,152,219,.2);color:var(--blue);border-color:var(--blue)}
-.al-title{font-size:11px;color:var(--text);font-weight:bold}
-.al-body{font-size:9px;color:var(--text-dim);margin-bottom:7px;line-height:1.6}
+.al-title{font-size:16px;color:var(--text);font-weight:bold;line-height:1.3}
+.al-body{font-size:13px;color:var(--text-dim);margin-bottom:8px;line-height:1.7}
 .al-footer{display:flex;align-items:center;justify-content:space-between}
-.al-time{font-size:8px;color:var(--text-dim)}
-.resolve-btn{background:transparent;border:1px solid var(--text-dim);color:var(--text-dim);font-size:8px;padding:3px 10px;border-radius:2px;cursor:pointer;letter-spacing:1px;text-transform:uppercase;font-family:'Courier New',monospace;transition:all .2s}
+.al-time{font-size:11px;color:var(--text-dim)}
+.resolve-btn{background:transparent;border:1px solid var(--text-dim);color:var(--text-dim);font-size:10px;padding:4px 12px;border-radius:2px;cursor:pointer;letter-spacing:1px;text-transform:uppercase;font-family:'Courier New',monospace;transition:all .2s}
 .resolve-btn:hover{border-color:var(--green);color:var(--green)}
-.no-alerts{text-align:center;color:var(--text-dim);font-size:11px;padding:24px 0}
+.no-alerts{text-align:center;color:var(--text-dim);font-size:14px;padding:24px 0}
 .no-alerts-icon{font-size:24px;display:block;margin-bottom:8px}
 
 /* ── KPI PANEL ── */
 #kpiPanel{grid-area:kpi}
 .kpi-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .kpi-card{background:var(--bg3);border:1px solid var(--border);border-radius:4px;padding:12px;text-align:center}
-.kpi-card .kc-val{font-size:26px;font-weight:bold;color:var(--accent);line-height:1;margin-bottom:4px;transition:all .3s}
-.kpi-card .kc-lbl{font-size:8px;color:var(--text-dim);letter-spacing:1px;text-transform:uppercase}
-.kpi-card .kc-sub{font-size:9px;color:var(--green);margin-top:2px}
+.kpi-card .kc-val{font-size:32px;font-weight:bold;color:var(--accent);line-height:1;margin-bottom:4px;transition:all .3s}
+.kpi-card .kc-lbl{font-size:11px;color:var(--text-dim);letter-spacing:1px;text-transform:uppercase}
+.kpi-card .kc-sub{font-size:11px;color:var(--green);margin-top:3px}
 
 /* ── BIG RED BUTTON ── */
 #simPanel{grid-area:sim;background:var(--bg2);border:1px solid var(--border);border-radius:5px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:12px}
-.sim-lbl{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--text-dim)}
+.sim-lbl{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--text-dim)}
 .big-btn{background:linear-gradient(135deg,#a93226 0%,#e74c3c 45%,#a93226 100%);border:2px solid rgba(231,76,60,.8);color:#fff;font-size:15px;font-weight:bold;letter-spacing:3px;padding:18px 56px;border-radius:5px;cursor:pointer;text-transform:uppercase;font-family:'Courier New',monospace;box-shadow:0 0 28px rgba(231,76,60,.35),0 4px 18px rgba(0,0,0,.5);transition:all .2s;position:relative;overflow:hidden}
 .big-btn::before{content:'';position:absolute;top:-1px;left:-1px;right:-1px;height:1px;background:linear-gradient(90deg,transparent,rgba(255,200,200,.4),transparent)}
 .big-btn::after{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.08),transparent);animation:shimmer 3.5s infinite}
@@ -162,9 +177,27 @@ body{background:var(--bg);color:var(--text);font-family:'Courier New',monospace;
 .big-btn:disabled{background:linear-gradient(135deg,#2a3540 0%,#364550 100%);border-color:#364550;cursor:not-allowed;box-shadow:none;transform:none;letter-spacing:3px}
 .big-btn.reset{background:linear-gradient(135deg,#1a4030 0%,#27ae60 45%,#1a4030 100%);border-color:rgba(46,204,113,.8);box-shadow:0 0 28px rgba(46,204,113,.3)}
 .big-btn.reset::after{animation:shimmer 3.5s infinite}
-.sim-status{font-size:10px;color:var(--text-dim);min-height:18px;text-align:center;letter-spacing:.5px}
+.sim-status{font-size:13px;color:var(--text-dim);min-height:18px;text-align:center;letter-spacing:.5px}
 .progress-bar{width:420px;height:3px;background:var(--border);border-radius:2px;overflow:hidden;opacity:0;transition:opacity .3s}
 .progress-fill{height:100%;background:var(--accent);width:0%;transition:width .4s ease;border-radius:2px}
+
+/* ── BEFORE / AFTER CALLOUT ── */
+#beforeAfterPanel{display:none;width:100%;animation:baSlideIn .5s ease;margin-top:4px}
+#beforeAfterPanel.visible{display:block}
+.ba-wrap{display:grid;grid-template-columns:1fr 1fr;gap:12px;position:relative}
+.ba-close{position:absolute;top:-6px;right:0;background:transparent;border:1px solid var(--text-dim);color:var(--text-dim);font-size:11px;padding:2px 10px;border-radius:2px;cursor:pointer;font-family:'Courier New',monospace;letter-spacing:1px;transition:all .2s}
+.ba-close:hover{border-color:var(--accent);color:var(--accent)}
+.ba-card{border-radius:5px;padding:16px 18px}
+.ba-card.before{background:rgba(231,76,60,.08);border:1px solid rgba(231,76,60,.5)}
+.ba-card.after{background:rgba(46,204,113,.08);border:1px solid rgba(46,204,113,.5)}
+.ba-title{font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:bold;margin-bottom:10px}
+.ba-title.before{color:var(--red)}
+.ba-title.after{color:var(--green)}
+.ba-list{list-style:none;padding:0}
+.ba-list li{font-size:13px;line-height:1.7;color:var(--text-mid);padding:4px 0;border-bottom:1px solid rgba(255,255,255,.05)}
+.ba-list li:last-child{border-bottom:none}
+.ba-list.before li::before{content:'✗ ';color:var(--red);font-weight:bold}
+.ba-list.after li::before{content:'✓ ';color:var(--green);font-weight:bold}
 
 /* ── SECTION DIVIDER ── */
 .section-divider{grid-column:1/-1;height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent);margin:2px 0}
@@ -207,17 +240,31 @@ body{background:var(--bg);color:var(--text);font-family:'Courier New',monospace;
       <div class="dot" id="sysDot"></div>
       <span id="sysLabel">ALL SYSTEMS OPERATIONAL</span>
     </div>
+    <!-- REVISION 9: Simulation Active badge -->
+    <div class="sim-active-badge">
+      <div class="rec-dot"></div>
+      <span>SIMULATION ACTIVE</span>
+    </div>
     <div class="live-clock" id="clock">--:--:-- CT</div>
   </div>
+</div>
+
+<!-- ══════════════════════ REVISION 3: HERO SECTION ══════════════════════ -->
+<div class="hero">
+  <div class="hero-title">SpitzLift Operations Command</div>
+  <div class="hero-sub">What Your Company Looks Like When Everything Is Connected</div>
 </div>
 
 <!-- ══════════════════════ MAIN GRID ══════════════════════ -->
 <div class="main">
 
-  <!-- ── INVENTORY ── -->
+  <!-- ── INVENTORY — REVISION 6: PHASE 1 BADGE ── -->
   <div class="panel" id="invPanel">
     <div class="ph">
-      <span class="pt">Inventory Status</span>
+      <div class="ph-left">
+        <span class="pt">Inventory Status</span>
+        <span class="phase1-pill">PHASE 1</span>
+      </div>
       <span class="badge" id="invBadge">Loading...</span>
     </div>
     <div class="pb" style="overflow-y:auto;" id="invBody"></div>
@@ -234,7 +281,7 @@ body{background:var(--bg);color:var(--text);font-family:'Courier New',monospace;
     </div>
   </div>
 
-  <!-- ── DEPT MAP ── -->
+  <!-- ── DEPT MAP — REVISION 10: ZOHO NOTE ── -->
   <div class="panel" id="deptPanel">
     <div class="ph">
       <span class="pt">Department Status Map</span>
@@ -249,6 +296,7 @@ body{background:var(--bg);color:var(--text);font-family:'Courier New',monospace;
         </div>
       </div>
     </div>
+    <div class="zoho-note">Built on your existing <span>Zoho CRM</span> + <span>WooCommerce</span> infrastructure — no rip and replace</div>
   </div>
 
   <!-- ── KANBAN ── -->
@@ -262,10 +310,13 @@ body{background:var(--bg);color:var(--text);font-family:'Courier New',monospace;
     </div>
   </div>
 
-  <!-- ── ALERTS ── -->
+  <!-- ── ALERTS — REVISION 6: PHASE 1 BADGE ── -->
   <div class="panel" id="alertPanel">
     <div class="ph">
-      <span class="pt">Alert Center</span>
+      <div class="ph-left">
+        <span class="pt">Alert Center</span>
+        <span class="phase1-pill">PHASE 1</span>
+      </div>
       <span class="badge a" id="alertBadge">3 Active</span>
     </div>
     <div class="pb" id="alertBody"></div>
@@ -285,7 +336,7 @@ body{background:var(--bg);color:var(--text);font-family:'Courier New',monospace;
           <div class="kc-sub">↑ 12% vs yesterday</div>
         </div>
         <div class="kpi-card">
-          <div class="kc-val" style="font-size:20px" id="kpiResponse">1.2s</div>
+          <div class="kc-val" style="font-size:24px" id="kpiResponse">1.2s</div>
           <div class="kc-lbl">Avg Response Time</div>
           <div class="kc-sub">Target: &lt;5s ✓</div>
         </div>
@@ -295,17 +346,17 @@ body{background:var(--bg);color:var(--text);font-family:'Courier New',monospace;
           <div class="kc-sub">On-time: 100%</div>
         </div>
         <div class="kpi-card">
-          <div class="kc-val" style="font-size:18px;color:var(--green)">96%</div>
+          <div class="kc-val" style="font-size:22px;color:var(--green)">96%</div>
           <div class="kc-lbl">Fill Rate</div>
           <div class="kc-sub" id="kpiSub4">Threshold: 90%</div>
         </div>
       </div>
       <div style="margin-top:10px;padding:8px;background:var(--bg3);border-radius:4px;border:1px solid var(--border)">
-        <div style="font-size:8px;letter-spacing:1px;color:var(--text-dim);text-transform:uppercase;margin-bottom:6px">System Uptime</div>
+        <div style="font-size:11px;letter-spacing:1px;color:var(--text-dim);text-transform:uppercase;margin-bottom:6px">System Uptime</div>
         <div style="display:flex;gap:3px">
           <div id="uptimeBar"></div>
         </div>
-        <div style="font-size:8px;color:var(--text-dim);margin-top:4px;text-align:right" id="uptimeLabel">99.8% — 30 day avg</div>
+        <div style="font-size:11px;color:var(--text-dim);margin-top:4px;text-align:right" id="uptimeLabel">99.8% — 30 day avg</div>
       </div>
     </div>
   </div>
@@ -313,11 +364,35 @@ body{background:var(--bg);color:var(--text);font-family:'Courier New',monospace;
   <!-- ── BIG RED BUTTON ── -->
   <div id="simPanel">
     <div class="sim-lbl">⚠ &nbsp; Live Demo Control — Cascade Simulation Engine &nbsp; ⚠</div>
-    <button class="big-btn" id="simBtn" onclick="runCascade()">▶ &nbsp; SIMULATE: PARTS SHORTAGE EVENT</button>
+    <!-- REVISION 4: updated button label -->
+    <button class="big-btn" id="simBtn" onclick="runCascade()">▶ &nbsp; SIMULATE: KTURS-700 Parts Shortage Event</button>
     <div class="progress-bar" id="progressBar">
       <div class="progress-fill" id="progressFill"></div>
     </div>
     <div class="sim-status" id="simStatus">Click to trigger a real-time cascade — watch every department respond automatically in sequence</div>
+
+    <!-- REVISION 5: Before / After callout -->
+    <div id="beforeAfterPanel">
+      <div class="ba-wrap">
+        <button class="ba-close" onclick="hideBeforeAfter()">✕ Dismiss</button>
+        <div class="ba-card before">
+          <div class="ba-title before">WITHOUT THIS SYSTEM — THIS IS WHAT JUST HAPPENED</div>
+          <ul class="ba-list before">
+            <li>Parts shortage discovered on the manufacturing floor — too late to reorder</li>
+            <li>Manual phone call to procurement → PO drafted by hand → 3–5 day supplier delay</li>
+            <li>Sales team notified after the fact → BNSF Railroad order delayed → customer relationship at risk</li>
+          </ul>
+        </div>
+        <div class="ba-card after">
+          <div class="ba-title after">WITH AUTOMATION — WHAT ACTUALLY HAPPENED</div>
+          <ul class="ba-list after">
+            <li>Threshold breach detected automatically — zero human intervention required</li>
+            <li>PO drafted and routed for one-click approval in 4 seconds</li>
+            <li>Manufacturing hold + sales notification fired before anyone picked up a phone</li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
 
 </div><!-- /main -->
@@ -327,52 +402,54 @@ body{background:var(--bg);color:var(--text);font-family:'Courier New',monospace;
 // DATA
 // ════════════════════════════════════════════
 const PARTS = [
-  {id:'boom4',   name:'Boom Assembly 4ft',              stock:24, min:10, max:40, slider:false},
-  {id:'boom8',   name:'Boom Assembly 8ft',              stock:8,  min:10, max:40, slider:true},
-  {id:'hinge',   name:'Hinge Pin Kit',                  stock:47, min:15, max:60, slider:false},
-  {id:'hyd700',  name:'Hydraulic Cylinder 700lb',       stock:6,  min:8,  max:30, slider:false},
-  {id:'kturs',   name:'KTURS-700 Receiver Hitch Pedestal', stock:12, min:10, max:50, slider:true},
-  {id:'cable',   name:'Cable Assembly 700lb',           stock:31, min:10, max:50, slider:false},
-  {id:'bext',    name:'Boom Extension Kit',             stock:5,  min:8,  max:25, slider:false},
-  {id:'swivel',  name:'Swivel Head Attachment',         stock:18, min:8,  max:30, slider:true},
-  {id:'mount',   name:'Mounting Bracket Kit',           stock:22, min:10, max:40, slider:false},
-  {id:'hook',    name:'Safety Hook Assembly 700lb',     stock:14, min:10, max:30, slider:false},
-  {id:'ctrlcbl', name:'Control Cable Assembly',         stock:9,  min:10, max:30, slider:false},
-  {id:'tripod',  name:'Tripod Base Assembly',           stock:33, min:8,  max:40, slider:false},
+  {id:'boom4',   name:'Boom Assembly 4ft',                  stock:24, min:10, max:40, slider:false},
+  {id:'boom8',   name:'Boom Assembly 8ft',                  stock:8,  min:10, max:40, slider:true},
+  {id:'hinge',   name:'Hinge Pin Kit',                      stock:47, min:15, max:60, slider:false},
+  {id:'hyd700',  name:'Hydraulic Cylinder 700lb',           stock:6,  min:8,  max:30, slider:false},
+  {id:'kturs',   name:'KTURS-700 Receiver Hitch Pedestal',  stock:12, min:10, max:50, slider:true},
+  {id:'cable',   name:'Cable Assembly 700lb',               stock:31, min:10, max:50, slider:false},
+  {id:'bext',    name:'Boom Extension Kit',                 stock:5,  min:8,  max:25, slider:false},
+  {id:'swivel',  name:'Swivel Head Attachment',             stock:18, min:8,  max:30, slider:true},
+  {id:'mount',   name:'Mounting Bracket Kit',               stock:22, min:10, max:40, slider:false},
+  {id:'hook',    name:'Safety Hook Assembly 700lb',         stock:14, min:10, max:30, slider:false},
+  {id:'ctrlcbl', name:'Control Cable Assembly',             stock:9,  min:10, max:30, slider:false},
+  {id:'tripod',  name:'Tripod Base Assembly',               stock:33, min:8,  max:40, slider:false},
 ];
 
+// REVISION 8: Updated client names to confirmed real SpitzLift customers
 const ORDERS = [
-  {id:'4821', client:'BNSF Railroad',        prod:'Boom Assembly 8ft',       qty:6,  val:18000, col:'approved',   warn:false},
-  {id:'4815', client:'Halliburton',           prod:'KTURS-700 Pedestal',      qty:4,  val:9200,  col:'production', warn:false},
-  {id:'4807', client:'Baker Hughes',          prod:'Hydraulic Cyl 700lb',     qty:3,  val:4800,  col:'qc',         warn:false},
-  {id:'4798', client:'EMCOR Group',           prod:'Boom Assembly 4ft',       qty:8,  val:16000, col:'shipped',    warn:false},
-  {id:'4843', client:'Cummins Inc',           prod:'Swivel Head Kit',         qty:5,  val:7500,  col:'production', warn:false},
-  {id:'4856', client:'BAE Systems',           prod:'Cable Assembly 700lb',    qty:12, val:14400, col:'quote',      warn:false},
-  {id:'4861', client:'City of La Verne CA',   prod:'Boom Assembly 8ft',       qty:2,  val:6000,  col:'approved',   warn:false},
-  {id:'4867', client:'US Coast Guard',        prod:'KTURS-700 Pedestal',      qty:6,  val:13800, col:'quote',      warn:false},
-  {id:'4872', client:'Trabuco Water Dist.',   prod:'Safety Hook Assembly',    qty:10, val:8200,  col:'shipped',    warn:false},
+  {id:'4821', client:'BNSF Railroad',                  prod:'Boom Assembly 8ft',       qty:6,  val:18000, col:'approved',   warn:false},
+  {id:'4815', client:'Halliburton',                    prod:'KTURS-700 Pedestal',      qty:4,  val:9200,  col:'production', warn:false},
+  {id:'4807', client:'Otis Elevator — Service Div.',   prod:'Hydraulic Cyl 700lb',     qty:3,  val:4800,  col:'qc',         warn:false},
+  {id:'4798', client:'Tennant Company',                prod:'Boom Assembly 4ft',       qty:8,  val:16000, col:'shipped',    warn:false},
+  {id:'4843', client:'Gwinnett County Fleet',          prod:'Swivel Head Kit',         qty:5,  val:7500,  col:'production', warn:false},
+  {id:'4856', client:'BAE Systems',                    prod:'Cable Assembly 700lb',    qty:12, val:14400, col:'quote',      warn:false},
+  {id:'4861', client:'PTR Premier Truck Rental',       prod:'Boom Assembly 8ft',       qty:2,  val:6000,  col:'approved',   warn:false},
+  {id:'4867', client:'U.S. Coast Guard Sta. LB',       prod:'KTURS-700 Pedestal',      qty:6,  val:13800, col:'quote',      warn:false},
+  {id:'4872', client:'General Atomics',                prod:'Safety Hook Assembly',    qty:10, val:8200,  col:'shipped',    warn:false},
 ];
 
 const COLS = ['quote','approved','production','qc','shipped'];
 const COL_LABELS = {quote:'Quote',approved:'Approved',production:'In Production',qc:'QC / Inspect',shipped:'Shipped ✓'};
 
 const DEPTS = [
-  {id:'sales',  name:'Sales',         state:'ok',      metrics:['9 active quotes','3 follow-ups due'],        icon:'💼'},
-  {id:'mfg',    name:'Manufacturing', state:'ok',      metrics:['Capacity: 74%','2 orders in progress'],      icon:'🏭'},
-  {id:'proc',   name:'Procurement',   state:'amberS',  metrics:['1 PO pending','Lead time: 18 days'],         icon:'📦'},
-  {id:'dist',   name:'Distribution',  state:'ok',      metrics:['4 shipments today','On-time: 96%'],          icon:'🚚'},
-  {id:'service',name:'Service',       state:'ok',      metrics:['7 recerts due 30d','2 units in repair'],     icon:'🔧'},
-  {id:'gov',    name:'Gov/Compliance',state:'ok',      metrics:['SAM.gov: Current','2 active bids'],          icon:'🏛'},
+  {id:'sales',  name:'Sales',         state:'ok',      metrics:['9 active quotes','Geneva Clewis, VP Sales'],  icon:'💼'},
+  {id:'mfg',    name:'Manufacturing', state:'ok',      metrics:['Capacity: 74%','2 orders in progress'],       icon:'🏭'},
+  {id:'proc',   name:'Procurement',   state:'amberS',  metrics:['1 PO pending','Lead time: 18 days'],          icon:'📦'},
+  {id:'dist',   name:'Distribution',  state:'ok',      metrics:['4 shipments today','On-time: 96%'],           icon:'🚚'},
+  {id:'service',name:'Service',       state:'ok',      metrics:['7 recerts due 30d','2 units in repair'],      icon:'🔧'},
+  {id:'gov',    name:'Gov/Compliance',state:'ok',      metrics:['SAM.gov: Current','2 active bids'],           icon:'🏛'},
 ];
 const DEPT_ANGLES_DEG = [270, 330, 30, 90, 150, 210];
 
+// REVISION 7: New feed events added; all existing events preserved
 const FEED_POOL = [
   {type:'sales',        text:'Quote #4856 submitted — BAE Systems, 12× Cable Assembly 700lb · $14,400'},
-  {type:'manufacturing',text:'Order #4843 entered production — Cummins Inc, Swivel Head Kit ×5, slot assigned'},
+  {type:'manufacturing',text:'Order #4843 entered production — Gwinnett County Fleet, Swivel Head Kit ×5, slot assigned'},
   {type:'inventory',    text:'Daily cycle count complete — 12 SKUs verified · Boom Assembly 8ft flagged (8 / min 10)'},
   {type:'procurement',  text:'PO-2024-087 auto-drafted — Boom Extension Kit ×20 · Spitz Co. Industrial · $3,400'},
-  {type:'service',      text:'Crane S/N 18-4421 recertification due in 12 days — customer email sent to City of La Verne'},
-  {type:'sales',        text:'Quote #4867 approved — US Coast Guard, 6× KTURS-700 Pedestal · production queued'},
+  {type:'service',      text:'Crane S/N 18-4421 (Otis Elevator Fleet) — recertification due in 14 days → customer reminder email auto-sent'},
+  {type:'sales',        text:'Quote #4867 approved — U.S. Coast Guard Station Long Beach, 6× KTURS-700 Pedestal · production queued'},
   {type:'manufacturing',text:'Order #4815 QC cleared — Halliburton KTURS-700 ×4 · ready for shipment'},
   {type:'government',   text:'SAM.gov compliance check passed — entity registration current through Dec 2025'},
   {type:'procurement',  text:'Vendor quote received — Hydraulic Cylinder 700lb, $487/unit × 20 · under review'},
@@ -383,6 +460,13 @@ const FEED_POOL = [
   {type:'procurement',  text:'PO-2024-085 delivery confirmed — Hinge Pin Kit ×50 received, shelf count updated'},
   {type:'service',      text:'Product registration received — SpitzLift Model 700 S/N 26-0144 · Bakersfield, CA'},
   {type:'sales',        text:'New distributor inquiry submitted — Pacific Lift Solutions, West Coast · CRM record created'},
+  // REVISION 7 additions:
+  {type:'sales',        text:'Zoho CRM: Quote form submission from Gwinnett County Fleet → contact record auto-created → Geneva Clewis notified'},
+  {type:'service',      text:'Service: Crane S/N 18-4421 (Otis Elevator Fleet) — recertification due in 14 days → customer reminder email auto-sent'},
+  {type:'sales',        text:'Distribution: Ford CVC upfitter (Clark Truck Equipment) submitted spec review request → Operations Manager assigned'},
+  {type:'procurement',  text:'Dealer Rewards: PTR Premier Truck Rental — install #TR-2024-088 approved → rebate $340 auto-queued for payment'},
+  {type:'finance',      text:'Finance: Weekly operations summary auto-generated → delivered to Ren Smith'},
+  {type:'procurement',  text:'Procurement: Aluminum stock (6061-T6 extrusion) at 18% — reorder threshold crossed → PO #2024-112 drafted'},
 ];
 
 const INITIAL_ALERTS = [
@@ -390,11 +474,11 @@ const INITIAL_ALERTS = [
    body:'Current: 8 units &nbsp;|&nbsp; Minimum: 10 units &nbsp;|&nbsp; 2 open orders affected.\nAuto-action: Procurement notified · PO draft queued for approval.',
    notified:'Procurement Dept, Operations Manager', time:''},
   {id:'a2', sev:'warn', title:'Crane S/N 18-4421 — Recertification Due in 12 Days',
-   body:'Customer: City of La Verne CA &nbsp;|&nbsp; Last cert: 2024-03-18.\nAuto-action: Customer notification email sent · Service slot reserved.',
-   notified:'Service Dept, Customer (City of La Verne)', time:''},
+   body:'Customer: Otis Elevator Fleet &nbsp;|&nbsp; Last cert: 2024-03-18.\nAuto-action: Customer notification email sent · Service slot reserved.',
+   notified:'Service Dept, Customer (Otis Elevator)', time:''},
   {id:'a3', sev:'info', title:'New Distributor Application — Pacific Lift Solutions, CA',
    body:'Submitted via become-a-distributor form &nbsp;|&nbsp; West Coast territory.\nAuto-action: Qualification packet sent · CRM record created.',
-   notified:'Sales Director', time:''},
+   notified:'Geneva Clewis (VP Sales)', time:''},
 ];
 
 // ════════════════════════════════════════════
@@ -504,7 +588,6 @@ function bumpAuto() {
 }
 
 function startFeed() {
-  // seed initial items oldest-first
   for (let i = Math.min(7, FEED_POOL.length)-1; i >= 0; i--) {
     addFeed(FEED_POOL[i].type, FEED_POOL[i].text, false);
   }
@@ -617,14 +700,12 @@ function renderDeptMap() {
   const wrap = document.getElementById('deptWrap');
   const svg = document.getElementById('deptSvg');
   const W = wrap.offsetWidth || 310;
-  const H = 290;
+  const H = 260;
   const cx = W / 2, cy = H / 2;
   const R = Math.min(W, H) * 0.37;
 
   svg.innerHTML = '';
   svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
-
-  // Remove old nodes (keep hub and svg)
   Array.from(wrap.querySelectorAll('.dept-node')).forEach(el => el.remove());
 
   DEPTS.forEach((d, i) => {
@@ -632,7 +713,6 @@ function renderDeptMap() {
     const nx = cx + R * Math.cos(ang);
     const ny = cy + R * Math.sin(ang);
 
-    // SVG line
     const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
     line.id = 'dline-' + d.id;
     line.setAttribute('x1', cx); line.setAttribute('y1', cy);
@@ -640,7 +720,6 @@ function renderDeptMap() {
     line.setAttribute('class', d.state !== 'ok' ? 'conn-line active' : 'conn-line');
     svg.appendChild(line);
 
-    // Node div
     const node = document.createElement('div');
     node.id = 'dnode-' + d.id;
     node.className = `dept-node ${d.state}`;
@@ -677,7 +756,7 @@ function renderUptime() {
   bar.style.width = '100%';
   let html = '';
   for (let i = 0; i < days; i++) {
-    const ok = i !== 7 && i !== 22; // two partial-down days
+    const ok = i !== 7 && i !== 22;
     const h = ok ? (92 + Math.random() * 8) : (60 + Math.random() * 30);
     const color = ok ? 'var(--green)' : 'var(--amber)';
     html += `<div style="flex:1;height:20px;background:var(--border);border-radius:1px;display:flex;align-items:flex-end">
@@ -687,37 +766,49 @@ function renderUptime() {
 }
 
 // ════════════════════════════════════════════
+// BEFORE / AFTER CALLOUT
+// ════════════════════════════════════════════
+function showBeforeAfter() {
+  const panel = document.getElementById('beforeAfterPanel');
+  panel.classList.add('visible');
+  panel.scrollIntoView({behavior:'smooth', block:'nearest'});
+}
+function hideBeforeAfter() {
+  const panel = document.getElementById('beforeAfterPanel');
+  panel.classList.remove('visible');
+}
+
+// ════════════════════════════════════════════
 // CASCADE SIMULATION
 // ════════════════════════════════════════════
 function setStatus(msg) { document.getElementById('simStatus').textContent = msg; }
-function setProgress(pct) {
+function setProgress(p) {
   const bar = document.getElementById('progressBar');
-  bar.style.opacity = pct > 0 ? '1' : '0';
-  document.getElementById('progressFill').style.width = pct + '%';
+  bar.style.opacity = p > 0 ? '1' : '0';
+  document.getElementById('progressFill').style.width = p + '%';
 }
 
 function resetSim() {
-  // Restore KTURS
   const p = PARTS.find(x => x.id === 'kturs');
   p.stock = 12;
   renderInv();
 
-  // Remove sim alert
   alerts = alerts.filter(a => a.id !== 'sim-cascade');
   renderAlerts();
 
-  // Clear warnings
   ORDERS.forEach(o => { o.warn = false; });
   renderKanban();
 
-  // Reset dept states
   setDept('mfg',  'ok',     ['Capacity: 74%','2 orders in progress']);
   setDept('proc', 'amberS', ['1 PO pending','Lead time: 18 days']);
-  setDept('sales','ok',     ['9 active quotes','3 follow-ups due']);
+  setDept('sales','ok',     ['9 active quotes','Geneva Clewis, VP Sales']);
   setDept('dist', 'ok',     ['4 shipments today','On-time: 96%']);
 
+  hideBeforeAfter();
+
   const btn = document.getElementById('simBtn');
-  btn.textContent = '▶ \u00A0 SIMULATE: PARTS SHORTAGE EVENT';
+  // REVISION 4: reset label matches new button text
+  btn.textContent = '▶ \u00A0 SIMULATE: KTURS-700 Parts Shortage Event';
   btn.className = 'big-btn';
   btn.disabled = false;
   setStatus('Click to trigger a real-time cascade — watch every department respond automatically in sequence');
@@ -734,22 +825,20 @@ function runCascade() {
   btn.disabled = true;
 
   const steps = [
-    {t:0,     pct:8,  fn:() => {
+    {t:0,     p:8,  fn:() => {
       setStatus('⚡ Initiating cascade — monitoring systems triggered...');
     }},
-    {t:500,   pct:18, fn:() => {
-      // Drop KTURS to 2
+    {t:500,   p:18, fn:() => {
       updateStock('kturs', 2);
-      // force slider if exists
       const sl = document.querySelector('input[oninput*="kturs"]');
       if (sl) sl.value = 2;
       setStatus('🔴 ALERT: KTURS-700 stock dropped to 2 units — minimum threshold is 10');
     }},
-    {t:1100,  pct:30, fn:() => {
+    {t:1100,  p:30, fn:() => {
       addFeed('alert', '⚠ CRITICAL: Receiver Hitch Pedestal KTURS-700 — stock dropped to 2 units (minimum: 10) · cascade initiated');
       setStatus('📡 Alert fired — cross-department notifications dispatching...');
     }},
-    {t:1900,  pct:44, fn:() => {
+    {t:1900,  p:44, fn:() => {
       addFeed('manufacturing', '⚠ Orders #4815, #4843 flagged — KTURS-700 shortage · production hold issued · line reallocating');
       ORDERS.find(o=>o.id==='4815').warn = true;
       ORDERS.find(o=>o.id==='4843').warn = true;
@@ -757,17 +846,17 @@ function runCascade() {
       setDept('mfg', 'amberS', ['⚠ 2 orders on hold','KTURS-700 shortage']);
       setStatus('🏭 Manufacturing: 2 orders flagged — production hold issued automatically');
     }},
-    {t:2700,  pct:58, fn:() => {
+    {t:2700,  p:58, fn:() => {
       addFeed('procurement', '⚡ PO-2024-092 auto-drafted — KTURS-700 × 25 units · Spitz Co. Industrial · est. $4,875 · pending approval');
       setDept('proc', 'amberS', ['⚡ PO-2024-092 pending','Rush: KTURS-700 × 25']);
       setStatus('📦 Procurement: purchase order drafted and routed for approval in < 1 second');
     }},
-    {t:3500,  pct:70, fn:() => {
+    {t:3500,  p:70, fn:() => {
       addFeed('sales', '📧 Orders #4815, #4867 — lead time extended +14 days · customer notifications sent automatically via ERP');
       setDept('sales', 'amberS', ['2 orders delayed','Auto-notifications sent ✓']);
       setStatus('💼 Sales: 2 affected customers notified · revised lead times pushed to CRM');
     }},
-    {t:4300,  pct:82, fn:() => {
+    {t:4300,  p:82, fn:() => {
       addFeed('procurement', '✓ PO-2024-092 approved by Operations Manager · dispatched to Spitz Co. Industrial · ETA: 14 days');
       addAlert({
         id:'sim-cascade', sev:'crit',
@@ -776,13 +865,13 @@ function runCascade() {
         notified:'Operations Manager (SMS + email), Procurement, Sales, Manufacturing, 2 Customers',
       });
       setDept('proc', 'redS', ['PO-2024-092 SENT','Await delivery 14d']);
-      setStatus('📋 Alert created · manager notified via SMS · all 6 departments updated automatically');
+      setStatus('📋 Alert created · Operations Manager notified via SMS · all 6 departments updated');
     }},
-    {t:5100,  pct:94, fn:() => {
-      addFeed('manufacturing', '✓ Cummins #4843 rerouted — Swivel Head Kit production continues (no KTURS dependency) · delay avoided');
+    {t:5100,  p:94, fn:() => {
+      addFeed('manufacturing', '✓ Gwinnett County Fleet #4843 rerouted — Swivel Head Kit production continues (no KTURS dependency) · delay avoided');
       setStatus('');
     }},
-    {t:5700,  pct:100, fn:() => {
+    {t:5700,  p:100, fn:() => {
       setStatus('✓ Cascade complete: 6 automated actions executed in 5.7 seconds — zero manual intervention required');
       btn.textContent = '↺ \u00A0 RESET SIMULATION';
       btn.className = 'big-btn reset';
@@ -790,10 +879,12 @@ function runCascade() {
       simRunning = false;
       simDone = true;
       setTimeout(() => setProgress(0), 1000);
+      // REVISION 5: Show Before/After callout
+      setTimeout(() => showBeforeAfter(), 800);
     }},
   ];
 
-  steps.forEach(s => setTimeout(() => { s.fn(); setProgress(s.pct); }, s.t));
+  steps.forEach(s => setTimeout(() => { s.fn(); setProgress(s.p); }, s.t));
 }
 
 // ════════════════════════════════════════════
