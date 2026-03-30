@@ -457,6 +457,69 @@ body{background:#080b10;color:#c8d0dc;font-family:'Barlow',sans-serif;font-weigh
   font-family:var(--mono);font-size:.58rem;color:var(--text-mid);
 }
 
+/* ─── 4 PILLAR BRIEF ─── */
+.pillar-hdr{display:flex;align-items:flex-start;gap:10px;margin-bottom:8px}
+.pillar-badge{font-family:var(--mono);font-size:1.1rem;font-weight:700;line-height:1;flex-shrink:0;min-width:26px}
+.pillar-title{font-family:var(--condensed);font-weight:900;font-size:1rem;text-transform:uppercase;letter-spacing:.04em}
+.pillar-sub{font-size:.7rem;color:var(--text-dim);margin-top:2px}
+.narrative{font-size:.78rem;color:var(--text);line-height:1.7;padding:10px 12px;background:var(--bg2);border-radius:4px;margin-bottom:10px}
+.fc-grid{display:grid;grid-template-columns:1fr 1fr;gap:5px}
+.fc-item{display:flex;gap:7px;align-items:flex-start;padding:6px 9px;border-radius:3px;background:var(--bg2);font-size:.75rem;line-height:1.45;color:var(--text)}
+.fc-em{flex-shrink:0;font-size:.82rem}
+.mrow{display:flex;align-items:center;gap:6px;margin-bottom:3px}
+.mlabel{font-family:var(--mono);font-size:.56rem;color:var(--text-mid);min-width:115px;flex-shrink:0;text-transform:uppercase}
+.mtrack{flex:1;height:8px;background:var(--bg3);border-radius:2px;overflow:hidden}
+.mfill{height:100%;border-radius:2px}
+.mfill.red{background:var(--red)}
+.mfill.amber{background:var(--accent)}
+.mfill.mgreen{background:var(--green)}
+.mscore{font-family:var(--mono);font-size:.6rem;min-width:28px;text-align:right;flex-shrink:0}
+.ctable{width:100%;border-collapse:collapse;font-size:.7rem}
+.ctable th{font-family:var(--mono);font-size:.56rem;color:var(--text-dim);text-transform:uppercase;padding:4px 6px;border-bottom:1px solid var(--border);text-align:left;white-space:nowrap}
+.ctable td{padding:4px 6px;border-bottom:1px solid rgba(30,45,66,.4);color:var(--text);line-height:1.3;vertical-align:top}
+.ctable tr:hover td{background:rgba(255,255,255,.02)}
+.priv-note{background:rgba(231,76,60,.07);border:1px solid rgba(231,76,60,.3);border-radius:4px;padding:10px 12px;font-size:.76rem;line-height:1.55;color:var(--text);margin-bottom:10px}
+.priv-note strong{color:var(--red)}
+.tv-wrap{display:flex;flex-direction:column;gap:0}
+.tv-row{display:flex;gap:10px;align-items:flex-start}
+.tv-trk{display:flex;flex-direction:column;align-items:center;width:18px;flex-shrink:0}
+.tv-dot2{width:9px;height:9px;border-radius:50%;flex-shrink:0;margin-top:4px}
+.tv-dot2.past{background:var(--text-dim)}
+.tv-dot2.now{background:var(--green);box-shadow:0 0 7px var(--green);animation:glowpulse 1.5s infinite}
+.tv-dot2.near{background:var(--accent)}
+.tv-dot2.danger{background:var(--red)}
+.tv-ln{width:2px;flex:1;min-height:10px;background:var(--border);margin:3px 0}
+.tv-row:last-child .tv-ln{display:none}
+.tv-body{flex:1;padding:0 0 8px 0}
+.tv-date2{font-family:var(--mono);font-size:.58rem;color:var(--text-dim)}
+.tv-txt{font-size:.76rem;line-height:1.4;color:var(--text)}
+.tv-txt.past{color:var(--text-dim)}
+.tv-txt.now{color:var(--green);font-weight:600}
+.tv-txt.near{color:var(--accent)}
+.tv-txt.danger{color:var(--red)}
+@keyframes glowpulse{0%,100%{box-shadow:0 0 5px var(--green)}50%{box-shadow:0 0 12px var(--green)}}
+.rev-cards{display:grid;grid-template-columns:1fr 1fr 1fr;gap:7px;margin:8px 0}
+.rc{border-radius:4px;padding:10px 12px;border:1px solid}
+.rc.red{background:rgba(231,76,60,.07);border-color:rgba(231,76,60,.3)}
+.rc.amber{background:rgba(232,160,32,.07);border-color:rgba(232,160,32,.3)}
+.rc.green-c{background:rgba(46,204,113,.07);border-color:rgba(46,204,113,.3)}
+.rc-label{font-family:var(--mono);font-size:.56rem;color:var(--text-dim);margin-bottom:3px;text-transform:uppercase}
+.rc-val{font-family:var(--condensed);font-weight:900;font-size:1.4rem;line-height:1}
+.rc.red .rc-val{color:var(--red)}
+.rc.amber .rc-val{color:var(--accent)}
+.rc.green-c .rc-val{color:var(--green)}
+.rc-sub{font-size:.67rem;color:var(--text-dim);margin-top:4px;line-height:1.35}
+.money-line{background:rgba(232,160,32,.06);border:1px solid rgba(232,160,32,.25);border-radius:4px;padding:13px 16px;font-size:.82rem;font-style:italic;color:var(--text-bright);line-height:1.75;margin-top:10px;text-align:center}
+.money-line strong{color:var(--accent);font-style:normal}
+.moat-box{background:rgba(46,204,113,.06);border:1px solid rgba(46,204,113,.3);border-radius:4px;padding:10px 12px;font-size:.78rem;line-height:1.6;color:var(--text);margin:7px 0}
+.moat-box strong{color:var(--green)}
+.bic-box{background:rgba(52,152,219,.06);border:1px solid rgba(52,152,219,.3);border-radius:4px;padding:10px 12px;font-size:.78rem;line-height:1.6;color:var(--text);margin:7px 0}
+.bic-box strong{color:var(--accent2)}
+.gap-list{display:flex;flex-direction:column;gap:4px}
+.gap-item{display:flex;gap:7px;align-items:flex-start;padding:5px 8px;border-radius:3px;background:var(--bg2);font-size:.75rem;line-height:1.45;color:var(--text)}
+.gap-ic{flex-shrink:0;padding-top:1px}
+.one-sentence{background:rgba(232,160,32,.07);border-left:3px solid var(--accent);padding:9px 13px;font-family:var(--condensed);font-size:.88rem;font-weight:600;color:var(--text-bright);line-height:1.5;margin:8px 0;letter-spacing:.01em}
+
 /* ─── UTILITIES ─── */
 .mt4{margin-top:4px}
 .mt8{margin-top:8px}
@@ -1082,6 +1145,216 @@ body{background:#080b10;color:#c8d0dc;font-family:'Barlow',sans-serif;font-weigh
         </div>
       </div>
 
+      <!-- ── SEC 13: 4 PILLAR BRIEF ── -->
+      <div class="sec span3">
+        <div class="sec-head">
+          <span class="sec-num">13</span>
+          <span class="sec-icon">🎯</span>
+          <span class="sec-title">The 4 Pillar Strategic Brief</span>
+          <span class="sec-tag" style="font-family:var(--mono);font-size:.58rem;color:var(--coral);margin-left:auto;letter-spacing:.08em">ENGAGEMENT CENTERPIECE — PRIVATE</span>
+        </div>
+        <div class="sec-body">
+          <div class="priv-note">
+            <strong>DAVID'S EYES ONLY —</strong> This is the core narrative of the engagement. These four pillars tell the complete story of why SpitzLift needs what you're building and why now is the moment. Command Mode version contains all internal research, specifics, and unfiltered analysis. Read the room before deciding how directly to deliver Pillar 4.
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+
+            <!-- PILLAR 01 -->
+            <div>
+              <div class="pillar-hdr">
+                <span class="pillar-badge" style="color:var(--accent2)">01</span>
+                <div>
+                  <div class="pillar-title" style="color:var(--accent2)">Full Synthesis — The Complete Picture</div>
+                  <div class="pillar-sub">What 3 days of research tells us about SpitzLift</div>
+                </div>
+              </div>
+              <div class="narrative">
+                SpitzLift Manufacturing is a 25-year-old niche manufacturer that built something genuinely impressive — Aberdeen Proving Ground validation, all five branches of the U.S. military, Halliburton, BNSF Railroad, Otis Elevator, Ford partnership, GSA federal relationship, 11 international distributors, and an estimated 20–35 domestic dealers — on the back of relationship selling, a zero-defect product, and the founder's personal credibility. The product is real. The client roster is elite. The market position is defensible.<br><br>
+                And yet the company is operating almost entirely on phone calls, email inboxes, and tribal knowledge. Every quote request routes to an email inbox. Every distributor order requires a phone call. The rebate program is a PDF submitted to a manual review process with zero visibility for the dealer who submitted it. The partner portal — spitzco.net — is a Wix brochure with a login screen.<br><br>
+                The tech audit confirmed: <strong>3/10 overall digital maturity</strong>. Operations scored 1/10. Sales/CRM scored 2/10. Dealer management scored 2/10. The strongest department — Content and SEO — scored 6/10.<br><br>
+                This is not a failing company. This is a successful company that has hit the ceiling that every founder-led business hits when the systems can no longer keep pace with the relationships that built it. The question is not whether SpitzLift needs this — the question is whether they move before the competitive window closes.
+              </div>
+              <div style="font-family:var(--mono);font-size:.6rem;color:var(--text-dim);text-transform:uppercase;margin-bottom:5px;letter-spacing:.08em">Confirmed Findings</div>
+              <div class="fc-grid">
+                <div class="fc-item"><span class="fc-em">✅</span><span><strong>QuickBooks confirmed</strong> — NAFS Fleet Solutions trade publication 2020. Phase 1 financial layer is partially pre-solved — additive integration, not replacement.</span></div>
+                <div class="fc-item"><span class="fc-em">✅</span><span><strong>Zoho CRM exists</strong> but connected to exactly 1 of 8 forms. The infrastructure is there. It just isn't turned on.</span></div>
+                <div class="fc-item"><span class="fc-em">✅</span><span><strong>WooCommerce v10.6.1</strong> fully installed with cart and checkout live — e-commerce infrastructure exists and is unused for B2B ordering.</span></div>
+                <div class="fc-item"><span class="fc-em">✅</span><span><strong>Google Ads + Bing Ads</strong> running with zero CRM to close the loop — leads are being paid for and disappearing into an inbox.</span></div>
+                <div class="fc-item"><span class="fc-em">⚠️</span><span><strong>Daniel Spitsbergen departed July 2024</strong> — 11-yr West Coast Regional Sales Manager. No backfill found. West Coast territory may be unstaffed.</span></div>
+                <div class="fc-item"><span class="fc-em">⚠️</span><span><strong>Domestic dealer network ~20–35</strong>, Texas-concentrated, manually managed. Dealer locator page is a phone number and email address.</span></div>
+                <div class="fc-item"><span class="fc-em">⚠️</span><span><strong>Zero news coverage</strong> in last 12 months. One Instagram trade show post (WWETT, Feb 2025). Holding steady, zero public growth momentum.</span></div>
+                <div class="fc-item"><span class="fc-em">🔴</span><span><strong>Security:</strong> file-manager-advanced/v1 REST API publicly exposed. Potential wp-config.php access. Disclosure report prepared. Mention in first 2 min.</span></div>
+              </div>
+            </div>
+
+            <!-- PILLAR 02 -->
+            <div>
+              <div class="pillar-hdr">
+                <span class="pillar-badge" style="color:var(--accent)">02</span>
+                <div>
+                  <div class="pillar-title" style="color:var(--accent)">Digital Maturity Score</div>
+                  <div class="pillar-sub">3/10 overall — confirmed across 8 departments</div>
+                </div>
+              </div>
+              <div style="margin-bottom:10px">
+                <div class="mrow"><span class="mlabel">Operations / ERP</span><div class="mtrack"><div class="mfill red" style="width:10%"></div></div><span class="mscore" style="color:var(--red)">1/10</span></div>
+                <div class="mrow"><span class="mlabel">Sales / CRM</span><div class="mtrack"><div class="mfill red" style="width:20%"></div></div><span class="mscore" style="color:var(--red)">2/10</span></div>
+                <div class="mrow"><span class="mlabel">Dealer / Partner</span><div class="mtrack"><div class="mfill red" style="width:20%"></div></div><span class="mscore" style="color:var(--red)">2/10</span></div>
+                <div class="mrow"><span class="mlabel">Customer Support</span><div class="mtrack"><div class="mfill red" style="width:20%"></div></div><span class="mscore" style="color:var(--red)">2/10</span></div>
+                <div class="mrow"><span class="mlabel">Marketing Auto.</span><div class="mtrack"><div class="mfill amber" style="width:30%"></div></div><span class="mscore" style="color:var(--accent)">3/10</span></div>
+                <div class="mrow"><span class="mlabel">Analytics / BI</span><div class="mtrack"><div class="mfill amber" style="width:30%"></div></div><span class="mscore" style="color:var(--accent)">3/10</span></div>
+                <div class="mrow"><span class="mlabel">E-commerce</span><div class="mtrack"><div class="mfill amber" style="width:50%"></div></div><span class="mscore" style="color:var(--accent)">5/10</span></div>
+                <div class="mrow"><span class="mlabel">Content / SEO</span><div class="mtrack"><div class="mfill mgreen" style="width:60%"></div></div><span class="mscore" style="color:var(--green)">6/10</span></div>
+                <div style="display:flex;align-items:center;gap:8px;margin-top:8px;padding-top:6px;border-top:1px solid var(--border)">
+                  <span style="font-family:var(--condensed);font-size:.72rem;color:var(--text-dim);text-transform:uppercase">Overall Score</span>
+                  <span style="font-family:var(--condensed);font-weight:900;font-size:1.5rem;color:var(--red)">3/10</span>
+                </div>
+              </div>
+              <div style="font-family:var(--mono);font-size:.6rem;color:var(--text-dim);text-transform:uppercase;margin-bottom:5px;letter-spacing:.08em">Competitive Field Comparison</div>
+              <table class="ctable">
+                <thead><tr>
+                  <th>Company</th><th>Dealer Portal</th><th>Online Order</th><th>LinkedIn</th><th>Recent Move</th><th>Score</th>
+                </tr></thead>
+                <tbody>
+                  <tr style="background:rgba(231,76,60,.05)">
+                    <td><strong>SpitzLift</strong></td><td>❌ Wix brochure</td><td>❌ Quote only</td><td>460</td><td>None visible</td><td style="color:var(--red);font-weight:700">2/10 🔴</td>
+                  </tr>
+                  <tr>
+                    <td>REID Lifting</td><td>✅ Auth portal</td><td>⚠️ RFQ</td><td>4,650</td><td>PE recap + French acq 2025</td><td>8/10</td>
+                  </tr>
+                  <tr>
+                    <td>Spanco</td><td>✅ Liftlab portal</td><td>✅ Configurator</td><td>4,193</td><td>4th facility Spr 2026</td><td>7/10</td>
+                  </tr>
+                  <tr>
+                    <td>Vestil</td><td>✅ Dist login</td><td>✅ 1,000+ self-serve</td><td>2,474</td><td>120K sqft + robot welders</td><td>7/10</td>
+                  </tr>
+                  <tr>
+                    <td>Gorbel</td><td>✅ Auth portal</td><td>⚠️ Spec-driven</td><td>13,053</td><td>Solutions Center 2025</td><td>7/10</td>
+                  </tr>
+                  <tr>
+                    <td>Handling Specialty</td><td>❌ None</td><td>❌ Contact only</td><td>4,670</td><td>Emanuel dist pship Feb 2026</td><td>4/10</td>
+                  </tr>
+                </tbody>
+              </table>
+              <div style="margin-top:7px;padding:8px 10px;border:1px solid rgba(231,76,60,.3);border-radius:3px;background:rgba(231,76,60,.04);font-size:.72rem;line-height:1.5;color:var(--text)">
+                SpitzLift has exactly one peer at comparable digital maturity — Handling Specialty at 4/10. But Handling Specialty does engineer-to-order custom heavy equipment. They are not competing for SpitzLift's fleet and military customers. <strong style="color:var(--red)">SpitzLift is effectively alone at the bottom of the field in the market that actually matters.</strong>
+              </div>
+            </div>
+
+            <!-- PILLAR 03 -->
+            <div>
+              <div class="pillar-hdr">
+                <span class="pillar-badge" style="color:var(--teal)">03</span>
+                <div>
+                  <div class="pillar-title" style="color:var(--teal)">The Competitive Moat Opportunity</div>
+                  <div class="pillar-sub">The window is 12–18 months. Not indefinitely.</div>
+                </div>
+              </div>
+              <div class="tv-wrap">
+                <div class="tv-row">
+                  <div class="tv-trk"><div class="tv-dot2 past"></div><div class="tv-ln"></div></div>
+                  <div class="tv-body"><div class="tv-date2">Feb 2025</div><div class="tv-txt past">REID Lifting takes PE growth capital</div></div>
+                </div>
+                <div class="tv-row">
+                  <div class="tv-trk"><div class="tv-dot2 past"></div><div class="tv-ln"></div></div>
+                  <div class="tv-body"><div class="tv-date2">Apr 2025</div><div class="tv-txt past">REID acquires largest French distributor</div></div>
+                </div>
+                <div class="tv-row">
+                  <div class="tv-trk"><div class="tv-dot2 past"></div><div class="tv-ln"></div></div>
+                  <div class="tv-body"><div class="tv-date2">Feb 2025</div><div class="tv-txt past">SpitzLift at WWETT Show (only public move)</div></div>
+                </div>
+                <div class="tv-row">
+                  <div class="tv-trk"><div class="tv-dot2 now"></div><div class="tv-ln"></div></div>
+                  <div class="tv-body"><div class="tv-date2">Mar 2026</div><div class="tv-txt now">▶ You are here</div></div>
+                </div>
+                <div class="tv-row">
+                  <div class="tv-trk"><div class="tv-dot2 near"></div><div class="tv-ln"></div></div>
+                  <div class="tv-body"><div class="tv-date2">Spring 2026</div><div class="tv-txt near">Spanco 4th facility opens (Milwaukee)</div></div>
+                </div>
+                <div class="tv-row">
+                  <div class="tv-trk"><div class="tv-dot2 near"></div><div class="tv-ln"></div></div>
+                  <div class="tv-body"><div class="tv-date2">Mid 2026</div><div class="tv-txt near">Vestil 120K sq ft expansion operational</div></div>
+                </div>
+                <div class="tv-row">
+                  <div class="tv-trk"><div class="tv-dot2 near"></div><div class="tv-ln"></div></div>
+                  <div class="tv-body"><div class="tv-date2">Late 2026</div><div class="tv-txt near">REID PE capital fully deployed</div></div>
+                </div>
+                <div class="tv-row">
+                  <div class="tv-trk"><div class="tv-dot2 danger"></div><div class="tv-ln"></div></div>
+                  <div class="tv-body"><div class="tv-date2">2027</div><div class="tv-txt danger">REID US market push reaches critical mass</div></div>
+                </div>
+                <div class="tv-row">
+                  <div class="tv-trk"><div class="tv-dot2 danger"></div><div class="tv-ln"></div></div>
+                  <div class="tv-body"><div class="tv-date2">2027</div><div class="tv-txt danger">Distributor loyalty habits fully formed</div></div>
+                </div>
+                <div class="tv-row">
+                  <div class="tv-trk"><div class="tv-dot2 danger"></div></div>
+                  <div class="tv-body"><div class="tv-date2">2027</div><div class="tv-txt danger">Switching costs make portal adoption harder</div></div>
+                </div>
+              </div>
+              <div class="moat-box mt8">
+                If SpitzLift launches an authenticated dealer portal with online ordering in the next 6–9 months, it converts distributor relationships into <strong>structural switching costs</strong> before REID's PE-fueled US expansion reaches the dealers SpitzLift already has. Every distributor that adopts the portal is one that won't casually route orders to a competitor just because their system is easier.
+              </div>
+              <div class="bic-box">
+                <strong>REID Lifting</strong> — the closest direct analog (portable aluminum cranes, similar product, similar markets) — now operates: authenticated dealer download portal · localized websites in 5 countries · PE-backed growth capital deployed · largest European distributor acquired and controlled.<br>
+                They are 3–4 years ahead of SpitzLift's current digital state and actively accelerating. The question is not whether to move — it's whether to move before or after the window closes.
+              </div>
+              <div class="one-sentence">The competitive moat opportunity is real and it is time-limited — SpitzLift can build a durable digital advantage in their distributor network within 6–9 months, or spend the following 3 years chasing a field that moved while they were still taking orders by phone.</div>
+            </div>
+
+            <!-- PILLAR 04 -->
+            <div>
+              <div class="pillar-hdr">
+                <span class="pillar-badge" style="color:var(--red)">04</span>
+                <div>
+                  <div class="pillar-title" style="color:var(--red)">Leaving Money on the Table</div>
+                  <div class="pillar-sub">The revenue ceiling is not a market problem. It's a systems problem.</div>
+                </div>
+              </div>
+              <div class="priv-note">
+                <strong>PRIVATE —</strong> This is the most powerful pillar and the most sensitive one. Michael has built this company for 25 years. Lead with deep respect for what he's built before delivering this. The data speaks for itself — you don't need to editorialize. Read the room. If he's defensive, pull back to the opportunity framing. If he's nodding — push into the numbers.
+              </div>
+              <div class="narrative">
+                A company with SpitzLift's profile should not be doing $1–5M in annual revenue. This is not a market problem — the market is clearly there. Aberdeen Proving Ground validated the product. Halliburton buys it. BNSF Railroad buys it. Otis Elevator bought enough to outfit an entire North American fleet. The U.S. military across all five branches uses it. Ford made them a certified partner. 30–35 domestic dealers carry it. 11 international distributors sell it in 5 countries.<br><br>
+                The Glassdoor estimate of $1–5M — if accurate — implies revenue per employee of roughly $70K–$357K. The industry average for NAICS 332-333 specialty manufacturers is $180K–$280K per employee. At the midpoint of their employee range and at industry average, SpitzLift should be generating $2.5M–$5M minimum and realistically $8M–$15M given their client quality and market position.<br><br>
+                The gap is not a product problem. It is not a market problem. It is not a relationship problem. <strong>It is a systems problem.</strong> Every order that requires a phone call is a friction point that slows the sales cycle. Every distributor who has to call in to check inventory is a distributor who might not call at all. Every quote that sits in Geneva's inbox because there is no CRM pipeline is a quote that may never become an order. Every crane that passes its 24-month recertification window without an automated reminder is revenue that existed and was never collected.
+              </div>
+              <div class="rev-cards">
+                <div class="rc red">
+                  <div class="rc-label">Current Estimate</div>
+                  <div class="rc-val">$1–5M</div>
+                  <div class="rc-sub">Glassdoor/ZoomInfo estimate<br>~$70K–$357K rev/employee</div>
+                </div>
+                <div class="rc amber">
+                  <div class="rc-label">Industry Benchmark</div>
+                  <div class="rc-val">$5–10M</div>
+                  <div class="rc-sub">NAICS 332-333 avg rev/employee × headcount<br>What the numbers say they should generate</div>
+                </div>
+                <div class="rc green-c">
+                  <div class="rc-label">Realistic Potential</div>
+                  <div class="rc-val">$10–20M</div>
+                  <div class="rc-sub">With systems matching client roster quality<br>What companies with this client list generate</div>
+                </div>
+              </div>
+              <div style="font-family:var(--mono);font-size:.6rem;color:var(--text-dim);text-transform:uppercase;margin:8px 0 5px;letter-spacing:.08em">Where the Revenue Is Being Lost — Specifically</div>
+              <div class="gap-list">
+                <div class="gap-item"><span class="gap-ic">🔴</span><span><strong>No CRM pipeline</strong> — Google/Bing Ad leads routing to inboxes with no follow-up automation. Ad spend = leads never converted.</span></div>
+                <div class="gap-item"><span class="gap-ic">🔴</span><span><strong>No distributor self-service</strong> — 20–35 dealers calling in for orders, inventory checks, rebate status. Friction reduces order frequency and volume per dealer.</span></div>
+                <div class="gap-item"><span class="gap-ic">🔴</span><span><strong>No recertification automation</strong> — thousands of cranes in field past or approaching 24-month service window with no outbound reminders. Passive service revenue never collected.</span></div>
+                <div class="gap-item"><span class="gap-ic">🔴</span><span><strong>West Coast territory unstaffed since July 2024</strong> — Daniel Spitsbergen departed, no backfill visible. Entire regional sales pipeline unmanaged for 9+ months.</span></div>
+                <div class="gap-item"><span class="gap-ic">🔴</span><span><strong>No marketing automation</strong> — distributors, product registrations, and completed installs generate zero automated follow-up or upsell sequences.</span></div>
+                <div class="gap-item"><span class="gap-ic">🔴</span><span><strong>Ford CVC channel</strong> supported by a single 2017 PDF — no structured co-selling infrastructure. Ford dealer channel likely underperforming its actual potential.</span></div>
+                <div class="gap-item"><span class="gap-ic">🔴</span><span><strong>GSA contract expired 2011</strong>, still displayed as active — government channel running on relationships alone with no current procurement pathway.</span></div>
+              </div>
+              <div class="money-line">
+                "The Glassdoor revenue estimate may be stale and it may be conservative — but if SpitzLift is not materially above $5M with Aberdeen Proving Ground validation, Halliburton, BNSF Railroad, Otis Elevator, and the U.S. Military on the client list, then they are not just leaving money on the table. <strong>They are sitting on top of a much larger company that cannot get out because the systems that would let it scale do not exist yet.</strong><br><br>That is what we are building."
+              </div>
+            </div>
+
+          </div><!-- /pillar grid -->
+        </div><!-- /sec-body -->
+      </div><!-- /sec 13 -->
+
     </div><!-- /cmd-grid -->
   </div><!-- /cmd-mode -->
 
@@ -1094,7 +1367,7 @@ body{background:#080b10;color:#c8d0dc;font-family:'Barlow',sans-serif;font-weigh
 
       <!-- SLIDE 1: COVER -->
       <div class="slide active" data-slide="0">
-        <div class="slide-num">01 / 07</div>
+        <div class="slide-num">01 / 08</div>
         <div class="slide-title">AUTOMATION<br>INTELLIGENCE</div>
         <div class="slide-subtitle">SpitzLift Manufacturing · Discovery Engagement · March 2026</div>
         <div class="slide-body">
@@ -1123,7 +1396,7 @@ body{background:#080b10;color:#c8d0dc;font-family:'Barlow',sans-serif;font-weigh
 
       <!-- SLIDE 2: COMPANY OVERVIEW -->
       <div class="slide" data-slide="1">
-        <div class="slide-num">02 / 07</div>
+        <div class="slide-num">02 / 08</div>
         <div class="slide-title">COMPANY <span class="hl">OVERVIEW</span></div>
         <div class="slide-subtitle">SpitzLift Manufacturing LLC — Semmes, Alabama</div>
         <div class="slide-body">
@@ -1170,7 +1443,7 @@ body{background:#080b10;color:#c8d0dc;font-family:'Barlow',sans-serif;font-weigh
 
       <!-- SLIDE 3: THE OPPORTUNITY -->
       <div class="slide" data-slide="2">
-        <div class="slide-num">03 / 07</div>
+        <div class="slide-num">03 / 08</div>
         <div class="slide-title">THE <span class="hl">OPPORTUNITY</span></div>
         <div class="slide-subtitle">What automation actually unlocks for SpitzLift</div>
         <div class="slide-body">
@@ -1220,7 +1493,7 @@ body{background:#080b10;color:#c8d0dc;font-family:'Barlow',sans-serif;font-weigh
 
       <!-- SLIDE 4: PROPOSED PLATFORM -->
       <div class="slide" data-slide="3">
-        <div class="slide-num">04 / 07</div>
+        <div class="slide-num">04 / 08</div>
         <div class="slide-title">PROPOSED <span class="hl">PLATFORM</span></div>
         <div class="slide-subtitle">What gets built — connected infrastructure for every function</div>
         <div class="slide-body">
@@ -1264,9 +1537,67 @@ body{background:#080b10;color:#c8d0dc;font-family:'Barlow',sans-serif;font-weigh
         </div>
       </div>
 
-      <!-- SLIDE 5: PHASED ROADMAP -->
+      <!-- SLIDE 5: THE 4 PILLARS -->
       <div class="slide" data-slide="4">
-        <div class="slide-num">05 / 07</div>
+        <div class="slide-num">05 / 08</div>
+        <div class="slide-title">THE OPPORTUNITY / <span class="hl">FOUR PILLARS</span></div>
+        <div class="slide-subtitle">Why the timing is right and what becomes possible</div>
+        <div class="slide-body">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:4px">
+            <div style="background:rgba(52,152,219,.06);border:1px solid rgba(52,152,219,.2);border-radius:6px;padding:14px 16px">
+              <div style="font-family:var(--mono);font-size:.65rem;color:var(--accent2);margin-bottom:4px">01</div>
+              <div style="font-family:var(--condensed);font-weight:900;font-size:.95rem;color:var(--accent2);text-transform:uppercase;letter-spacing:.03em;margin-bottom:3px">Full Synthesis</div>
+              <div style="font-size:.72rem;color:var(--text-bright);font-style:italic;margin-bottom:7px">The infrastructure is already there — it just isn't connected</div>
+              <div style="font-size:.7rem;color:var(--text);line-height:1.6">
+                • Zoho CRM installed — connected to 1 of 8 forms<br>
+                • WooCommerce fully operational — unused for B2B<br>
+                • QuickBooks running invoicing — no ops integration<br>
+                • The build is additive, not a rip-and-replace
+              </div>
+            </div>
+            <div style="background:rgba(232,160,32,.06);border:1px solid rgba(232,160,32,.2);border-radius:6px;padding:14px 16px">
+              <div style="font-family:var(--mono);font-size:.65rem;color:var(--accent);margin-bottom:4px">02</div>
+              <div style="font-family:var(--condensed);font-weight:900;font-size:.95rem;color:var(--accent);text-transform:uppercase;letter-spacing:.03em;margin-bottom:3px">Digital Maturity</div>
+              <div style="font-size:.72rem;color:var(--text-bright);font-style:italic;margin-bottom:7px">3 out of 10 — significant room to move</div>
+              <div style="font-size:.7rem;color:var(--text);line-height:1.6">
+                • Operations and dealer management both score 2/10<br>
+                • Every major competitor has already built dealer portals<br>
+                • REID Lifting — closest product analog — operating at 8/10<br>
+                • The gap is closeable in 6–9 months with the right build
+              </div>
+            </div>
+            <div style="background:rgba(0,188,212,.06);border:1px solid rgba(0,188,212,.2);border-radius:6px;padding:14px 16px">
+              <div style="font-family:var(--mono);font-size:.65rem;color:var(--teal);margin-bottom:4px">03</div>
+              <div style="font-family:var(--condensed);font-weight:900;font-size:.95rem;color:var(--teal);text-transform:uppercase;letter-spacing:.03em;margin-bottom:3px">Competitive Moat</div>
+              <div style="font-size:.72rem;color:var(--text-bright);font-style:italic;margin-bottom:7px">A 12–18 month window to build a durable advantage</div>
+              <div style="font-size:.7rem;color:var(--text);line-height:1.6">
+                • REID Lifting: PE-backed, acquired European distributor 2025<br>
+                • Spanco: 4th manufacturing facility opening Spring 2026<br>
+                • Vestil: 120,000 sq ft expansion with robotic automation<br>
+                • Distributor portal now = switching costs that compound
+              </div>
+            </div>
+            <div style="background:rgba(46,204,113,.06);border:1px solid rgba(46,204,113,.2);border-radius:6px;padding:14px 16px">
+              <div style="font-family:var(--mono);font-size:.65rem;color:var(--green);margin-bottom:4px">04</div>
+              <div style="font-family:var(--condensed);font-weight:900;font-size:.95rem;color:var(--green);text-transform:uppercase;letter-spacing:.03em;margin-bottom:3px">The Growth Unlock</div>
+              <div style="font-size:.72rem;color:var(--text-bright);font-style:italic;margin-bottom:7px">The systems gap is the ceiling — and it is removable</div>
+              <div style="font-size:.7rem;color:var(--text);line-height:1.6">
+                • Client roster: Halliburton · BNSF Railroad · U.S. Military<br>
+                • Aberdeen Proving Ground validation · Ford CVC partner<br>
+                • 30–35 domestic dealers · 11 international distributors<br>
+                • This infrastructure supports a significantly larger company — the systems to run it are what's missing
+              </div>
+            </div>
+          </div>
+          <div style="margin-top:12px;text-align:center;font-family:var(--condensed);font-size:.82rem;font-weight:600;color:var(--accent);letter-spacing:.02em;font-style:italic">
+            "The next chapter of SpitzLift doesn't require a new product or a new market.<br>It requires systems that match the caliber of the clients already buying."
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 6: PHASED ROADMAP -->
+      <div class="slide" data-slide="5">
+        <div class="slide-num">06 / 08</div>
         <div class="slide-title">PHASED <span class="hl">ROADMAP</span></div>
         <div class="slide-subtitle">Four phases — sequenced for minimum risk, maximum clarity</div>
         <div class="slide-body">
@@ -1322,9 +1653,9 @@ body{background:#080b10;color:#c8d0dc;font-family:'Barlow',sans-serif;font-weigh
         </div>
       </div>
 
-      <!-- SLIDE 6: THE DEMO -->
-      <div class="slide" data-slide="5">
-        <div class="slide-num">06 / 07</div>
+      <!-- SLIDE 7: THE DEMO -->
+      <div class="slide" data-slide="6">
+        <div class="slide-num">07 / 08</div>
         <div class="slide-title">THE <span class="hl">DEMO</span></div>
         <div class="slide-subtitle">Live automation command center — built for SpitzLift's operation</div>
         <div class="slide-body">
@@ -1348,9 +1679,9 @@ body{background:#080b10;color:#c8d0dc;font-family:'Barlow',sans-serif;font-weigh
         </div>
       </div>
 
-      <!-- SLIDE 7: PROPOSED NEXT STEP -->
-      <div class="slide" data-slide="6">
-        <div class="slide-num">07 / 07</div>
+      <!-- SLIDE 8: PROPOSED NEXT STEP -->
+      <div class="slide" data-slide="7">
+        <div class="slide-num">08 / 08</div>
         <div class="slide-title">PROPOSED <span class="hl">NEXT STEP</span></div>
         <div class="slide-subtitle">One clear action from this call</div>
         <div class="slide-body">
@@ -1392,7 +1723,7 @@ body{background:#080b10;color:#c8d0dc;font-family:'Barlow',sans-serif;font-weigh
     </div><!-- /slides-container -->
     <div class="pres-arrows">
       <button class="arrow-btn" id="btnPrev" onclick="prevSlide()" disabled>← PREV</button>
-      <div class="slide-counter" id="slideCounter">1 / 7</div>
+      <div class="slide-counter" id="slideCounter">1 / 8</div>
       <button class="arrow-btn" id="btnNext" onclick="nextSlide()">NEXT →</button>
     </div>
     <div class="kbd-hint">
@@ -1463,7 +1794,7 @@ function setMode(mode) {
 
 // ─── PRESENTATION ───
 let currentSlide = 0;
-const SLIDE_COUNT = 7;
+const SLIDE_COUNT = 8;
 
 function renderPresNav() {
   const nav = document.getElementById('presNav');
