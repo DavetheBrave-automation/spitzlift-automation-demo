@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SpitzLift Automation Integration Roadmap</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#ffffff;color:#1a1a2e;font-family:'Courier New',monospace;font-size:16px;min-height:100vh}
+.page{max-width:860px;margin:0 auto;padding:48px 32px 72px}
+
+/* ── HEADER ── */
+.doc-header{text-align:center;padding-bottom:36px;border-bottom:2px solid #e8a020;margin-bottom:40px}
+.company-name{font-size:28px;font-weight:700;color:#1a1a2e;letter-spacing:2px;text-transform:uppercase;margin-bottom:16px}
+.amber-line{width:60px;height:3px;background:#e8a020;margin:16px auto}
+.doc-title{font-size:22px;font-weight:700;color:#1a1a2e;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px}
+.doc-subtitle{font-size:14px;color:#6c757d;line-height:1.8;max-width:560px;margin:0 auto 12px;font-family:Georgia,serif}
+.doc-date{font-size:12px;color:#adb5bd;letter-spacing:1px}
+
+/* ── INTRO ── */
+.intro{font-size:14px;color:#495057;line-height:1.9;max-width:680px;margin:0 auto 40px;text-align:center;font-family:Georgia,serif}
+
+/* ── PHASE CARDS ── */
+.phase-card{background:#ffffff;border:1px solid #dee2e6;border-radius:8px;padding:32px 36px;margin-bottom:24px;box-shadow:0 2px 6px rgba(0,0,0,.06)}
+.phase-badge{display:inline-block;background:#e8a020;color:#000;font-size:11px;font-weight:700;letter-spacing:2px;padding:5px 16px;border-radius:20px;margin-bottom:16px;font-family:'Courier New',monospace}
+.phase-badge.ongoing{background:#1a1a2e;color:#e8a020}
+.phase-name{font-size:24px;font-weight:700;color:#1a1a2e;letter-spacing:1px;margin-bottom:6px;font-family:'Courier New',monospace}
+.phase-duration{font-size:12px;color:#6c757d;letter-spacing:1px;margin-bottom:16px;text-transform:uppercase;font-family:'Courier New',monospace}
+.phase-desc{font-size:14px;color:#495057;line-height:1.9;margin-bottom:24px;font-family:Georgia,serif}
+.deliverables-label{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#adb5bd;margin-bottom:12px;font-family:'Courier New',monospace}
+.phase-deliverables{list-style:none;padding:0;border-top:1px solid #f1f3f5;padding-top:18px}
+.phase-deliverables li{font-size:13px;color:#495057;padding:6px 0;display:flex;align-items:flex-start;gap:10px;line-height:1.6;border-bottom:1px solid #f8f9fa;font-family:'Courier New',monospace}
+.phase-deliverables li:last-child{border-bottom:none}
+.phase-deliverables li::before{content:'✓';color:#2ecc71;font-weight:700;flex-shrink:0;margin-top:1px}
+
+/* ── FOOTER ── */
+.doc-footer{text-align:center;padding-top:28px;border-top:2px solid #e8a020;margin-top:12px}
+.doc-footer p{font-size:13px;color:#6c757d;line-height:2.1;font-family:'Courier New',monospace}
+.doc-footer .confidential{font-size:11px;color:#adb5bd;margin-top:8px;letter-spacing:1px}
+
+/* ── PRINT ── */
+@media print{
+  body{font-size:12px}
+  .phase-card{box-shadow:none;break-inside:avoid;page-break-inside:avoid}
+  .page{padding:24px 24px 48px}
+}
+
+/* ── MOBILE ── */
+@media (max-width:640px){
+  .page{padding:28px 18px 48px}
+  .company-name{font-size:20px}
+  .doc-title{font-size:17px}
+  .phase-card{padding:22px 18px}
+  .phase-name{font-size:19px}
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="doc-header">
+    <div class="company-name">SpitzLift Manufacturing</div>
+    <div class="amber-line"></div>
+    <div class="doc-title">Automation Integration Roadmap</div>
+    <div class="doc-subtitle">A phased approach to connecting your existing Zoho ecosystem into a unified operations platform</div>
+    <div class="doc-date" id="docDate"></div>
+  </div>
+
+  <p class="intro">The following phases represent a structured approach to connecting SpitzLift's existing Zoho ecosystem — Zoho Books, Zoho CRM — into a unified operations platform. Each phase builds on the last. The foundation is already in place. What follows is the plan to activate it.</p>
+
+  <!-- PHASE 0 -->
+  <div class="phase-card">
+    <div class="phase-badge">PHASE 0</div>
+    <div class="phase-name">Discovery &amp; Blueprint</div>
+    <div class="phase-duration">~ 2 Weeks</div>
+    <div class="phase-desc">Before a single line of code is written, we map everything. Every workflow, every system, every connection that needs to exist. This phase produces the exact blueprint for what gets built — in what order, and what it unlocks at every step.</div>
+    <div class="deliverables-label">Deliverables</div>
+    <ul class="phase-deliverables">
+      <li>Full workflow mapping sessions with key stakeholders</li>
+      <li>Complete Zoho ecosystem audit — Books, CRM, and any additional modules</li>
+      <li>Integration architecture blueprint</li>
+      <li>Priority matrix — highest impact first</li>
+      <li>Formal engagement scope document</li>
+      <li>Security vulnerability remediated</li>
+    </ul>
+  </div>
+
+  <!-- PHASE 1 -->
+  <div class="phase-card">
+    <div class="phase-badge">PHASE 1</div>
+    <div class="phase-name">Connect the Foundation</div>
+    <div class="phase-duration">6–8 Weeks</div>
+    <div class="phase-desc">The infrastructure is already there — Zoho Books holds the inventory, quotes, purchase orders, and invoices. Zoho CRM holds the sales pipeline. Phase 1 connects them into a single real-time dashboard so every department sees the same information at the same time — without anyone having to move it manually.</div>
+    <div class="deliverables-label">Deliverables</div>
+    <ul class="phase-deliverables">
+      <li>Real-time inventory dashboard — live data from Zoho Books</li>
+      <li>Quote and purchase order visibility across departments</li>
+      <li>Sales pipeline integration — Zoho CRM connected to operations view</li>
+      <li>Automated threshold alerts — low stock triggers before it becomes a problem</li>
+      <li>Cross-department activity feed — one live event log, every department</li>
+      <li>Automated notifications — sales order → manufacturing, instant</li>
+      <li>All Gravity Forms connected to Zoho CRM — every inquiry creates a contact and pipeline record</li>
+    </ul>
+  </div>
+
+  <!-- PHASE 2 -->
+  <div class="phase-card">
+    <div class="phase-badge">PHASE 2</div>
+    <div class="phase-name">Activate the Network</div>
+    <div class="phase-duration">8–12 Weeks</div>
+    <div class="phase-desc">Phase 2 extends the connected foundation outward — to the distributor network, the production floor, and the customer. Dealers gain self-service access. Manufacturing gains a real-time production view. Customers gain order visibility. The phone call that used to handle all of this becomes the exception, not the rule.</div>
+    <div class="deliverables-label">Deliverables</div>
+    <ul class="phase-deliverables">
+      <li>Distributor self-service portal — orders, inventory availability, document library, rebate tracking</li>
+      <li>Production scheduling engine — capacity mapped against incoming orders</li>
+      <li>Order pipeline board — Quote → Approved → In Production → QC → Shipped, visible to all departments</li>
+      <li>Warranty and recertification lifecycle — 24-month automated reminder sequences</li>
+      <li>Customer-facing order status — no phone call required to check progress</li>
+      <li>Dealer locator — interactive map replacing the current phone number and email address</li>
+      <li>Mobile access — floor staff update order status from any device</li>
+    </ul>
+  </div>
+
+  <!-- PHASE 3 -->
+  <div class="phase-card">
+    <div class="phase-badge">PHASE 3</div>
+    <div class="phase-name">Intelligent Operations</div>
+    <div class="phase-duration">12–16 Weeks</div>
+    <div class="phase-desc">Phase 3 adds the intelligence layer — systems that learn, predict, and act before problems occur. The foundation is solid, the network is connected, and now the platform starts working ahead of the business instead of behind it.</div>
+    <div class="deliverables-label">Deliverables</div>
+    <ul class="phase-deliverables">
+      <li>Predictive inventory — learns order patterns, pre-positions stock before demand spikes</li>
+      <li>AI quote assistant — accurate custom quotes in minutes, not hours</li>
+      <li>Executive analytics dashboard — revenue by channel, distributor performance, inventory health, recertification pipeline</li>
+      <li>Government channel activation — documentation, compliance tracking, procurement pathway</li>
+      <li>Ford CVC channel infrastructure — structured co-selling, updated collateral, upfitter coordination</li>
+      <li>Full customer lifecycle platform — every crane, every owner, every service date, every renewal</li>
+    </ul>
+  </div>
+
+  <!-- ONGOING -->
+  <div class="phase-card">
+    <div class="phase-badge ongoing">ONGOING</div>
+    <div class="phase-name">Growth Partnership</div>
+    <div class="phase-duration">Continuous</div>
+    <div class="phase-desc">Once the platform is live, the relationship shifts from build to grow. As SpitzLift expands — new markets, new distributors, new product lines — the platform expands with it. This is not a handoff. It is an ongoing partnership built on the foundation we create together.</div>
+    <div class="deliverables-label">Deliverables</div>
+    <ul class="phase-deliverables">
+      <li>Platform monitoring and maintenance</li>
+      <li>Continuous feature development</li>
+      <li>New integration as the business grows</li>
+      <li>Monthly reporting — Ren Smith receives automated operations summary</li>
+      <li>Priority support — direct access</li>
+    </ul>
+  </div>
+
+  <div class="doc-footer">
+    <p>This roadmap is built around SpitzLift's existing Zoho ecosystem. No systems are replaced — everything connects to what is already in place.</p>
+    <p>Prepared by David Necaise &nbsp;|&nbsp; david@trustedservicessd.com</p>
+    <p class="confidential">This document is confidential and prepared exclusively for SpitzLift Manufacturing.</p>
+  </div>
+
+</div>
+<script>
+const d = new Date();
+const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+document.getElementById('docDate').textContent = months[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear();
+</script>
+</body>
+</html>
