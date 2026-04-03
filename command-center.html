@@ -11,16 +11,16 @@
 /* ─── RESET + BASE ─── */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{font-size:15px;scroll-behavior:smooth}
-body{background:#080b10;color:#c8d0dc;font-family:'Barlow',sans-serif;font-weight:400;min-height:100vh;overflow-x:hidden}
+body{background:#ffffff;color:#1a1a2e;font-family:'Barlow',sans-serif;font-weight:400;min-height:100vh;overflow-x:hidden}
 
 /* ─── DESIGN TOKENS ─── */
 :root{
-  --bg0:#080b10;
-  --bg1:#0d1117;
-  --bg2:#141921;
-  --bg3:#1c2433;
-  --border:#1e2d42;
-  --border-bright:#2a3f5a;
+  --bg0:#ffffff;
+  --bg1:#f8f9fa;
+  --bg2:#f1f3f5;
+  --bg3:#e9ecef;
+  --border:#dee2e6;
+  --border-bright:#ced4da;
   --accent:#e8a020;
   --accent2:#3498db;
   --teal:#00bcd4;
@@ -28,18 +28,18 @@ body{background:#080b10;color:#c8d0dc;font-family:'Barlow',sans-serif;font-weigh
   --coral:#e06438;
   --purple:#9b59b6;
   --red:#e74c3c;
-  --text-dim:#6a7a8e;
-  --text-mid:#8a9ab0;
-  --text:#c8d0dc;
-  --text-bright:#eaf0f8;
+  --text-dim:#6c757d;
+  --text-mid:#495057;
+  --text:#1a1a2e;
+  --text-bright:#0d0d1a;
   --mono:'Share Tech Mono',monospace;
   --condensed:'Barlow Condensed',sans-serif;
 }
 
 /* ─── SCROLLBAR ─── */
 ::-webkit-scrollbar{width:4px}
-::-webkit-scrollbar-track{background:#0d1117}
-::-webkit-scrollbar-thumb{background:#2a3f5a;border-radius:2px}
+::-webkit-scrollbar-track{background:#f1f3f5}
+::-webkit-scrollbar-thumb{background:#ced4da;border-radius:2px}
 
 /* ─── FIXED HEADER ─── */
 #header{
@@ -193,8 +193,8 @@ body{background:#080b10;color:#c8d0dc;font-family:'Barlow',sans-serif;font-weigh
   border-radius:4px;padding:10px 12px;
   border:1px solid;
 }
-.finding.high{background:rgba(231,76,60,.07);border-color:rgba(231,76,60,.3)}
-.finding.med{background:rgba(232,160,32,.06);border-color:rgba(232,160,32,.25)}
+.finding.high{background:#fff5f5;border-color:rgba(231,76,60,.35)}
+.finding.med{background:#fffbf0;border-color:rgba(232,160,32,.35)}
 .finding-header{display:flex;align-items:center;gap:8px;margin-bottom:6px}
 .finding-sev{
   font-family:var(--mono);font-size:.6rem;padding:2px 7px;
@@ -204,7 +204,7 @@ body{background:#080b10;color:#c8d0dc;font-family:'Barlow',sans-serif;font-weigh
 .finding.med .finding-sev{background:rgba(232,160,32,.2);color:var(--accent)}
 .finding-title{font-family:var(--condensed);font-weight:700;font-size:.85rem;color:var(--text-bright)}
 .finding p{font-size:.78rem;line-height:1.5;color:var(--text-mid)}
-.finding code{font-family:var(--mono);font-size:.7rem;color:var(--teal);background:var(--bg3);padding:1px 5px;border-radius:2px}
+.finding code{font-family:var(--mono);font-size:.7rem;color:#0077aa;background:#e9ecef;padding:1px 5px;border-radius:2px}
 .finding ul{padding-left:16px;margin-top:4px;font-size:.77rem;line-height:1.6;color:var(--text-mid)}
 
 /* ─── TECH STACK ─── */
@@ -315,14 +315,14 @@ body{background:#080b10;color:#c8d0dc;font-family:'Barlow',sans-serif;font-weigh
 /* ─── PRESENTATION MODE ─── */
 #pres-mode{
   position:fixed;top:52px;left:0;right:0;bottom:30px;
-  background:var(--bg0);
+  background:#f8f9fa;
   display:none;flex-direction:column;
 }
 #pres-mode.active{display:flex}
 
 .pres-nav{
   display:flex;align-items:center;justify-content:center;gap:8px;
-  padding:8px 24px;background:var(--bg1);border-bottom:1px solid var(--border);
+  padding:8px 24px;background:#ffffff;border-bottom:1px solid var(--border);
   flex-shrink:0;
 }
 .slide-dot{
@@ -353,6 +353,7 @@ body{background:#080b10;color:#c8d0dc;font-family:'Barlow',sans-serif;font-weigh
   opacity:0;transform:translateX(40px);
   transition:opacity .3s,transform .3s;
   pointer-events:none;overflow-y:auto;
+  background:#ffffff;
 }
 .slide.active{opacity:1;transform:translateX(0);pointer-events:auto}
 .slide.prev{transform:translateX(-40px)}
@@ -462,7 +463,7 @@ body{background:#080b10;color:#c8d0dc;font-family:'Barlow',sans-serif;font-weigh
 .pillar-badge{font-family:var(--mono);font-size:1.1rem;font-weight:700;line-height:1;flex-shrink:0;min-width:26px}
 .pillar-title{font-family:var(--condensed);font-weight:900;font-size:1rem;text-transform:uppercase;letter-spacing:.04em}
 .pillar-sub{font-size:.7rem;color:var(--text-dim);margin-top:2px}
-.narrative{font-size:.78rem;color:var(--text);line-height:1.7;padding:10px 12px;background:var(--bg2);border-radius:4px;margin-bottom:10px}
+.narrative{font-size:.78rem;color:var(--text);line-height:1.7;padding:10px 12px;background:#f8f9fa;border-radius:4px;margin-bottom:10px;border:1px solid var(--border)}
 .fc-grid{display:grid;grid-template-columns:1fr 1fr;gap:5px}
 .fc-item{display:flex;gap:7px;align-items:flex-start;padding:6px 9px;border-radius:3px;background:var(--bg2);font-size:.75rem;line-height:1.45;color:var(--text)}
 .fc-em{flex-shrink:0;font-size:.82rem}
@@ -478,7 +479,7 @@ body{background:#080b10;color:#c8d0dc;font-family:'Barlow',sans-serif;font-weigh
 .ctable th{font-family:var(--mono);font-size:.56rem;color:var(--text-dim);text-transform:uppercase;padding:4px 6px;border-bottom:1px solid var(--border);text-align:left;white-space:nowrap}
 .ctable td{padding:4px 6px;border-bottom:1px solid rgba(30,45,66,.4);color:var(--text);line-height:1.3;vertical-align:top}
 .ctable tr:hover td{background:rgba(255,255,255,.02)}
-.priv-note{background:rgba(231,76,60,.07);border:1px solid rgba(231,76,60,.3);border-radius:4px;padding:10px 12px;font-size:.76rem;line-height:1.55;color:var(--text);margin-bottom:10px}
+.priv-note{background:#fff5f5;border:1px solid rgba(231,76,60,.35);border-radius:4px;padding:10px 12px;font-size:.76rem;line-height:1.55;color:var(--text);margin-bottom:10px}
 .priv-note strong{color:var(--red)}
 .tv-wrap{display:flex;flex-direction:column;gap:0}
 .tv-row{display:flex;gap:10px;align-items:flex-start}
@@ -509,16 +510,16 @@ body{background:#080b10;color:#c8d0dc;font-family:'Barlow',sans-serif;font-weigh
 .rc.amber .rc-val{color:var(--accent)}
 .rc.green-c .rc-val{color:var(--green)}
 .rc-sub{font-size:.67rem;color:var(--text-dim);margin-top:4px;line-height:1.35}
-.money-line{background:rgba(232,160,32,.06);border:1px solid rgba(232,160,32,.25);border-radius:4px;padding:13px 16px;font-size:.82rem;font-style:italic;color:var(--text-bright);line-height:1.75;margin-top:10px;text-align:center}
+.money-line{background:#fffbf0;border:1px solid rgba(232,160,32,.35);border-radius:4px;padding:13px 16px;font-size:.82rem;font-style:italic;color:var(--text);line-height:1.75;margin-top:10px;text-align:center}
 .money-line strong{color:var(--accent);font-style:normal}
-.moat-box{background:rgba(46,204,113,.06);border:1px solid rgba(46,204,113,.3);border-radius:4px;padding:10px 12px;font-size:.78rem;line-height:1.6;color:var(--text);margin:7px 0}
+.moat-box{background:#f0fff4;border:1px solid rgba(46,204,113,.35);border-radius:4px;padding:10px 12px;font-size:.78rem;line-height:1.6;color:var(--text);margin:7px 0}
 .moat-box strong{color:var(--green)}
-.bic-box{background:rgba(52,152,219,.06);border:1px solid rgba(52,152,219,.3);border-radius:4px;padding:10px 12px;font-size:.78rem;line-height:1.6;color:var(--text);margin:7px 0}
+.bic-box{background:#f0f7ff;border:1px solid rgba(52,152,219,.35);border-radius:4px;padding:10px 12px;font-size:.78rem;line-height:1.6;color:var(--text);margin:7px 0}
 .bic-box strong{color:var(--accent2)}
 .gap-list{display:flex;flex-direction:column;gap:4px}
 .gap-item{display:flex;gap:7px;align-items:flex-start;padding:5px 8px;border-radius:3px;background:var(--bg2);font-size:.75rem;line-height:1.45;color:var(--text)}
 .gap-ic{flex-shrink:0;padding-top:1px}
-.one-sentence{background:rgba(232,160,32,.07);border-left:3px solid var(--accent);padding:9px 13px;font-family:var(--condensed);font-size:.88rem;font-weight:600;color:var(--text-bright);line-height:1.5;margin:8px 0;letter-spacing:.01em}
+.one-sentence{background:#fffbf0;border-left:3px solid var(--accent);padding:9px 13px;font-family:var(--condensed);font-size:.88rem;font-weight:600;color:var(--text);line-height:1.5;margin:8px 0;letter-spacing:.01em}
 
 /* ─── UTILITIES ─── */
 .mt4{margin-top:4px}
@@ -526,7 +527,7 @@ body{background:#080b10;color:#c8d0dc;font-family:'Barlow',sans-serif;font-weigh
 .small{font-size:.72rem;color:var(--text-dim)}
 .mono-small{font-family:var(--mono);font-size:.65rem;color:var(--text-dim)}
 .callout{
-  background:rgba(232,160,32,.07);border:1px solid rgba(232,160,32,.25);
+  background:#fffbf0;border:1px solid rgba(232,160,32,.35);
   border-radius:4px;padding:9px 12px;
   font-size:.8rem;color:var(--text);line-height:1.5;
 }
@@ -678,6 +679,101 @@ body{background:#080b10;color:#c8d0dc;font-family:'Barlow',sans-serif;font-weigh
         </div><!-- /sec-body -->
       </div><!-- /sec 02B -->
 
+      <!-- ── SEC 02C: GENEVA CLEWIS — KEY INTEL ── -->
+      <div class="sec span2">
+        <div class="sec-head">
+          <span class="sec-num">02C</span>
+          <span class="sec-icon">💼</span>
+          <span class="sec-title">Geneva Clewis — VP of Sales</span>
+          <span class="sec-badge" style="background:rgba(0,188,212,.12);color:var(--teal);border:1px solid rgba(0,188,212,.3)">MICHAEL'S DAUGHTER — INTERNAL CHAMPION</span>
+        </div>
+        <div class="sec-body">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <div>
+                <div class="kv"><span class="kv-label">ROLE</span><span class="kv-val bright">VP of Sales, SpitzLift Manufacturing</span></div>
+                <div class="kv"><span class="kv-label">RELATION</span><span class="kv-val">Michael Spitsbergen's daughter — address as a professional, not a family member</span></div>
+                <div class="kv"><span class="kv-label">LOCATION</span><span class="kv-val">Gilbert, Arizona — managing remotely</span></div>
+                <div class="kv"><span class="kv-label">LINKEDIN</span><span class="kv-val">1,300+ followers · Active trade show presence</span></div>
+              </div>
+              <div style="background:#f0fdff;border-radius:4px;padding:10px 12px;border-left:3px solid var(--teal)">
+                <div style="font-family:var(--condensed);font-weight:700;font-size:.78rem;color:var(--teal);letter-spacing:.05em;text-transform:uppercase;margin-bottom:6px">Background &amp; Role</div>
+                <div style="font-size:.77rem;line-height:1.55;color:var(--text)">Active trade show presence — WWETT Feb 2026, NTEA Work Truck Week. Amplifies distributor and partner content publicly. LinkedIn headline: "Developing Teams, Processes &amp; Partnerships — Elevating Efficiency and Safety in the Field." Positions herself as a strategic market advisor. Recent focus: PTR Premier Truck Rental partnership, Women in Fleet Management leadership content.</div>
+              </div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <div style="background:#f0fff4;border-radius:4px;padding:10px 12px;border-left:3px solid var(--green)">
+                <div style="font-family:var(--condensed);font-weight:700;font-size:.78rem;color:var(--green);letter-spacing:.05em;text-transform:uppercase;margin-bottom:6px">The Gap</div>
+                <div style="font-size:.77rem;line-height:1.55;color:var(--text)">Managing ~10 reps, multiple trade shows, distributor relationships, and fleet accounts — all in different pipeline stages — with no centralized CRM view. She knows this. She doesn't say it publicly. She will be the loudest internal champion the moment she sees her pipeline in one place.</div>
+              </div>
+              <div style="background:#fffbf0;border-radius:4px;padding:10px 12px;border-left:3px solid var(--accent)">
+                <div style="font-family:var(--condensed);font-weight:700;font-size:.78rem;color:var(--accent);letter-spacing:.05em;text-transform:uppercase;margin-bottom:6px">Your Angle</div>
+                <div style="font-size:.77rem;line-height:1.55;color:var(--text)">Give her a CRM view she can show Michael. It validates her as a professional. <strong style="color:var(--accent)">Frame it as: "You're managing one of the most active trade show and fleet sales programs in the industry — today is about making sure you have a dashboard that keeps up with you."</strong></div>
+              </div>
+              <div style="background:rgba(46,204,113,.06);border:1px solid rgba(46,204,113,.2);border-radius:4px;padding:8px 11px">
+                <div style="font-family:var(--mono);font-size:.58rem;color:var(--green);letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px">One-Sentence Opener</div>
+                <div style="font-size:.78rem;line-height:1.5;color:var(--text);font-style:italic">"You're running one of the most active trade show and fleet sales programs in the industry — today is about making sure your team has a dashboard that keeps up with you."</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div><!-- /sec 02C -->
+
+      <!-- ── SEC 02D: REN SMITH — KEY INTEL ── -->
+      <div class="sec">
+        <div class="sec-head">
+          <span class="sec-num">02D</span>
+          <span class="sec-icon">📊</span>
+          <span class="sec-title">Ren Smith — CFO</span>
+          <span class="sec-badge" style="background:rgba(52,152,219,.12);color:var(--accent2);border:1px solid rgba(52,152,219,.3)">NEW CFO — FINANCIAL VISIBILITY ALLY</span>
+        </div>
+        <div class="sec-body">
+          <div class="kv"><span class="kv-label">ROLE</span><span class="kv-val bright">CFO / Controller, SpitzLift Manufacturing</span></div>
+          <div class="kv"><span class="kv-label">CONTEXT</span><span class="kv-val">New to the role. Walked into a company with no ERP, no financial visibility into operations, no integrated reporting.</span></div>
+          <div class="divider"></div>
+          <div style="background:#f0f7ff;border-radius:4px;padding:10px 12px;border-left:3px solid var(--accent2)">
+            <div style="font-family:var(--condensed);font-weight:700;font-size:.78rem;color:var(--accent2);letter-spacing:.05em;text-transform:uppercase;margin-bottom:6px">Why He Matters</div>
+            <div style="font-size:.77rem;line-height:1.55;color:var(--text)">The hire of a formal CFO signals Michael acknowledging the need to professionalize finance. Ren Smith is quietly the most frustrated person in that building — managing financials for a manufacturer with defense contracts and Fortune 500 clients using disconnected tools and manual reporting.</div>
+          </div>
+          <div class="callout">
+            <strong>Your angle:</strong> The auto-generated weekly Zoho Books ops report is built for him. Address him directly at least once. "Ren — weekly operations summary, auto-generated from Zoho Books, delivered to you. That's what financial visibility looks like when the data is connected."
+          </div>
+        </div>
+      </div><!-- /sec 02D -->
+
+      <!-- ── DECISION SEQUENCE ── -->
+      <div class="sec span3">
+        <div class="sec-head">
+          <span class="sec-num">⚡</span>
+          <span class="sec-icon">🎯</span>
+          <span class="sec-title">The Decision Sequence — Know This</span>
+          <span class="sec-badge" style="background:rgba(232,160,32,.15);color:var(--accent);border:1px solid rgba(232,160,32,.3)">READ BEFORE THE CALL</span>
+        </div>
+        <div class="sec-body">
+          <div style="display:flex;align-items:center;justify-content:center;gap:16px;padding:14px 0;background:#fffbf0;border-radius:6px;border:1px solid rgba(232,160,32,.3);margin-bottom:12px">
+            <div style="text-align:center;padding:10px 20px;background:#ffffff;border-radius:5px;border:2px solid var(--purple)">
+              <div style="font-family:var(--condensed);font-weight:900;font-size:1rem;color:var(--purple);letter-spacing:.05em">JANET</div>
+              <div style="font-family:var(--mono);font-size:.6rem;color:var(--text-dim);margin-top:2px">VALIDATES</div>
+            </div>
+            <div style="font-family:var(--condensed);font-size:1.5rem;color:var(--accent);font-weight:900">→</div>
+            <div style="text-align:center;padding:10px 20px;background:#ffffff;border-radius:5px;border:2px solid var(--accent)">
+              <div style="font-family:var(--condensed);font-weight:900;font-size:1rem;color:var(--accent);letter-spacing:.05em">MICHAEL</div>
+              <div style="font-family:var(--mono);font-size:.6rem;color:var(--text-dim);margin-top:2px">MOVES</div>
+            </div>
+            <div style="font-family:var(--condensed);font-size:1.5rem;color:var(--accent);font-weight:900">→</div>
+            <div style="text-align:center;padding:10px 20px;background:#ffffff;border-radius:5px;border:2px solid var(--teal)">
+              <div style="font-family:var(--condensed);font-weight:900;font-size:1rem;color:var(--teal);letter-spacing:.05em">GENEVA</div>
+              <div style="font-family:var(--mono);font-size:.6rem;color:var(--text-dim);margin-top:2px">EXECUTES</div>
+            </div>
+          </div>
+          <div style="font-size:.82rem;line-height:1.75;color:var(--text)">
+            Janet is the intellectual validator and strategic sounding board. She asked the hard Zoho questions first. When she is satisfied, Michael moves — he sent the demo to her, not to Geneva, not internally. Her buy-in is his green light.<br><br>
+            Geneva carries it operationally from there. She will be the loudest internal voice once she sees her pipeline in the system.<br><br>
+            <strong style="color:var(--accent)">Close Janet on the call. Michael will follow. Geneva will run with it.</strong>
+          </div>
+        </div>
+      </div><!-- /decision sequence -->
+
       <!-- ── SEC 03: PAIN POINTS ── -->
       <div class="sec">
         <div class="sec-head">
@@ -728,6 +824,7 @@ body{background:#080b10;color:#c8d0dc;font-family:'Barlow',sans-serif;font-weigh
           <span class="sec-icon">🎯</span>
           <span class="sec-title">Pitch Framework — Call Flow</span>
           <span class="sec-badge badge-ok">SEQUENCE</span>
+          <span style="font-family:var(--mono);font-size:.55rem;color:var(--text-dim);margin-left:auto;letter-spacing:.06em">CALL 1 REFERENCE — SEE SEC 14 FOR CALL 2</span>
         </div>
         <div class="sec-body">
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
@@ -895,8 +992,12 @@ body{background:#080b10;color:#c8d0dc;font-family:'Barlow',sans-serif;font-weigh
               <div><div class="ti-name">Yoast SEO</div><div class="ti-detail">wpseo signals — sitemap generated</div></div>
             </div>
             <div class="tech-item">
-              <div class="ti-dot gap"></div>
-              <div><div class="ti-name">CRM</div><div class="ti-detail">No HubSpot / Salesforce / Zoho detected — likely none or email only</div></div>
+              <div class="ti-dot confirmed"></div>
+              <div><div class="ti-name">Zoho CRM</div><div class="ti-detail">CONFIRMED — Sales pipeline. Connected to dealer rewards form via WebToLeads. 7 of 8 Gravity Forms still routing to email only. Phase 1 connects all 8 forms.</div></div>
+            </div>
+            <div class="tech-item">
+              <div class="ti-dot confirmed"></div>
+              <div><div class="ti-name">Zoho Books</div><div class="ti-detail">CONFIRMED — Inventory, quotes, purchase orders, invoices. Confirmed by Janet Pattison April 2, 2026. Phase 1 dashboard data source.</div></div>
             </div>
             <div class="tech-item">
               <div class="ti-dot gap"></div>
@@ -912,6 +1013,10 @@ body{background:#080b10;color:#c8d0dc;font-family:'Barlow',sans-serif;font-weigh
             </div>
           </div>
           <div class="small mt8">● Confirmed · ● Inferred/Partial · ● Gap/Missing</div>
+          <div style="background:#f0fff4;border:1px solid rgba(46,204,113,.35);border-left:3px solid var(--green);border-radius:4px;padding:10px 12px;margin-top:8px">
+            <div style="font-family:var(--mono);font-size:.6rem;color:var(--green);letter-spacing:.08em;text-transform:uppercase;margin-bottom:5px">✅ ZOHO ECOSYSTEM CONFIRMED — APRIL 2, 2026</div>
+            <div style="font-size:.77rem;line-height:1.55;color:var(--text)">Janet Pattison confirmed via email: <strong>Zoho Books</strong> (inventory, quotes, POs, invoices) + <strong>Zoho CRM</strong> (sales pipeline). Confirmed directly by client. Phase 1 builds on this foundation. No system replacement required.</div>
+          </div>
         </div>
       </div>
 
@@ -1137,8 +1242,8 @@ body{background:#080b10;color:#c8d0dc;font-family:'Barlow',sans-serif;font-weigh
                 <div class="pt-desc">Full technical audit · Process map · Automation SOW · Priority matrix · Federal channel assessment. ~2 weeks. <strong style="color:var(--accent)">This is the close. Land here first.</strong></div>
               </div>
               <div class="pt-price">
-                <div class="pt-amount">$2,500–$5,000</div>
-                <span class="pt-period">FLAT RATE · ~2 WEEKS</span>
+                <div class="pt-amount">$10,000</div>
+                <span class="pt-period">FLAT RATE · 2 WEEKS</span>
               </div>
             </div>
             <div class="price-tier">
@@ -1210,7 +1315,7 @@ body{background:#080b10;color:#c8d0dc;font-family:'Barlow',sans-serif;font-weigh
             </div>
           </div>
           <div class="callout mt8">
-            <strong>Anchor strategy:</strong> Phase 0 at $2,500–$5,000 is the designed entry point. The security fix is free and happens before any agreement — it demonstrates execution before billing starts. Never present full totals on the first call — present Phase 0 as a standalone deliverable, then scope everything else from the discovery output.
+            <strong>The number is $10,000 for 2 weeks.</strong> Do not negotiate down from this. If he pushes back: "This covers my full focus for two weeks — mapping, auditing, and delivering a blueprint that makes every dollar after this more precise. That's not a cost, that's protection for both of us."
           </div>
         </div>
       </div>
@@ -1362,7 +1467,7 @@ body{background:#080b10;color:#c8d0dc;font-family:'Barlow',sans-serif;font-weigh
               </div>
               <div style="font-family:var(--mono);font-size:.6rem;color:var(--text-dim);text-transform:uppercase;margin-bottom:5px;letter-spacing:.08em">Confirmed Findings</div>
               <div class="fc-grid">
-                <div class="fc-item"><span class="fc-em">✅</span><span><strong>QuickBooks confirmed</strong> — NAFS Fleet Solutions trade publication 2020. Phase 1 financial layer is partially pre-solved — additive integration, not replacement.</span></div>
+                <div class="fc-item"><span class="fc-em">✅</span><span><strong>Zoho Books confirmed</strong> — inventory, quotes, POs, and invoices. Confirmed directly by Janet Pattison via email April 2, 2026. Supersedes earlier QuickBooks research (2020 trade publication). Phase 1 dashboard pulls live data from Zoho Books API.</span></div>
                 <div class="fc-item"><span class="fc-em">✅</span><span><strong>Zoho CRM exists</strong> but connected to exactly 1 of 8 forms. The infrastructure is there. It just isn't turned on.</span></div>
                 <div class="fc-item"><span class="fc-em">✅</span><span><strong>WooCommerce v10.6.1</strong> fully installed with cart and checkout live — e-commerce infrastructure exists and is unused for B2B ordering.</span></div>
                 <div class="fc-item"><span class="fc-em">✅</span><span><strong>Google Ads + Bing Ads</strong> running with zero CRM to close the loop — leads are being paid for and disappearing into an inbox.</span></div>
@@ -1550,6 +1655,27 @@ body{background:#080b10;color:#c8d0dc;font-family:'Barlow',sans-serif;font-weigh
           <span class="sec-tag" style="font-family:var(--mono);font-size:.58rem;color:var(--green);margin-left:auto;letter-spacing:.08em">ZOHO CONFIRMED — JANET + MICHAEL BOTH ENGAGED</span>
         </div>
         <div class="sec-body">
+
+          <!-- CALL STATUS BLOCK -->
+          <div style="background:#f0fff4;border:2px solid var(--green);border-radius:6px;padding:14px 16px;margin-bottom:4px">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+              <span style="font-size:1.1rem">📅</span>
+              <span style="font-family:var(--condensed);font-weight:900;font-size:.9rem;color:var(--green);letter-spacing:.06em;text-transform:uppercase">CALL STATUS</span>
+              <span style="font-family:var(--mono);font-size:.62rem;background:rgba(46,204,113,.2);color:var(--green);padding:2px 8px;border-radius:2px;letter-spacing:.05em">TOMORROW — CONFIRMED</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+              <div style="display:flex;flex-direction:column;gap:4px">
+                <div class="kv"><span class="kv-label">PARTICIPANTS</span><span class="kv-val">Michael Spitsbergen (CEO) · Janet Pattison (Lt. Col. USAF Ret.) · Geneva Clewis (VP Sales)</span></div>
+                <div class="kv"><span class="kv-label">PHASES.HTML</span><span class="kv-val green">SENT ✅ April 2, 2026</span></div>
+                <div class="kv"><span class="kv-label">EMAIL RESPONSE</span><span class="kv-val green">SENT ✅ April 2, 2026</span></div>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:4px">
+                <div class="kv"><span class="kv-label">RETAINER</span><span class="kv-val accent">READY — send within 2 hours of call</span></div>
+                <div class="kv"><span class="kv-label">SECURITY FIX</span><span class="kv-val green">COMPLETE ✅ — goodwill banked</span></div>
+                <div class="kv"><span class="kv-label">OBJECTIVE</span><span class="kv-val bright">$10,000 retainer signed TODAY</span></div>
+              </div>
+            </div>
+          </div>
 
           <!-- SITUATION BLOCK -->
           <div style="background:rgba(46,204,113,.06);border:1px solid rgba(46,204,113,.25);border-radius:5px;padding:12px 14px">
@@ -1753,7 +1879,7 @@ body{background:#080b10;color:#c8d0dc;font-family:'Barlow',sans-serif;font-weigh
               </div>
               <div style="background:var(--bg2);border-radius:4px;padding:10px 12px;border-top:2px solid var(--teal)">
                 <div style="font-family:var(--condensed);font-weight:700;font-size:.82rem;color:var(--teal);letter-spacing:.04em;margin-bottom:2px">Geneva Clewis — VP Sales</div>
-                <div style="font-size:.77rem;line-height:1.5;color:var(--text-mid)">10-person sales team, no CRM pipeline. She has been asking for this internally for years — she just didn't have the language or the vendor to make it happen. <strong style="color:var(--text)">She will be your loudest internal champion the moment Zoho CRM starts showing her a real pipeline.</strong> Get her in the room if possible.</div>
+                <div style="font-size:.77rem;line-height:1.5;color:var(--text-mid)">10-person sales team (stated in LinkedIn profile headline — treat as approximate, not confirmed exact count), no CRM pipeline. She has been asking for this internally for years — she just didn't have the language or the vendor to make it happen. <strong style="color:var(--text)">She will be your loudest internal champion the moment Zoho CRM starts showing her a real pipeline.</strong> Get her in the room if possible.</div>
               </div>
               <div style="background:var(--bg2);border-radius:4px;padding:10px 12px;border-top:2px solid var(--accent2)">
                 <div style="font-family:var(--condensed);font-weight:700;font-size:.82rem;color:var(--accent2);letter-spacing:.04em;margin-bottom:2px">Ren Smith — CFO</div>
@@ -1793,6 +1919,35 @@ body{background:#080b10;color:#c8d0dc;font-family:'Barlow',sans-serif;font-weigh
             </div>
           </div>
 
+          <!-- POST-SECOND-CALL STRUCTURED CHECKLIST -->
+          <div style="margin-top:8px">
+            <div style="font-family:var(--condensed);font-weight:700;font-size:.82rem;color:var(--text-bright);letter-spacing:.06em;text-transform:uppercase;margin-bottom:8px;padding-top:8px;border-top:1px solid var(--border)">Post-Second-Call — Time-Grouped Actions</div>
+            <div class="check-group">
+              <div class="check-group-title">Within 2 Hours</div>
+              <div class="check-item"><input type="checkbox" id="c14-pc1" onchange="toggleDone(this)"><label for="c14-pc1">Send retainer agreement PDF to Michael and Janet (SL-2026-001)</label></div>
+              <div class="check-item"><input type="checkbox" id="c14-pc2" onchange="toggleDone(this)"><label for="c14-pc2">Send security disclosure report if not already received</label></div>
+              <div class="check-item"><input type="checkbox" id="c14-pc3" onchange="toggleDone(this)"><label for="c14-pc3">Send thank you — one line, warm, no oversell</label></div>
+            </div>
+            <div class="check-group mt8">
+              <div class="check-group-title">Within 24 Hours</div>
+              <div class="check-item"><input type="checkbox" id="c14-pc4" onchange="toggleDone(this)"><label for="c14-pc4">Follow up with Janet separately — government channel conversation</label></div>
+              <div class="check-item"><input type="checkbox" id="c14-pc5" onchange="toggleDone(this)"><label for="c14-pc5">Follow up with Geneva separately — CRM pipeline demo offer</label></div>
+              <div class="check-item"><input type="checkbox" id="c14-pc6" onchange="toggleDone(this)"><label for="c14-pc6">Update Section 14 with call outcome — decisions made, who said what</label></div>
+              <div class="check-item"><input type="checkbox" id="c14-pc7" onchange="toggleDone(this)"><label for="c14-pc7">Log new intel from call — actual SKU count, order volume, what's inside spitzco.net</label></div>
+            </div>
+            <div class="check-group mt8">
+              <div class="check-group-title">Within 5 Days</div>
+              <div class="check-item"><input type="checkbox" id="c14-pc8" onchange="toggleDone(this)"><label for="c14-pc8">If retainer signed: access Zoho Books and CRM — begin audit</label></div>
+              <div class="check-item"><input type="checkbox" id="c14-pc9" onchange="toggleDone(this)"><label for="c14-pc9">Deliver initial findings summary to Michael and Ren Smith</label></div>
+              <div class="check-item"><input type="checkbox" id="c14-pc10" onchange="toggleDone(this)"><label for="c14-pc10">Schedule weekly check-in cadence</label></div>
+            </div>
+            <div class="check-group mt8" style="background:#fff5f5;border:1px solid rgba(231,76,60,.2);border-radius:4px;padding:8px 10px">
+              <div class="check-group-title" style="color:var(--red)">If Retainer Not Signed</div>
+              <div class="check-item"><input type="checkbox" id="c14-pc11" onchange="toggleDone(this)"><label for="c14-pc11">Send 48-hour follow-up — one question only: "Any questions on the agreement before we get started?"</label></div>
+              <div class="check-item"><input type="checkbox" id="c14-pc12" onchange="toggleDone(this)"><label for="c14-pc12">Do not discount. Do not add scope. Do not re-pitch.</label></div>
+            </div>
+          </div>
+
         </div><!-- /sec-body -->
       </div><!-- /sec 14 -->
 
@@ -1821,7 +1976,7 @@ body{background:#080b10;color:#c8d0dc;font-family:'Barlow',sans-serif;font-weigh
             <div class="s-card">
               <div class="s-card-label">Prepared By</div>
               <div style="font-family:var(--condensed);font-weight:700;font-size:1.1rem;color:var(--text-bright)">David Necaise</div>
-              <div class="s-card-desc">Automation &amp; Systems Integration<br>Pre-engagement research</div>
+              <div class="s-card-desc">NFE LLC — Managing Member<br>Automation &amp; Systems Integration</div>
             </div>
             <div class="s-card">
               <div class="s-card-label">Scope</div>
@@ -1911,15 +2066,19 @@ body{background:#080b10;color:#c8d0dc;font-family:'Barlow',sans-serif;font-weigh
               <div class="timeline" style="margin-top:8px">
                 <div class="tl-item">
                   <div class="tl-track"><div class="tl-dot"></div><div class="tl-line"></div></div>
-                  <div class="tl-content"><div class="tl-phase">PHASE 0 — DISCOVERY SPRINT (~2 weeks)</div><div class="tl-desc">Full audit, process map, automation SOW, federal assessment — investment scoped after discovery</div></div>
+                  <div class="tl-content"><div class="tl-phase">PHASE 0 — DISCOVERY &amp; BLUEPRINT (~2 weeks)</div><div class="tl-desc">Full audit, process map, automation SOW, federal assessment — investment scoped after discovery</div></div>
+                </div>
+                <div class="tl-item">
+                  <div class="tl-track"><div class="tl-dot" style="background:var(--accent)"></div><div class="tl-line"></div></div>
+                  <div class="tl-content"><div class="tl-phase" style="color:var(--accent)">PHASE 1 — CONNECT THE FOUNDATION (6–8 weeks)</div><div class="tl-desc">Security remediation, CRM foundation, form automation, Zoho Books dashboard, distributor pipeline</div></div>
                 </div>
                 <div class="tl-item">
                   <div class="tl-track"><div class="tl-dot" style="background:var(--teal)"></div><div class="tl-line"></div></div>
-                  <div class="tl-content"><div class="tl-phase" style="color:var(--teal)">PHASE 2 — BUILD (4–8 weeks)</div><div class="tl-desc">CRM, automation flows, dashboard — scoped and priced in Phase 1</div></div>
+                  <div class="tl-content"><div class="tl-phase" style="color:var(--teal)">PHASE 2 — ACTIVATE THE NETWORK (8–12 weeks)</div><div class="tl-desc">Distributor portal, production scheduling, order pipeline board, warranty automation</div></div>
                 </div>
                 <div class="tl-item">
                   <div class="tl-track"><div class="tl-dot" style="background:var(--green)"></div></div>
-                  <div class="tl-content"><div class="tl-phase" style="color:var(--green)">PHASE 3 — FEDERAL CHANNEL (Q3–Q4)</div><div class="tl-desc">SAM.gov, GSA MAS, federal pipeline infrastructure</div></div>
+                  <div class="tl-content"><div class="tl-phase" style="color:var(--green)">PHASE 3 — INTELLIGENT OPERATIONS (Q3–Q4)</div><div class="tl-desc">SAM.gov registration, GSA MAS contract, federal pipeline CRM, government channel direct</div></div>
                 </div>
               </div>
             </div>
@@ -1992,7 +2151,7 @@ body{background:#080b10;color:#c8d0dc;font-family:'Barlow',sans-serif;font-weigh
               <div style="font-size:.7rem;color:var(--text);line-height:1.6">
                 • Zoho CRM installed — connected to 1 of 8 forms<br>
                 • WooCommerce fully operational — unused for B2B<br>
-                • QuickBooks running invoicing — no ops integration<br>
+                • Zoho Books running inventory, quotes, POs, invoices — confirmed<br>
                 • The build is additive, not a rip-and-replace
               </div>
             </div>
@@ -2181,14 +2340,14 @@ body{background:#080b10;color:#c8d0dc;font-family:'Barlow',sans-serif;font-weigh
     <span class="sb-sep">·</span>
     <span class="sb-item">SPITZLIFT MANUFACTURING LLC</span>
     <span class="sb-sep">·</span>
-    <span class="sb-item">MARCH 29, 2026</span>
+    <span class="sb-item">APRIL 2, 2026</span>
     <span class="sb-sep">·</span>
     <span class="sb-item">MICHAEL SPITSBERGEN — CEO</span>
   </div>
   <div class="sb-right">
     <div class="sb-status" id="sbSecurity">
-      <div class="sb-dot amber"></div>
-      <span>SECURITY EXPOSURE ACTIVE</span>
+      <div class="sb-dot green"></div>
+      <span>SECURITY REMEDIATED</span>
     </div>
     <span class="sb-sep" id="sbSecSep">·</span>
     <div class="sb-status">
