@@ -1,0 +1,1509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NFE LLC — Digital Research Framework</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@400;500;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #ffffff;
+    --surface: #f8f9fa;
+    --border: #dee2e6;
+    --text: #1a1a2e;
+    --text-secondary: #495057;
+    --amber: #e8a020;
+    --amber-light: #fff8ee;
+    --blue: #3a9fd8;
+    --teal: #1D9E75;
+    --green: #2dcc6f;
+    --navy: #1a1a2e;
+    --red: #e84040;
+  }
+
+  body {
+    font-family: 'Barlow', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  /* ── HEADER ── */
+  .site-header {
+    background: var(--navy);
+    padding: 28px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .site-header .left h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--amber);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .site-header .left p {
+    font-family: 'Barlow', sans-serif;
+    font-size: 13px;
+    color: #aab0c0;
+    margin-top: 4px;
+    letter-spacing: 0.02em;
+  }
+  .site-header .right {
+    text-align: right;
+  }
+  .site-header .right p {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 12px;
+    color: #6c7a96;
+    line-height: 1.8;
+  }
+
+  /* ── WRAPPER ── */
+  .wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px 60px;
+  }
+
+  /* ── VARIABLE PANEL ── */
+  .var-panel {
+    margin: 32px 0 0;
+    border: 2px solid var(--amber);
+    border-radius: 8px;
+    background: var(--amber-light);
+    overflow: hidden;
+  }
+  .var-panel-header {
+    background: var(--amber);
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .var-panel-header h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--navy);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .var-panel-body {
+    padding: 20px 24px;
+  }
+  .var-panel-body > p {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+  }
+  .var-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 32px;
+    margin-bottom: 20px;
+  }
+  .var-row {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .var-row label {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--navy);
+    letter-spacing: 0.03em;
+  }
+  .var-row span {
+    font-size: 12px;
+    color: var(--text-secondary);
+  }
+  .var-row .var-field {
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 7px 10px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 12px;
+    color: var(--text);
+    outline: none;
+    width: 100%;
+    transition: border-color 0.15s;
+  }
+  .var-row .var-field:focus {
+    border-color: var(--amber);
+  }
+  .var-example {
+    background: var(--navy);
+    border-radius: 6px;
+    padding: 14px 18px;
+    margin-top: 4px;
+  }
+  .var-example h4 {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 11px;
+    color: var(--amber);
+    margin-bottom: 8px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .var-example p {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 11px;
+    color: #aab0c0;
+    line-height: 1.9;
+  }
+  .var-example strong {
+    color: #e0e6f0;
+  }
+
+  /* ── TABS ── */
+  .tabs-container {
+    margin-top: 32px;
+  }
+  .tab-nav {
+    display: flex;
+    border-bottom: 2px solid var(--border);
+    gap: 0;
+    overflow-x: auto;
+  }
+  .tab-btn {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 12px 22px;
+    border: none;
+    background: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -2px;
+    white-space: nowrap;
+    transition: color 0.15s, border-color 0.15s;
+  }
+  .tab-btn:hover { color: var(--text); }
+  .tab-btn.active {
+    color: var(--navy);
+    border-bottom-color: var(--amber);
+  }
+  .tab-pane { display: none; padding: 28px 0 0; }
+  .tab-pane.active { display: block; }
+
+  /* ── SECTION HEADERS ── */
+  .tier-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+  }
+  .tier-header h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 26px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--navy);
+  }
+  .badge {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: 4px;
+    letter-spacing: 0.04em;
+    font-weight: 600;
+  }
+  .badge-amber { background: var(--amber); color: var(--navy); }
+  .badge-blue { background: var(--blue); color: #ffffff; }
+  .badge-teal { background: var(--teal); color: #ffffff; }
+  .badge-navy { background: var(--navy); color: var(--amber); }
+  .badge-green { background: var(--green); color: #ffffff; }
+
+  .tier-desc {
+    background: var(--surface);
+    border-left: 4px solid var(--amber);
+    padding: 14px 18px;
+    margin-bottom: 28px;
+    border-radius: 0 6px 6px 0;
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  /* ── SESSION BLOCKS ── */
+  .session-block {
+    margin-bottom: 32px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .session-header {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .session-header-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .session-header h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--navy);
+  }
+  .token-warn {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 11px;
+    color: var(--red);
+    background: #fff0f0;
+    border: 1px solid #f8c0c0;
+    border-radius: 4px;
+    padding: 3px 8px;
+  }
+  .session-note {
+    font-size: 12px;
+    color: var(--text-secondary);
+    font-style: italic;
+    padding: 8px 20px;
+    background: #fffbf0;
+    border-bottom: 1px solid var(--border);
+  }
+  .session-body { padding: 0; }
+
+  /* ── CODE BLOCKS ── */
+  .prompt-wrap {
+    position: relative;
+  }
+  .prompt-wrap pre {
+    background: #0f1420;
+    color: #c8d4e8;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 12px;
+    line-height: 1.75;
+    padding: 20px 24px;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+  .copy-btn {
+    position: absolute;
+    top: 10px;
+    right: 14px;
+    background: var(--amber);
+    color: var(--navy);
+    border: none;
+    border-radius: 4px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 5px 12px;
+    cursor: pointer;
+    letter-spacing: 0.04em;
+    transition: background 0.15s;
+    z-index: 10;
+  }
+  .copy-btn:hover { background: #f0b030; }
+  .copy-btn.copied { background: var(--green); color: #fff; }
+
+  /* ── TEMPLATE BLOCKS ── */
+  .template-block {
+    margin-bottom: 28px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .template-header {
+    background: var(--navy);
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .template-header h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--amber);
+  }
+  .template-header p {
+    font-size: 12px;
+    color: #6c7a96;
+    font-family: 'Share Tech Mono', monospace;
+  }
+  .template-body {
+    padding: 18px 20px;
+    background: var(--surface);
+  }
+  .section-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px 20px;
+  }
+  .section-list li {
+    font-size: 13px;
+    color: var(--text);
+    padding: 4px 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    gap: 8px;
+  }
+  .section-list li .num {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 11px;
+    color: var(--amber);
+    min-width: 20px;
+    font-weight: 700;
+  }
+  .template-note {
+    margin-top: 14px;
+    background: #e8f4fd;
+    border: 1px solid #b8d8f0;
+    border-radius: 6px;
+    padding: 10px 14px;
+    font-size: 13px;
+    color: #1a5a8a;
+  }
+
+  /* ── TOKEN RULES ── */
+  .rules-block {
+    margin-bottom: 28px;
+    border: 2px solid var(--red);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .rules-header {
+    background: var(--red);
+    padding: 12px 20px;
+  }
+  .rules-header h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 18px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #ffffff;
+  }
+  .rules-header p {
+    font-size: 12px;
+    color: #ffcccc;
+    font-family: 'Share Tech Mono', monospace;
+  }
+  .rules-list {
+    padding: 18px 20px;
+    background: #fff8f8;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .rules-list li {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.6;
+  }
+  .rules-list li .rule-num {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 13px;
+    font-weight: 700;
+    color: #ffffff;
+    background: var(--red);
+    min-width: 26px;
+    height: 26px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .rules-list li strong {
+    color: var(--navy);
+    font-weight: 700;
+  }
+
+  /* ── SECTION DIVIDER ── */
+  .section-divider {
+    border: none;
+    border-top: 2px dashed var(--border);
+    margin: 32px 0;
+  }
+
+  /* ── FOOTER ── */
+  .site-footer {
+    background: var(--navy);
+    padding: 28px 40px;
+    text-align: center;
+    margin-top: 40px;
+  }
+  .site-footer h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 18px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--amber);
+    margin-bottom: 4px;
+  }
+  .site-footer .sub {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 12px;
+    color: #6c7a96;
+    margin-bottom: 16px;
+  }
+  .site-footer .fine {
+    font-size: 12px;
+    color: #4a5568;
+    line-height: 1.8;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  /* ── PRINT ── */
+  @media print {
+    .tab-nav, .copy-btn { display: none; }
+    .tab-pane { display: block !important; page-break-before: always; }
+    .tab-pane:first-of-type { page-break-before: auto; }
+    .site-header { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+  }
+
+  @media (max-width: 700px) {
+    .var-grid { grid-template-columns: 1fr; }
+    .section-list { grid-template-columns: 1fr; }
+    .site-header { padding: 20px 16px; }
+    .wrapper { padding: 0 12px 40px; }
+    .tab-btn { padding: 10px 14px; font-size: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════ HEADER ══════════════════════════════════ -->
+<header class="site-header">
+  <div class="left">
+    <h1>NFE LLC — Digital Research Framework</h1>
+    <p>Reusable Intelligence System &nbsp;·&nbsp; Any Client &nbsp;·&nbsp; Any Industry &nbsp;·&nbsp; Any Tier</p>
+  </div>
+  <div class="right">
+    <p>Version 1.0</p>
+    <p>Built from SpitzLift engagement</p>
+    <p>April 2026</p>
+  </div>
+</header>
+
+<!-- ══════════════════════════════════ WRAPPER ══════════════════════════════════ -->
+<div class="wrapper">
+
+  <!-- ════════════ VARIABLE SUBSTITUTION PANEL ════════════ -->
+  <div class="var-panel">
+    <div class="var-panel-header">
+      <h2>⚙️ STEP 1 — Fill These In Before Firing Any Prompt</h2>
+    </div>
+    <div class="var-panel-body">
+      <p>Replace every <code style="background:#fff3d0;padding:1px 5px;border-radius:3px;font-family:'Share Tech Mono',monospace;font-size:12px;">[VARIABLE]</code> in all prompts below with the actual client values. Find and replace in your text editor, or update the fields here and copy.</p>
+
+      <div class="var-grid">
+        <div class="var-row">
+          <label>[CLIENT_NAME]</label>
+          <span>Full legal business name</span>
+          <input class="var-field" type="text" placeholder="e.g. SpitzLift Manufacturing">
+        </div>
+        <div class="var-row">
+          <label>[INDUSTRY]</label>
+          <span>Industry description (1–3 words)</span>
+          <input class="var-field" type="text" placeholder="e.g. specialty manufacturer">
+        </div>
+        <div class="var-row">
+          <label>[CLIENT_SHORT]</label>
+          <span>Short name used in conversation</span>
+          <input class="var-field" type="text" placeholder="e.g. SpitzLift">
+        </div>
+        <div class="var-row">
+          <label>[NAICS_CODE]</label>
+          <span>NAICS code if known</span>
+          <input class="var-field" type="text" placeholder="e.g. 336992">
+        </div>
+        <div class="var-row">
+          <label>[DOMAIN]</label>
+          <span>Primary website domain (no https://)</span>
+          <input class="var-field" type="text" placeholder="e.g. spitzlift.com">
+        </div>
+        <div class="var-row">
+          <label>[KNOWN_CLIENTS]</label>
+          <span>Key clients if known (comma separated)</span>
+          <input class="var-field" type="text" placeholder="e.g. Halliburton, BNSF Railroad">
+        </div>
+        <div class="var-row">
+          <label>[CEO_NAME]</label>
+          <span>CEO/Founder full name</span>
+          <input class="var-field" type="text" placeholder="e.g. Michael Spitsbergen">
+        </div>
+        <div class="var-row">
+          <label>[GOVT_CUSTOMER]</label>
+          <span>Known government customer (or "unknown")</span>
+          <input class="var-field" type="text" placeholder="e.g. U.S. Coast Guard">
+        </div>
+        <div class="var-row">
+          <label>[CEO_LINKEDIN]</label>
+          <span>LinkedIn URL or search term</span>
+          <input class="var-field" type="text" placeholder="e.g. linkedin.com/in/michael-spitsbergen">
+        </div>
+        <div class="var-row">
+          <label>[COMPETITOR_1]</label>
+          <span>Primary competitor name</span>
+          <input class="var-field" type="text" placeholder="e.g. REID Lifting">
+        </div>
+        <div class="var-row">
+          <label>[LOCATION]</label>
+          <span>City, State</span>
+          <input class="var-field" type="text" placeholder="e.g. San Diego, CA">
+        </div>
+        <div class="var-row">
+          <label>[TIER_TARGET]</label>
+          <span>Which tier: T1 / T2 / T3</span>
+          <input class="var-field" type="text" placeholder="e.g. T2">
+        </div>
+      </div>
+
+      <div class="var-example">
+        <h4>SpitzLift Example Values</h4>
+        <p>
+          <strong>CLIENT_NAME</strong> = SpitzLift Manufacturing &nbsp;·&nbsp; <strong>CLIENT_SHORT</strong> = SpitzLift<br>
+          <strong>DOMAIN</strong> = spitzlift.com &nbsp;·&nbsp; <strong>CEO_NAME</strong> = Michael Spitsbergen<br>
+          <strong>INDUSTRY</strong> = specialty manufacturer &nbsp;·&nbsp; <strong>NAICS_CODE</strong> = 336992<br>
+          <strong>KNOWN_CLIENTS</strong> = Halliburton, BNSF Railroad, BAE Systems, U.S. Military<br>
+          <strong>GOVT_CUSTOMER</strong> = U.S. Coast Guard, Lockheed Martin<br>
+          <strong>COMPETITOR_1</strong> = REID Lifting
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════ TABS ════════════ -->
+  <div class="tabs-container">
+    <div class="tab-nav">
+      <button class="tab-btn active" onclick="switchTab('t1', this)">TIER 1: Quick Strike Brief</button>
+      <button class="tab-btn" onclick="switchTab('t2', this)">TIER 2: Full Footprint Audit</button>
+      <button class="tab-btn" onclick="switchTab('t3', this)">TIER 3: Deep Intelligence</button>
+      <button class="tab-btn" onclick="switchTab('out', this)">Output Templates</button>
+    </div>
+
+    <!-- ══════════════════════════════════ TAB 1 — TIER 1 ══════════════════════════════════ -->
+    <div id="tab-t1" class="tab-pane active">
+      <div class="tier-header">
+        <h2>Tier 1 — Quick Strike Brief</h2>
+        <span class="badge badge-amber">2–3 Hours</span>
+        <span class="badge badge-navy">$1,500 Audit</span>
+        <span class="badge badge-teal">Walk In With Something</span>
+      </div>
+
+      <div class="tier-desc">
+        This is the signature NFE LLC move. You build the brief before they agree to anything. You show up with the cold Coke already in their hand. One Chrome session. One Terminal session. Top 3 gaps identified. Enough to start a conversation and earn the right to go deeper.<br><br>
+        <strong>Use this for:</strong> cold outreach targets, warm referrals, any first meeting where you want to demonstrate what you do by doing it.
+      </div>
+
+      <!-- T1 CHROME -->
+      <div class="session-block">
+        <div class="session-header">
+          <div class="session-header-left">
+            <h3>Chrome Agent — T1 Session</h3>
+            <span class="badge badge-blue">CHROME · 1 SESSION · ~45 MIN</span>
+          </div>
+          <span class="token-warn">⚠ HARD LIMIT: 20 TOOL CALLS</span>
+        </div>
+        <div class="session-note">Keep this under 15 tool calls. Summarize as you go. Do not reproduce full pages.</div>
+        <div class="session-body">
+          <div class="prompt-wrap">
+            <button class="copy-btn" onclick="copyPrompt(this)">COPY</button>
+            <pre>I am doing pre-engagement business research on [CLIENT_NAME] ([DOMAIN]) for a business
+development meeting. This is legitimate business intelligence research for NFE LLC.
+
+Complete these 4 tasks in sequence. Summarize findings as you go —
+do not reproduce full page text. Keep total output under 2,000 words.
+
+TASK 1 — LEADERSHIP (10 min)
+Search LinkedIn for "[CEO_NAME] [CLIENT_SHORT]"
+Find the CEO/founder profile and capture:
+- Full title, career history summary
+- Any recent posts (last 30 days) — topics only
+- Connection count and follower count
+- Education and any notable credentials
+- One sentence on what they care about publicly
+
+Search LinkedIn company page for [CLIENT_SHORT]:
+- Follower count
+- Employee count shown
+- Recent company posts — topics only
+- Department breakdown if visible
+
+TASK 2 — TECH STACK SURFACE SCAN (10 min)
+Visit [DOMAIN]. Open browser dev tools.
+Check page source for these signals and note FOUND or NOT FOUND for each:
+- CRM: HubSpot, Salesforce, Zoho, Pipedrive
+- Email: Mailchimp, Klaviyo, ActiveCampaign, Constant Contact
+- Chat: Intercom, Drift, Zendesk, Freshdesk
+- Analytics: GA4, Bing Ads, Meta Pixel, LinkedIn Insight Tag
+- E-commerce: WooCommerce, Shopify, Magento
+- ERP signals: any enterprise software tags
+
+Visit [DOMAIN]/wp-json/ if it loads — list the first 10 API namespaces visible.
+Note: is this WordPress? What plugins are exposed in the namespace list?
+
+TASK 3 — SECURITY SURFACE SCAN (5 min)
+At [DOMAIN]/wp-json/ check if any of these dangerous namespaces are exposed without auth:
+- file-manager-advanced/v1
+- wp-file-manager/v1
+- Any file manager, backup, or admin plugin
+
+Google: "[DOMAIN] site:shodan.io" for any public exposure records.
+
+Check [DOMAIN] email DNS:
+Google: "[DOMAIN] DMARC check"
+Note: does DMARC exist? SPF? DKIM?
+Missing DMARC = active email spoofing vulnerability. Flag as HIGH if absent.
+
+TASK 4 — ONE COMPETITOR COMPARISON (10 min)
+Research [COMPETITOR_1].
+Visit their website. Note:
+- Do they have a dealer/distributor portal?
+- Do they have online ordering?
+- LinkedIn follower count vs [CLIENT_SHORT]
+- Any recent news (Google: "[COMPETITOR_1] news 2025 2026")
+
+COMPILE — 400-word report:
+## T1 BRIEF: [CLIENT_NAME]
+### Leadership Snapshot
+### Tech Stack — What They Have vs. What's Missing
+### Security Findings (flag HIGH/MEDIUM/LOW)
+### Competitive Gap (vs [COMPETITOR_1])
+### Top 3 Gaps — Most Actionable First
+
+End with: "TOP 3 GAPS FOR THE OPENING CONVERSATION:"
+List each gap as one sentence starting with the business impact, not the technical detail.</pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- T1 TERMINAL -->
+      <div class="session-block">
+        <div class="session-header">
+          <div class="session-header-left">
+            <h3>Terminal Agent — T1 Session</h3>
+            <span class="badge badge-navy">TERMINAL · 1 SESSION · ~15 MIN</span>
+          </div>
+        </div>
+        <div class="session-body">
+          <div class="prompt-wrap">
+            <button class="copy-btn" onclick="copyPrompt(this)">COPY</button>
+            <pre>Create directory C:\NFE\research\[CLIENT_SHORT]\ if it doesn't exist.
+
+Run these 3 quick intelligence pulls on [CLIENT_NAME] ([DOMAIN]):
+
+PULL 1 — SAM.GOV CHECK
+curl "https://api.sam.gov/entity-information/v3/entities?api_key=DEMO_KEY&legalBusinessName=[CLIENT_NAME]&includeSections=entityRegistration"
+
+Parse result:
+- Is [CLIENT_NAME] registered in SAM.gov?
+- If yes: UEI, CAGE code, registration status, expiration date, NAICS codes
+- If no: Flag as GAP — no federal contracting pathway without SAM registration
+
+PULL 2 — USASPENDING CONTRACT CHECK
+curl -X POST "https://api.usaspending.gov/api/v2/search/spending_by_award/" \
+-H "Content-Type: application/json" \
+-d '{
+  "filters": {
+    "keywords": ["[CLIENT_NAME]", "[CLIENT_SHORT]"],
+    "award_type_codes": ["A","B","C","D"],
+    "time_period": [{"start_date":"2015-01-01","end_date":"2026-12-31"}]
+  },
+  "fields": ["Award ID","Recipient Name","Award Amount","Awarding Agency","Award Date","Description"],
+  "limit": 20
+}'
+
+Parse result:
+- Any contracts found?
+- Total identified contract value
+- Agencies involved
+- If zero results: note as "no direct federal contract record — may flow through distributors"
+
+PULL 3 — SITE TECHNICAL FINGERPRINT
+curl -A "Mozilla/5.0" https://[DOMAIN] -s | \
+grep -oE '(wp-content|shopify|squarespace|wix|webflow|ghost|drupal|joomla)' | sort -u
+
+curl -A "Mozilla/5.0" https://[DOMAIN] -s | \
+grep -oE 'src="[^"]*\.(js|css)"' | grep -v wp-includes | head -20
+
+Save all output to:
+C:\NFE\research\[CLIENT_SHORT]\t1_intel.json
+
+Print a 200-word summary:
+## T1 TERMINAL FINDINGS: [CLIENT_NAME]
+SAM.gov Status: [REGISTERED/NOT REGISTERED]
+Federal Contract Value Found: [$X or NONE]
+CMS Platform: [CONFIRMED]
+Key Technical Signals: [LIST]
+Priority Finding: [THE ONE THING THAT MATTERS MOST]</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END TAB 1 -->
+
+    <!-- ══════════════════════════════════ TAB 2 — TIER 2 ══════════════════════════════════ -->
+    <div id="tab-t2" class="tab-pane">
+      <div class="tier-header">
+        <h2>Tier 2 — Full Footprint Audit</h2>
+        <span class="badge badge-amber">1–2 Days</span>
+        <span class="badge badge-navy">Complete Intelligence Package</span>
+      </div>
+
+      <div class="tier-desc">
+        The full picture. Three Chrome sessions and two Terminal sessions, each scoped to avoid the token limit that killed the first SpitzLift Chrome run. Each session is a standalone mission that produces a section of the full brief. Terminal runs in parallel — it does not depend on Chrome output to start.<br><br>
+        <strong>Use this for:</strong> warm leads, referrals where a meeting is already likely, any client where you need the full scope before proposing.
+      </div>
+
+      <!-- T2-CR-A -->
+      <div class="session-block">
+        <div class="session-header">
+          <div class="session-header-left">
+            <h3>T2-CR-A — Chrome Session A</h3>
+            <span class="badge badge-blue">CHROME · SESSION A · ~30 MIN</span>
+            <span class="badge badge-amber">MAX 20 TOOL CALLS</span>
+          </div>
+          <span class="token-warn">⚠ 20 TOOL CALL LIMIT</span>
+        </div>
+        <div class="session-note">Leadership, Tech Stack &amp; Accounting Confirmation</div>
+        <div class="session-body">
+          <div class="prompt-wrap">
+            <button class="copy-btn" onclick="copyPrompt(this)">COPY</button>
+            <pre>I am doing pre-engagement business intelligence research on [CLIENT_NAME] ([DOMAIN]) for NFE LLC.
+Two focused tasks. Summarize as you go. Hard limit: 20 tool calls total.
+
+TASK A1 — LEADERSHIP MAP (15 min)
+Go to LinkedIn. Search "[CEO_NAME] [CLIENT_SHORT]"
+For the CEO/founder profile document:
+- Full career history (every role)
+- Education and credentials
+- Last 5 LinkedIn posts — topic and date only
+- Any public statements about company direction
+- Connection and follower counts
+
+Search LinkedIn company page for [CLIENT_SHORT]:
+- List every visible employee with name, title, and department
+- Identify: VP/Director/Manager level people
+- Note any family members sharing a surname
+- Note any recently departed employees (former employees who still show company)
+
+Google "[CEO_NAME] [CLIENT_SHORT]" for any:
+- Press mentions or interviews
+- Podcast appearances
+- Conference talks
+- News coverage last 24 months
+
+TASK A2 — ACCOUNTING SOFTWARE CONFIRMATION (15 min)
+This is the most important unknown for scoping.
+
+Search LinkedIn for the most recent bookkeeper, controller, or CFO who worked at [CLIENT_SHORT]:
+- What software do they list in skills?
+- What does their job description mention?
+
+Google: "[CLIENT_SHORT] QuickBooks"
+Google: "[CLIENT_SHORT] Zoho Books"
+Google: "[CLIENT_SHORT] NetSuite"
+Google: "[CLIENT_SHORT] accounting software"
+
+Check Indeed for [CLIENT_SHORT] historical job postings — especially accounting/finance roles.
+What software is mentioned?
+
+Check if any trade publication features mention their software stack.
+
+COMPILE:
+## SECTION A: LEADERSHIP + ACCOUNTING
+### Executive Profile: [CEO_NAME]
+### Org Chart (confirmed employees)
+### Family/Relationship Map (if relevant)
+### Accounting Software: CONFIRMED/SUSPECTED/UNKNOWN
+### Confidence Level: HIGH/MEDIUM/LOW
+### Evidence for accounting conclusion</pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- T2-CR-B -->
+      <div class="session-block">
+        <div class="session-header">
+          <div class="session-header-left">
+            <h3>T2-CR-B — Chrome Session B</h3>
+            <span class="badge badge-blue">CHROME · SESSION B · ~30 MIN</span>
+            <span class="badge badge-amber">MAX 20 TOOL CALLS</span>
+          </div>
+          <span class="token-warn">⚠ 20 TOOL CALL LIMIT</span>
+        </div>
+        <div class="session-note">Distributor Network + Sales Channel Map</div>
+        <div class="session-body">
+          <div class="prompt-wrap">
+            <button class="copy-btn" onclick="copyPrompt(this)">COPY</button>
+            <pre>Pre-engagement research for NFE LLC on [CLIENT_NAME] ([DOMAIN]).
+One focused task. Move fast, summarize only. Hard limit: 20 tool calls total.
+
+TASK B1 — DISTRIBUTOR AND DEALER NETWORK
+
+Visit [DOMAIN]/international-distributors/ or similar distributor page.
+List every distributor: name, country/state, website.
+
+Google these searches one at a time.
+For each result mentioning [CLIENT_SHORT], note: company name, location, context:
+
+"[CLIENT_SHORT] authorized distributor"
+"[CLIENT_SHORT] authorized dealer"
+"[CLIENT_SHORT] reseller"
+"[CLIENT_SHORT] dealer"
+"[CLIENT_SHORT] upfitter" (if applicable)
+site:linkedin.com "[CLIENT_SHORT]" "distributor"
+site:linkedin.com "[CLIENT_SHORT]" "dealer"
+
+Visit the distributor locator page if one exists.
+Note: is it a real locator tool or just a phone number and email?
+
+TASK B2 — PARTNER PORTAL ASSESSMENT
+Visit the partner/dealer portal URL if one exists.
+What can you see without logging in?
+What is clearly missing vs. a modern B2B portal?
+
+Assess what distributors currently have to call or email in manually — list each one.
+Each manual touchpoint is an automation target.
+
+COMPILE:
+## SECTION B: DISTRIBUTION NETWORK
+### Total Confirmed Distributors (count + breakdown)
+### Geographic Concentration
+### Network Size Estimate: [X-Y range] and why
+### Partner Portal Assessment (1-10 score + reasoning)
+### Manual Touchpoints (automation targets list)
+### Biggest Distribution Channel Gap</pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- T2-CR-C -->
+      <div class="session-block">
+        <div class="session-header">
+          <div class="session-header-left">
+            <h3>T2-CR-C — Chrome Session C</h3>
+            <span class="badge badge-blue">CHROME · SESSION C · ~30 MIN</span>
+            <span class="badge badge-amber">MAX 20 TOOL CALLS</span>
+          </div>
+          <span class="token-warn">⚠ 20 TOOL CALL LIMIT</span>
+        </div>
+        <div class="session-note">Competitive Field + Hiring Signals + News</div>
+        <div class="session-body">
+          <div class="prompt-wrap">
+            <button class="copy-btn" onclick="copyPrompt(this)">COPY</button>
+            <pre>Pre-engagement research for NFE LLC on [CLIENT_NAME] ([DOMAIN]).
+Three focused tasks. Fast and efficient. Hard limit: 20 tool calls total.
+
+TASK C1 — COMPETITIVE FIELD (15 min)
+Research these [INDUSTRY] competitors.
+For each visit their website and answer 4 questions only — 2 minutes per company:
+
+Competitors: [COMPETITOR_1], [COMPETITOR_2], [COMPETITOR_3]
+(Add more if known — keep to 5 max)
+
+Q1: Authenticated dealer/distributor portal? Yes/No + one sentence of evidence
+Q2: Online ordering or configurator? Yes/No
+Q3: LinkedIn follower count?
+Q4: Any news 2025-2026? (Google: "[company] news 2025 2026")
+
+Build comparison table:
+Company | Portal | Ordering | LinkedIn | News | Score/10
+
+Note specifically: who is furthest ahead digitally and what they have that [CLIENT_SHORT] doesn't.
+
+TASK C2 — HIRING SIGNALS (10 min)
+Search Indeed for [CLIENT_SHORT]:
+- Current openings (title + key details)
+- Historical role types from salary data
+- Any software tools mentioned in descriptions
+
+Search Glassdoor for [CLIENT_SHORT]:
+- Rating, review count
+- Top 3 review themes (pros and cons)
+- Any mentions of software, systems, process issues
+
+Google: site:indeed.com "[CLIENT_SHORT]"
+Google: site:glassdoor.com "[CLIENT_SHORT]"
+
+TASK C3 — NEWS SCAN (5 min)
+Google News: "[CLIENT_SHORT]" last 12 months
+Google: "[CLIENT_SHORT] 2025"
+Google: "[CLIENT_SHORT] 2026"
+
+Note every result: title, source, date, one-line summary.
+
+COMPILE:
+## SECTION C: COMPETITIVE + HIRING + NEWS
+### Competitive Scorecard Table
+### Where [CLIENT_SHORT] Stands vs. Field
+### Competitive Urgency: Window open? How long?
+### Top Hiring/Glassdoor Signals
+### Software Tools Confirmed from Job Postings
+### News Summary (last 12 months)
+### Internal State Assessment (1 paragraph)</pre>
+          </div>
+        </div>
+      </div>
+
+      <hr class="section-divider">
+
+      <!-- T2-TA -->
+      <div class="session-block">
+        <div class="session-header">
+          <div class="session-header-left">
+            <h3>T2-TA — Terminal Session A</h3>
+            <span class="badge badge-navy">TERMINAL · SESSION A · ~20 MIN</span>
+          </div>
+        </div>
+        <div class="session-note">Full Site Crawl + Form Audit — runs in parallel with Chrome sessions</div>
+        <div class="session-body">
+          <div class="prompt-wrap">
+            <button class="copy-btn" onclick="copyPrompt(this)">COPY</button>
+            <pre>Create directory C:\NFE\research\[CLIENT_SHORT]\ if it doesn't exist.
+
+Run a full technical intelligence extraction on [DOMAIN].
+
+SCRIPT 1 — SITEMAP AND PAGE INVENTORY
+import requests, json
+from bs4 import BeautifulSoup
+
+Fetch https://[DOMAIN]/sitemap.xml
+Parse all URLs. For each URL (up to 100):
+- Fetch the page
+- Extract: title, h1/h2/h3 tags, all form fields with names,
+  any email addresses, any phone numbers,
+  any pricing mentions, any software mentions
+
+Special deep-fetch on these high-value pages if they exist:
+- /contact/ or /request-information/
+- /become-a-distributor/ or /distributors/
+- /warranty/ or /product-registration/
+- /about/ or /about-us/
+- /blog/ or /news/
+- /careers/ or /jobs/
+
+SCRIPT 2 — TECH STACK ENUMERATION
+Fetch https://[DOMAIN]/wp-json/
+List ALL API namespaces.
+
+Flag these as SECURITY EXPOSURE if found without authentication:
+- file-manager-advanced/v1
+- wp-file-manager/v1
+- wp-db-backup/v1
+- updraftplus/v1
+- backwpup/v1
+
+Also check: which namespaces reveal plugin names and versions?
+
+SCRIPT 3 — FEDERAL DATA PULLS
+Run both from T1 (SAM + USASpending) with full output this time.
+
+Additionally query:
+curl "https://api.usaspending.gov/api/v2/recipient/search/?keyword=[CLIENT_NAME]&limit=10"
+
+Save everything to:
+C:\NFE\research\[CLIENT_SHORT]\t2_site_audit.json
+C:\NFE\research\[CLIENT_SHORT]\t2_federal.json
+
+Print summary:
+## T2 TERMINAL-A FINDINGS
+Pages crawled: [N]
+Forms found: [N] — list each with purpose
+Security exposures: [LIST or NONE]
+Federal contracts: [VALUE or NONE]
+Key technical finding: [ONE SENTENCE]</pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- T2-TB -->
+      <div class="session-block">
+        <div class="session-header">
+          <div class="session-header-left">
+            <h3>T2-TB — Terminal Session B</h3>
+            <span class="badge badge-navy">TERMINAL · SESSION B · ~20 MIN</span>
+          </div>
+        </div>
+        <div class="session-note">Revenue Benchmarking + ROI Data + Zoho/Stack Depth — runs in parallel with Chrome sessions</div>
+        <div class="session-body">
+          <div class="prompt-wrap">
+            <button class="copy-btn" onclick="copyPrompt(this)">COPY</button>
+            <pre>Run research for NFE LLC engagement with [CLIENT_NAME] in [INDUSTRY].
+
+PULL 1 — REVENUE ESTIMATES
+Search these sources for [CLIENT_NAME] revenue and employee data:
+
+Using Python requests, fetch and parse:
+- https://craft.co/[CLIENT_SHORT] (or search craft.co)
+- ZoomInfo public data for [CLIENT_NAME]
+- RocketReach public data
+- Owler.com search for [CLIENT_NAME]
+
+Also pull NAICS [NAICS_CODE] industry data:
+- Average revenue per employee for this NAICS
+- Industry median revenue for companies with [EMPLOYEE_COUNT] employees
+
+Calculate:
+- [CLIENT_NAME] implied rev/employee at reported range
+- Industry average rev/employee × [CLIENT_NAME] headcount
+- The GAP: what they should generate vs. what they appear to generate
+
+PULL 2 — ROI STATISTICS FOR BUSINESS CASE
+Search DuckDuckGo API for these queries and extract specific statistics:
+
+"[INDUSTRY] automation ROI statistics 2024 2025"
+"[INDUSTRY] ERP implementation ROI"
+"distributor portal self service ROI manufacturer"
+"manual order processing cost per order"
+"inventory management accuracy improvement ERP"
+
+For each statistic found capture:
+- The exact number or percentage
+- What it measures
+- Source name
+- Year of data
+
+Minimum 8 citable statistics.
+
+PULL 3 — INTEGRATION ECOSYSTEM CHECK
+If Zoho was detected in T1/T2:
+Fetch https://www.zoho.com/crm/zohocrm-integrations.html
+Check: does Zoho CRM integrate natively with [KNOWN_ACCOUNTING_SOFTWARE]?
+Does Zoho Books integrate with WooCommerce?
+
+If different CRM detected, check its integration docs for the same questions.
+
+Save to:
+C:\NFE\research\[CLIENT_SHORT]\t2_revenue_roi.json
+
+Print:
+## T2 TERMINAL-B FINDINGS
+Revenue estimates found: [LIST ALL SOURCES]
+Revenue gap calculation: [CURRENT vs BENCHMARK]
+Top 5 ROI statistics for business case:
+Integration compatibility: [SUMMARY]</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END TAB 2 -->
+
+    <!-- ══════════════════════════════════ TAB 3 — TIER 3 ══════════════════════════════════ -->
+    <div id="tab-t3" class="tab-pane">
+      <div class="tier-header">
+        <h2>Tier 3 — Deep Intelligence Package</h2>
+        <span class="badge badge-amber">2–3 Days</span>
+        <span class="badge badge-navy">Full Stakeholder + Compliance + Moat Analysis</span>
+      </div>
+
+      <div class="tier-desc">
+        The full picture for high-value engagements. Built on top of T2 output. Adds stakeholder profiles on every decision maker, CMMC compliance exposure if defense-adjacent, competitive moat timing analysis, and the complete 4 Pillar brief that drives the presentation. This is what you bring to a second call when the retainer is on the table.
+      </div>
+
+      <!-- T3-CR-D -->
+      <div class="session-block">
+        <div class="session-header">
+          <div class="session-header-left">
+            <h3>T3-CR-D — Chrome Session D</h3>
+            <span class="badge badge-blue">CHROME · SESSION D · ~35 MIN</span>
+            <span class="badge badge-amber">MAX 20 TOOL CALLS</span>
+          </div>
+          <span class="token-warn">⚠ 20 TOOL CALL LIMIT</span>
+        </div>
+        <div class="session-note">Full Stakeholder Profiles — all decision makers</div>
+        <div class="session-body">
+          <div class="prompt-wrap">
+            <button class="copy-btn" onclick="copyPrompt(this)">COPY</button>
+            <pre>Pre-engagement stakeholder research for NFE LLC on [CLIENT_NAME].
+I need detailed profiles on [N] key decision makers.
+Hard limit: 20 tool calls. Summarize — no full page reproductions.
+Total output under 2,500 words.
+
+STAKEHOLDERS TO RESEARCH:
+1. [CEO_NAME] — CEO/Founder
+2. [PERSON_2_NAME] — [PERSON_2_TITLE]
+3. [PERSON_3_NAME] — [PERSON_3_TITLE]
+4. [PERSON_4_NAME] — [PERSON_4_TITLE]
+(Add or remove as appropriate)
+
+FOR EACH PERSON research in this order:
+Step 1: LinkedIn profile search
+  - "[NAME] [CLIENT_SHORT]"
+  - Career history, education, credentials
+  - Last 5 posts — topic and engagement count
+  - Any posts about technology, systems, process, growth, or frustration
+  - Follower/connection count
+
+Step 2: Google "[NAME] [CLIENT_SHORT]"
+  - Press mentions, interviews, podcasts
+  - Any public statements about company
+
+Step 3: Check if they have other social presence (X/Twitter, personal website)
+
+FOR EACH PERSON compile:
+- Full background summary
+- What they care about publicly
+- Their likely pain point with current systems
+- How to open the conversation with them
+- One-sentence opener for the call
+- Any landmine (family relationship, sensitive departure, title sensitivity)
+
+END COMPILE:
+## STAKEHOLDER BRIEF: [CLIENT_NAME]
+
+### Decision Sequence
+[Who validates → who moves → who executes]
+Evidence for this sequence.
+
+### For Each Person:
+Profile card with all fields above.
+
+### The Room — Second Call
+Who is likely on the call and what each person needs to hear to say yes.</pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- T3-CR-E -->
+      <div class="session-block">
+        <div class="session-header">
+          <div class="session-header-left">
+            <h3>T3-CR-E — Chrome Session E</h3>
+            <span class="badge badge-blue">CHROME · SESSION E · ~25 MIN</span>
+            <span class="badge badge-amber">CONDITIONAL</span>
+          </div>
+        </div>
+        <div class="session-note">CMMC Exposure + Government Channel Intelligence — only run if [GOVT_CUSTOMER] is confirmed. Skip if "unknown".</div>
+        <div class="session-body">
+          <div class="prompt-wrap">
+            <button class="copy-btn" onclick="copyPrompt(this)">COPY</button>
+            <pre>CMMC compliance and government channel research for NFE LLC on [CLIENT_NAME].
+
+TASK E1 — CMMC EXPOSURE ASSESSMENT
+[CLIENT_NAME] has confirmed relationships with: [GOVT_CUSTOMER] and potentially other defense entities.
+
+Research:
+1. Do any of [CLIENT_NAME]'s confirmed customers appear on the CMMC Level 2 primes list?
+   Google: "[GOVT_CUSTOMER] CMMC Level 2 prime contractor"
+   Google: "[KNOWN_CLIENTS] DFARS subcontractor requirements"
+
+2. Check SAM.gov for [CLIENT_NAME]:
+   Visit sam.gov and search [CLIENT_NAME]
+   - Is there an active entity registration?
+   - What NAICS codes are registered?
+   - Is there a SPRS score visible?
+   - When does registration expire?
+
+3. Google: "[CLIENT_NAME] ITAR"
+   Google: "[CLIENT_NAME] DFARS"
+   Google: "[CLIENT_NAME] government compliance"
+   Note any compliance requirements or violations that appear.
+
+4. Check CMMC-AB marketplace at cyberab.org/marketplace:
+   Is [CLIENT_NAME] listed as certified?
+   (Almost certainly not — confirm.)
+
+TASK E2 — GOVERNMENT CHANNEL MAPPING
+For each confirmed government relationship in [KNOWN_CLIENTS] + [GOVT_CUSTOMER]:
+
+Google: "[PRIME_CONTRACTOR] supply chain requirements 2025 2026"
+Google: "[PRIME_CONTRACTOR] CMMC subcontractor flowdown"
+
+Note: what compliance is being flowed down to [CLIENT_NAME]'s category of supplier?
+
+COMPILE:
+## SECTION E: CMMC + GOVERNMENT CHANNEL
+### CMMC Level Required: 1 / 2 / 3 / Unknown
+### SAM.gov Status: Active / Expired / Not Registered
+### Flowdown Requirements from Confirmed Primes
+### Estimated Compliance Gap (1-10 scale)
+### Timeline Risk: When does this become critical?
+### Government Channel Opportunity (GSA, SBIR, etc.)
+### Janet/Equivalent — Who internally owns this?</pre>
+          </div>
+        </div>
+      </div>
+
+      <hr class="section-divider">
+
+      <!-- T3-TA -->
+      <div class="session-block">
+        <div class="session-header">
+          <div class="session-header-left">
+            <h3>T3-TA — Terminal Session C</h3>
+            <span class="badge badge-navy">TERMINAL · SESSION C · ~15 MIN</span>
+            <span class="badge badge-green">SYNTHESIS</span>
+          </div>
+        </div>
+        <div class="session-note">4 Pillar Brief Generation + Demo Build Brief — reads all prior research files and synthesizes</div>
+        <div class="session-body">
+          <div class="prompt-wrap">
+            <button class="copy-btn" onclick="copyPrompt(this)">COPY</button>
+            <pre>Read all files in C:\NFE\research\[CLIENT_SHORT]\
+Synthesize everything into two deliverables.
+
+DELIVERABLE 1 — THE 4 PILLAR BRIEF
+
+Generate C:\NFE\research\[CLIENT_SHORT]\FOUR_PILLAR_BRIEF.md
+
+Structure:
+
+## [CLIENT_NAME] — 4 PILLAR STRATEGIC BRIEF
+
+### PILLAR 1: THE FOUNDATION
+What they have built. The credibility, the client roster, the market position.
+What makes this company worth investing in. Forward-looking — honor what exists.
+[Pull from: leadership intel, client list, tenure, industry position]
+
+### PILLAR 2: THE RUNWAY
+Digital maturity scores by department. Competitor field comparison.
+How much upside exists — framed as opportunity.
+[Pull from: tech stack audit, competitive research, digital maturity scores]
+
+### PILLAR 3: THE TIMING
+Competitive urgency timeline. Who is moving in the market right now.
+The window and how long it stays open.
+[Pull from: competitor news, capital moves, market intelligence]
+
+### PILLAR 4: THE UNLOCK
+What becomes possible with the right infrastructure.
+Revenue gap analysis (private — eyes only). Specific doors that open. The close line.
+[Pull from: revenue benchmarking, ROI stats, specific gap findings]
+
+---
+
+DELIVERABLE 2 — DEMO BUILD BRIEF
+
+Generate C:\NFE\research\[CLIENT_SHORT]\DEMO_BUILD_BRIEF.md
+
+Structure:
+## DEMO BUILD BRIEF: [CLIENT_NAME]
+
+### Real Data To Use In Demo
+Part names / product names: [LIST FROM RESEARCH]
+Real client names for kanban: [LIST FROM RESEARCH]
+Department names: [LIST FROM RESEARCH]
+Red button event: [SPECIFIC PART/SCENARIO FROM INTEL]
+Activity feed events: [5 SPECIFIC REAL EVENTS]
+
+### Zoho Integration Points For Demo
+What Zoho Books data to show: [FROM TECH AUDIT]
+What Zoho CRM data to show: [FROM TECH AUDIT]
+
+### The Cascade Event
+What triggers it: [SPECIFIC TO THIS CLIENT]
+What it affects: [SPECIFIC DEPARTMENTS]
+What it auto-does: [SPECIFIC ACTIONS]
+
+### Color Scheme Preference
+Based on: [CLIENT_NAME] brand colors from website
+
+Print confirmation when both files are saved.</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END TAB 3 -->
+
+    <!-- ══════════════════════════════════ TAB 4 — OUTPUT TEMPLATES ══════════════════════════════════ -->
+    <div id="tab-out" class="tab-pane">
+      <div class="tier-header">
+        <h2>Output Templates</h2>
+        <span class="badge badge-amber">Standard Deliverable Formats</span>
+      </div>
+
+      <div class="tier-desc">
+        Every engagement produces one of these deliverables. The template defines the format. The research fills the content. Consistent format = professional brand.
+      </div>
+
+      <!-- TEMPLATE 1 -->
+      <div class="template-block">
+        <div class="template-header">
+          <div>
+            <h3>Template 1 — Quick Strike Brief (T1)</h3>
+            <p>Deliverable for Tier 1 engagement · ~5 pages · Delivered as interactive HTML</p>
+          </div>
+          <span class="badge badge-amber" style="margin-left:auto;flex-shrink:0;">T1 DELIVERABLE</span>
+        </div>
+        <div class="template-body">
+          <p style="font-size:13px;color:var(--text-secondary);margin-bottom:14px;"><strong>Title:</strong> "The [CLIENT_NAME] Brief" &nbsp;·&nbsp; <strong>Subtitle:</strong> "Digital Footprint Intelligence — Prepared by NFE LLC"</p>
+          <ul class="section-list">
+            <li><span class="num">1.</span> Executive Summary (3 sentences max)</li>
+            <li><span class="num">4.</span> What They're Missing (top 3 gaps)</li>
+            <li><span class="num">2.</span> Who We're Talking To (CEO profile, 1 paragraph)</li>
+            <li><span class="num">5.</span> Security Finding (HIGH/MEDIUM/LOW — if any)</li>
+            <li><span class="num">3.</span> What They Have (tech stack confirmed)</li>
+            <li><span class="num">6.</span> The Conversation Starter (lead with this)</li>
+            <li><span class="num">7.</span> Proposed Next Step</li>
+            <li></li>
+          </ul>
+          <div class="template-note">
+            <strong>Format note:</strong> Deliver as an interactive HTML artifact with the NFE LLC / SpitzLift aesthetic. Not a PDF. A live URL they can open on their phone. <em>That IS the demonstration.</em>
+          </div>
+        </div>
+      </div>
+
+      <!-- TEMPLATE 2 -->
+      <div class="template-block">
+        <div class="template-header">
+          <div>
+            <h3>Template 2 — Full Footprint Report (T2)</h3>
+            <p>Deliverable for Tier 2 engagement · Full intelligence package</p>
+          </div>
+          <span class="badge badge-blue" style="margin-left:auto;flex-shrink:0;">T2 DELIVERABLE</span>
+        </div>
+        <div class="template-body">
+          <ul class="section-list">
+            <li><span class="num">1.</span> Company Snapshot (stats grid)</li>
+            <li><span class="num">7.</span> Hiring Signals &amp; Glassdoor Themes</li>
+            <li><span class="num">2.</span> Leadership &amp; Org (person cards)</li>
+            <li><span class="num">8.</span> Competitive Field (comparison table)</li>
+            <li><span class="num">3.</span> Technology Stack (confirmed vs. gaps table)</li>
+            <li><span class="num">9.</span> Revenue Benchmarking (private section)</li>
+            <li><span class="num">4.</span> Digital Maturity Scores (bar chart by dept)</li>
+            <li><span class="num">10.</span> Automation Opportunity Map (top 10 ranked)</li>
+            <li><span class="num">5.</span> Distribution Network (count, geography, gaps)</li>
+            <li><span class="num">11.</span> Recommended Engagement Entry Point</li>
+            <li><span class="num">6.</span> Federal Contract Intelligence (if applicable)</li>
+            <li></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- TEMPLATE 3 -->
+      <div class="template-block">
+        <div class="template-header">
+          <div>
+            <h3>Template 3 — Master Brief (T2 + T3)</h3>
+            <p>Deliverable for Tier 3 engagement · Full retainer-level package</p>
+          </div>
+          <span class="badge badge-teal" style="margin-left:auto;flex-shrink:0;">T3 DELIVERABLE</span>
+        </div>
+        <div class="template-body">
+          <p style="font-size:12px;color:var(--text-secondary);margin-bottom:12px;font-family:'Share Tech Mono',monospace;">Everything in T2 (sections 1–11), plus:</p>
+          <ul class="section-list">
+            <li><span class="num">12.</span> Stakeholder Profiles (full cards)</li>
+            <li><span class="num">16.</span> Call Script (second call framework)</li>
+            <li><span class="num">13.</span> Decision Sequence Map</li>
+            <li><span class="num">17.</span> Demo Build Brief</li>
+            <li><span class="num">14.</span> CMMC Exposure Analysis (if applicable)</li>
+            <li><span class="num">18.</span> Retainer Agreement (reference to template)</li>
+            <li><span class="num">15.</span> The 4 Pillar Brief</li>
+            <li></li>
+          </ul>
+        </div>
+      </div>
+
+      <hr class="section-divider">
+
+      <!-- TOKEN RULES -->
+      <div class="rules-block">
+        <div class="rules-header">
+          <h3>Token Management Rules</h3>
+          <p>How To Not Fry Chrome's Brain — Reference: SpitzLift Chrome session hit 206,408 tokens and timed out</p>
+        </div>
+        <ol class="rules-list">
+          <li>
+            <span class="rule-num">1</span>
+            <div><strong>HARD LIMIT per Chrome session: 20 tool calls.</strong> Write this at the top of every Chrome prompt. Without a written limit, Chrome will go until it runs out of tokens or the session dies.</div>
+          </li>
+          <li>
+            <span class="rule-num">2</span>
+            <div><strong>SUMMARIZE AS YOU GO.</strong> Never ask Chrome to "read the full page" — always "extract and summarize only." Full-page reproductions are the single biggest token killer.</div>
+          </li>
+          <li>
+            <span class="rule-num">3</span>
+            <div><strong>SPLIT BY TOPIC not by time.</strong> Each Chrome session owns one topic completely. Don't mix leadership research with competitive research in the same session.</div>
+          </li>
+          <li>
+            <span class="rule-num">4</span>
+            <div><strong>REPORT FORMAT FIRST.</strong> Start every Chrome session with "Keep total output under [X] words" — this forces summarization and prevents token bloat from the first tool call.</div>
+          </li>
+          <li>
+            <span class="rule-num">5</span>
+            <div><strong>TERMINAL FOR APIS.</strong> Anything that can be done via an API (SAM.gov, USASpending, site crawl, revenue data) goes to Terminal. Chrome is for sites that require navigation and interpretation. Never use Chrome for something Terminal can do.</div>
+          </li>
+          <li>
+            <span class="rule-num">6</span>
+            <div><strong>NO FULL PAGE REPRODUCTIONS. EVER.</strong> Snippets and summaries only. If it's important enough to copy in full, save the URL and fetch it separately in a dedicated session.</div>
+          </li>
+        </ol>
+      </div>
+
+    </div>
+    <!-- END TAB 4 -->
+
+  </div>
+  <!-- END TABS -->
+
+</div>
+<!-- END WRAPPER -->
+
+<!-- ══════════════════════════════════ FOOTER ══════════════════════════════════ -->
+<footer class="site-footer">
+  <h3>NFE LLC Digital Research Framework v1.0</h3>
+  <p class="sub">Built from the SpitzLift Manufacturing engagement &nbsp;·&nbsp; April 2026 &nbsp;·&nbsp; David Necaise &nbsp;·&nbsp; david@trustedservicessd.com</p>
+  <p class="fine">
+    This framework is proprietary NFE LLC intellectual property. Built from live engagement experience, not from theory.<br>
+    SpitzLift was the R&amp;D. Every client after pays for the refined version.
+  </p>
+</footer>
+
+<script>
+  function switchTab(id, btn) {
+    document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + id).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  function copyPrompt(btn) {
+    const pre = btn.closest('.prompt-wrap').querySelector('pre');
+    navigator.clipboard.writeText(pre.textContent).then(() => {
+      btn.textContent = 'COPIED';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.textContent = 'COPY';
+        btn.classList.remove('copied');
+      }, 1800);
+    });
+  }
+</script>
+
+</body>
+</html>
