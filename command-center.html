@@ -599,6 +599,26 @@ body{background:#ffffff;color:#1a1a2e;font-family:'Barlow',sans-serif;font-weigh
   0%,100%{box-shadow:0 0 0 0 rgba(46,204,113,.3)}
   50%{box-shadow:0 0 8px 3px rgba(46,204,113,.15)}
 }
+
+/* ─── THE CEILING ─── */
+.ceiling-wrap{padding:28px 32px;display:flex;flex-direction:column;gap:32px;background:var(--bg1)}
+.ceiling-sec{display:flex;flex-direction:column}
+.ceiling-sh{font-family:var(--condensed);font-weight:900;font-size:1.55rem;letter-spacing:.06em;color:#1a1a2e;text-transform:uppercase;line-height:1;margin-bottom:6px}
+.ceiling-rule{height:2px;background:var(--accent);margin-bottom:18px}
+.c-card{padding:14px 18px;border-radius:4px;border:1px solid #dee2e6;border-left:3px solid transparent;margin-bottom:12px}
+.c-card:last-child{margin-bottom:0}
+.c-card.c-red{border-left-color:#e84040;background:#fff8f8}
+.c-card.c-amber{border-left-color:#e8a020;background:#fffcf4}
+.c-card.c-green{border-left-color:#2dcc6f;background:#f4fff8}
+.c-card.c-blue{border-left-color:#3a9fd8;background:#f4f8ff}
+.c-title{font-family:var(--condensed);font-weight:700;font-size:.95rem;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px;line-height:1.2}
+.c-card.c-red .c-title{color:#e84040}
+.c-card.c-amber .c-title{color:#e8a020}
+.c-card.c-green .c-title{color:#2dcc6f}
+.c-card.c-blue .c-title{color:#3a9fd8}
+.c-body{font-size:.8rem;line-height:1.75;color:#495057}
+.c-intro{font-size:.83rem;line-height:1.75;color:#495057;margin-bottom:18px}
+.ceiling-inv{background:#1a1a2e;border-radius:6px;padding:40px 44px}
 </style>
 </head>
 <body>
@@ -1205,6 +1225,20 @@ body{background:#ffffff;color:#1a1a2e;font-family:'Barlow',sans-serif;font-weigh
           <div class="kv mt4"><span class="kv-label">SAM.GOV</span><span class="kv-val red">SpitzLift NOT found — no direct federal registration</span></div>
           <div class="kv"><span class="kv-label">BAE SYSTEMS</span><span class="kv-val accent">Confirmed customer (website image gallery)</span></div>
           <div class="kv"><span class="kv-label">OPPORTUNITY</span><span class="kv-val green">New GSA MAS contract → direct federal channel → Phase 3 engagement</span></div>
+          <div class="contract-card mt4" style="border-left:3px solid var(--accent2)">
+            <div class="cc-header">ENTITY HISTORY — CONFIRMED VIA OSINT</div>
+            <div class="kv mt4"><span class="kv-label">ILU, INC.</span><span class="kv-val">Alabama · Early-to-mid 1990s · Pre-HIROK entity · No federal contracting record found · Earliest known Spitsbergen business entity</span></div>
+            <div class="divider"></div>
+            <div class="kv"><span class="kv-label">HIROK, INC.</span><span class="kv-val bright">Founded June 1997 · 13691 Danielson St, Poway, CA 92064</span></div>
+            <div class="kv"><span class="kv-label">PRINCIPAL</span><span class="kv-val">Michael Spitsbergen, President/CEO · Industry: Manufacturing Construction Machinery</span></div>
+            <div class="kv"><span class="kv-label">GSA SCHEDULE</span><span class="kv-val mono teal">GS-30F-0011U · Jan 2008 – Jan 2013</span></div>
+            <div class="kv"><span class="kv-label">USCG CONTRACT</span><span class="kv-val mono teal">HSCG3709FL36GE7 · $4,711.23 · 2009</span></div>
+            <div class="kv"><span class="kv-label">STATUS</span><span class="kv-val red">Inactive/Dissolved (believed) · No active SAM.gov registration found</span></div>
+            <div class="divider"></div>
+            <div class="kv"><span class="kv-label">SPITZLIFT LLC</span><span class="kv-val bright">Current operating entity · Semmes, Alabama</span></div>
+            <div class="kv"><span class="kv-label">SAM.GOV</span><span class="kv-val red">Not registered · No active federal contracting vehicle</span></div>
+            <div class="kv"><span class="kv-label">REACTIVATION</span><span class="kv-val accent">SAM.gov → CAGE → PSC 3950 → GSA Schedule 51V or sole-source J&amp;A</span></div>
+          </div>
         </div>
       </div>
 
@@ -2399,6 +2433,289 @@ body{background:#ffffff;color:#1a1a2e;font-family:'Barlow',sans-serif;font-weigh
         </div><!-- /sec-body -->
       </div><!-- /sec 14 -->
 
+      <!-- ── SEC CEILING: ⚡ THE CEILING ── -->
+      <div class="sec span3" data-tab="call" id="sec-ceiling">
+        <div class="sec-head" style="background:#1a1a2e;border-bottom:2px solid #2a2a4a">
+          <span style="font-family:var(--condensed);font-weight:900;font-size:1.1rem;color:var(--accent);letter-spacing:.06em">⚡ THE CEILING</span>
+          <span style="font-family:var(--mono);font-size:.6rem;color:rgba(255,255,255,.4);margin-left:14px;letter-spacing:.06em">COMMAND MODE ONLY · NOT VISIBLE TO CLIENT · 30-MINUTE VIDEO CALL REFERENCE · THIS IS THE CULMINATION</span>
+        </div>
+        <div class="ceiling-wrap">
+
+          <!-- ── S1: SECURITY ── -->
+          <div class="ceiling-sec">
+            <div class="ceiling-sh">SECURITY EXPOSURE — ACTIVE</div>
+            <div class="ceiling-rule"></div>
+
+            <div class="c-card c-red">
+              <div class="c-title">The File Manager Vulnerability Is Still Open</div>
+              <div class="c-body">
+                The security finding disclosed to SpitzLift weeks ago has not been remediated as of April 8, 2026.<br><br>
+                File Manager Advanced plugin — REST namespace <code style="font-family:var(--mono);font-size:.72rem;color:#0077aa;background:#e9ecef;padding:1px 5px;border-radius:2px">file-manager-advanced/v1</code> — remains publicly accessible without authentication at spitzlift.com/wp-json/<br><br>
+                <strong style="color:#e84040">What this means in plain language:</strong><br>
+                An unauthenticated attacker can potentially browse the server file structure, access wp-config.php containing database credentials in plain text, and gain full read/write access to all WooCommerce data, all form submissions, all distributor and customer records.<br><br>
+                Automated scanners probe millions of WordPress sites daily. This type of exposure is typically found within days of going live. It has been open for weeks since disclosure.
+              </div>
+            </div>
+
+            <div class="c-card c-amber">
+              <div class="c-title">The Bank Account Context</div>
+              <div class="c-body">
+                SpitzLift reported money stolen from a business bank account recently. The File Manager vulnerability was confirmed open during the same period.<br><br>
+                We cannot confirm a connection. We cannot rule one out.<br><br>
+                A forensic investigation is the only way to determine the actual attack vector. That investigation should happen. What we can confirm: the door was open.
+              </div>
+            </div>
+
+            <div class="c-card c-blue">
+              <div class="c-title">The Fix</div>
+              <div class="c-body">
+                Deactivate and delete the File Manager Advanced plugin.<br>
+                Time required: 30 minutes.&nbsp;&nbsp;Cost: $0.<br>
+                This has been true since the day we disclosed it.
+              </div>
+            </div>
+          </div>
+
+          <!-- ── S2: DIGITAL MATURITY ── -->
+          <div class="ceiling-sec">
+            <div class="ceiling-sh">DIGITAL MATURITY — 3/10</div>
+            <div class="ceiling-rule"></div>
+            <p class="c-intro">The following scores were derived from a full technical audit of SpitzLift's digital infrastructure. These are not opinions. They are measurements.<br><br>The client roster on the left built SpitzLift's reputation. The maturity scores on the right are what supports it.</p>
+
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px">
+              <div class="c-card c-green" style="margin-bottom:0">
+                <div class="c-title">What SpitzLift Has Earned</div>
+                <div class="c-body">
+                  <div style="display:flex;flex-direction:column;gap:4px">
+                    <div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0"><span style="color:#2dcc6f;flex-shrink:0">▸</span><span>Aberdeen Proving Ground validation</span></div>
+                    <div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0"><span style="color:#2dcc6f;flex-shrink:0">▸</span><span>All five branches U.S. Military</span></div>
+                    <div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0"><span style="color:#2dcc6f;flex-shrink:0">▸</span><span>Halliburton</span></div>
+                    <div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0"><span style="color:#2dcc6f;flex-shrink:0">▸</span><span>BNSF Railroad</span></div>
+                    <div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0"><span style="color:#2dcc6f;flex-shrink:0">▸</span><span>Otis Elevator</span></div>
+                    <div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0"><span style="color:#2dcc6f;flex-shrink:0">▸</span><span>Ford Motor Company</span></div>
+                    <div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0"><span style="color:#2dcc6f;flex-shrink:0">▸</span><span>BAE Systems (confirmed customer)</span></div>
+                    <div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0"><span style="color:#2dcc6f;flex-shrink:0">▸</span><span>Lockheed Martin (relationship confirmed)</span></div>
+                    <div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0"><span style="color:#2dcc6f;flex-shrink:0">▸</span><span>11 international distributors</span></div>
+                    <div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0"><span style="color:#2dcc6f;flex-shrink:0">▸</span><span>20–35 domestic dealers</span></div>
+                    <div style="display:flex;align-items:flex-start;gap:7px;padding:2px 0"><span style="color:#2dcc6f;flex-shrink:0">▸</span><span>25 years zero-defect product reputation</span></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="c-card c-red" style="margin-bottom:0">
+                <div class="c-title">What Supports It</div>
+                <div class="c-body">
+                  <div class="mrow"><span class="mlabel">OPERATIONS / ERP</span><div class="mtrack"><div class="mfill red" style="width:10%"></div></div><span class="mscore" style="color:var(--red)">1/10</span></div>
+                  <div style="font-size:.67rem;color:var(--text-dim);margin:-2px 0 8px 121px;line-height:1.3">Every production notification is a phone call.</div>
+                  <div class="mrow"><span class="mlabel">SALES / CRM</span><div class="mtrack"><div class="mfill red" style="width:20%"></div></div><span class="mscore" style="color:var(--red)">2/10</span></div>
+                  <div style="font-size:.67rem;color:var(--text-dim);margin:-2px 0 8px 121px;line-height:1.3">Pipeline lives in inboxes and spreadsheets.</div>
+                  <div class="mrow"><span class="mlabel">DEALER / PARTNER</span><div class="mtrack"><div class="mfill red" style="width:20%"></div></div><span class="mscore" style="color:var(--red)">2/10</span></div>
+                  <div style="font-size:.67rem;color:var(--text-dim);margin:-2px 0 8px 121px;line-height:1.3">20–35 dealers managed manually.</div>
+                  <div class="mrow"><span class="mlabel">CUSTOMER SUPPORT</span><div class="mtrack"><div class="mfill red" style="width:20%"></div></div><span class="mscore" style="color:var(--red)">2/10</span></div>
+                  <div style="font-size:.67rem;color:var(--text-dim);margin:-2px 0 8px 121px;line-height:1.3">All manual, no ticketing system.</div>
+                  <div class="mrow"><span class="mlabel">MARKETING AUTO.</span><div class="mtrack"><div class="mfill amber" style="width:30%"></div></div><span class="mscore" style="color:var(--accent)">3/10</span></div>
+                  <div style="font-size:.67rem;color:var(--text-dim);margin:-2px 0 8px 121px;line-height:1.3">Ads running. No CRM close loop.</div>
+                  <div class="mrow"><span class="mlabel">ANALYTICS / BI</span><div class="mtrack"><div class="mfill amber" style="width:30%"></div></div><span class="mscore" style="color:var(--accent)">3/10</span></div>
+                  <div style="font-size:.67rem;color:var(--text-dim);margin:-2px 0 8px 121px;line-height:1.3">No integrated reporting.</div>
+                  <div class="mrow"><span class="mlabel">E-COMMERCE</span><div class="mtrack"><div class="mfill amber" style="width:50%"></div></div><span class="mscore" style="color:var(--accent)">5/10</span></div>
+                  <div style="font-size:.67rem;color:var(--text-dim);margin:-2px 0 8px 121px;line-height:1.3">WooCommerce installed. Not used for B2B ordering.</div>
+                  <div class="mrow"><span class="mlabel">CONTENT / SEO</span><div class="mtrack"><div class="mfill mgreen" style="width:60%"></div></div><span class="mscore" style="color:var(--green)">6/10</span></div>
+                  <div style="font-size:.67rem;color:var(--text-dim);margin:-2px 0 10px 121px;line-height:1.3">Strongest score in the company.</div>
+                  <div style="display:flex;align-items:center;gap:8px;padding-top:8px;border-top:1px solid rgba(231,76,60,.2)">
+                    <span style="font-family:var(--condensed);font-size:.72rem;color:var(--text-dim);text-transform:uppercase">Overall</span>
+                    <span style="font-family:var(--condensed);font-weight:900;font-size:1.5rem;color:var(--red)">3/10</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div style="text-align:center;font-size:.88rem;font-family:var(--condensed);font-weight:700;color:#1a1a2e;letter-spacing:.02em;padding:14px 20px;background:var(--bg0);border:1px solid var(--border);border-radius:4px">
+              "This is the score of a company operating on infrastructure that cannot support the relationships it has already earned."
+            </div>
+          </div>
+
+          <!-- ── S3: REVENUE LEAKAGE ── -->
+          <div class="ceiling-sec">
+            <div class="ceiling-sh">CONFIRMED REVENUE LEAKAGE</div>
+            <div class="ceiling-rule"></div>
+            <p class="c-intro">Every item below is a confirmed finding from the technical audit. These are not projections. This is happening right now.</p>
+
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+              <div class="c-card c-red" style="margin-bottom:0">
+                <div class="c-title">Google Ads + Bing Ads → Inbox</div>
+                <div class="c-body">Paid advertising is running on both platforms. Zero CRM integration to close the loop. Every lead paid for routes to an email inbox. No tracking. No follow-up automation. No attribution.<br><br>The leads are being paid for and disappearing.</div>
+              </div>
+              <div class="c-card c-red" style="margin-bottom:0">
+                <div class="c-title">Zoho CRM — Paid, Mostly Disconnected</div>
+                <div class="c-body">Zoho CRM is active and paid for. Connected to: 1 of 8 Gravity Forms. 7 of 8 forms still route to email only. Every quote request, distributor application, warranty registration, and product inquiry that comes through those 7 forms creates zero CRM record.<br><br>The infrastructure to fix this exists. It is not connected.</div>
+              </div>
+              <div class="c-card c-red" style="margin-bottom:0">
+                <div class="c-title">WooCommerce — Installed, Unused</div>
+                <div class="c-body">WooCommerce v10.6.1 is fully installed with cart and checkout functionality live on the site. It is not being used for B2B ordering. Distributors and dealers who want to place an order call or email.<br><br>Every order that comes in by phone is a manual process from intake to fulfillment.</div>
+              </div>
+              <div class="c-card c-red" style="margin-bottom:0">
+                <div class="c-title">Every Manual Touch Is a Cost</div>
+                <div class="c-body">Distributor applications: manual.<br>Product registrations: manual.<br>Warranty registrations: manual.<br>Quote requests: manual.<br>Dealer rebate submissions: PDF to inbox.<br>spitzco.net partner portal: Wix brochure with a login screen.<br><br>Someone is touching every one of these by hand. Every day.<br><span style="color:#e84040;font-weight:600">That is the cost of not being connected.</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ── S4: FEDERAL CHANNEL ── -->
+          <div class="ceiling-sec">
+            <div class="ceiling-sh">THE FEDERAL CHANNEL — THE FULL STORY</div>
+            <div class="ceiling-rule"></div>
+            <p class="c-intro" style="color:var(--accent);font-weight:500">What follows is based on confirmed public federal contracting records, business registration data, and 25 years of documented history. This is not new information. This is the story already written.</p>
+
+            <div class="c-card c-amber">
+              <div class="c-title">What Was Built</div>
+              <div class="c-body">
+                <div class="tv-wrap">
+                  <div class="tv-row">
+                    <div class="tv-trk"><div class="tv-dot2 past"></div><div class="tv-ln"></div></div>
+                    <div class="tv-body"><div class="tv-date2">Early 1990s</div><div class="tv-txt past" style="font-size:.77rem"><strong style="color:var(--text)">ILU, Incorporated · Alabama</strong><br>The beginning. First entity. Figuring it out.</div></div>
+                  </div>
+                  <div class="tv-row">
+                    <div class="tv-trk"><div class="tv-dot2 past"></div><div class="tv-ln"></div></div>
+                    <div class="tv-body"><div class="tv-date2">June 1997</div><div class="tv-txt past" style="font-size:.77rem"><strong style="color:var(--text)">HIROK, Inc. established · 13691 Danielson St, Poway, CA 92064</strong><br>Michael Spitsbergen, President/CEO · Manufacturing Construction Machinery<br><span style="color:var(--accent)">The federal contracting vehicle is built.</span></div></div>
+                  </div>
+                  <div class="tv-row">
+                    <div class="tv-trk"><div class="tv-dot2 near"></div><div class="tv-ln"></div></div>
+                    <div class="tv-body"><div class="tv-date2">January 2008</div><div class="tv-txt near" style="font-size:.77rem"><strong>GSA Multiple Award Schedule obtained</strong><br>GS-30F-0011U — HIROK Inc / SpitzLift · 5-year term. Federal market entry.<br>Required 12–18 months of preparation — past performance, pricing transparency, compliance review. <span style="color:var(--accent)">It was earned.</span></div></div>
+                  </div>
+                  <div class="tv-row">
+                    <div class="tv-trk"><div class="tv-dot2 near"></div><div class="tv-ln"></div></div>
+                    <div class="tv-body"><div class="tv-date2">2009</div><div class="tv-txt near" style="font-size:.77rem"><strong>U.S. Coast Guard Contract Executed</strong><br>HSCG3709FL36GE7 — $4,711.23<br><em>"Spitzlift needed for the cutters to pull out their coolers."</em><br>Confirmed federal transaction.</div></div>
+                  </div>
+                  <div class="tv-row">
+                    <div class="tv-trk"><div class="tv-dot2 danger"></div><div class="tv-ln"></div></div>
+                    <div class="tv-body"><div class="tv-date2">January 2013</div><div class="tv-txt danger" style="font-size:.77rem"><strong>GSA Schedule GS-30F-0011U expires. Not renewed.</strong><br>The federal channel goes dormant. By choice. Not by failure.</div></div>
+                  </div>
+                  <div class="tv-row">
+                    <div class="tv-trk"><div class="tv-dot2 past"></div><div class="tv-ln"></div></div>
+                    <div class="tv-body"><div class="tv-date2">2013 – 2026</div><div class="tv-txt past" style="font-size:.77rem"><strong style="color:var(--text)">13 years.</strong><br>SpitzLift grows commercially. The client roster becomes elite. The federal channel stays dormant. The About Us page still claims the expired credential as active.</div></div>
+                  </div>
+                  <div class="tv-row">
+                    <div class="tv-trk"><div class="tv-dot2 now"></div></div>
+                    <div class="tv-body"><div class="tv-date2">TODAY — April 2026</div><div class="tv-txt now" style="font-size:.77rem">No SAM.gov registration. No CAGE code. No federal contracting vehicle.<br>BAE Systems, Lockheed, and Aberdeen Proving Ground are confirmed relationships.<br>CMMC flowdown requirements apply to every one of them.</div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="c-card c-red">
+              <div class="c-title">What The About Us Page Says</div>
+              <div class="c-body">
+                <em>"SpitzLift is a proud Contract Holder, License # GS-30F-0011U."</em><br><br>
+                This contract expired in January 2013. 15 years ago.<br>
+                Any contracting officer who verifies this credential finds it cancelled.<br>
+                It is still on the website today.
+              </div>
+            </div>
+
+            <div class="c-card c-blue">
+              <div class="c-title">What Changed Since 2013</div>
+              <div class="c-body">
+                The federal channel went dormant because the compliance overhead wasn't worth the volume at the time. That was the right call in 2013.<br><br>
+                <strong style="color:#3a9fd8">Here is what has changed:</strong><br><br>
+                The product now has 25 years of military validation behind it.<br><br>
+                BAE Systems, Lockheed, and Aberdeen Proving Ground are confirmed relationships that didn't exist at this scale in 2013.<br><br>
+                CMMC 2.0 is now law — creating mandatory compliance requirements for every prime contractor relationship SpitzLift has.<br><br>
+                REID Lifting received PE backing from a French firm in April 2025. Institutional capital is entering the space.<br><br>
+                Ren Smith is now CFO — someone who can manage the compliance overhead that made HIROK's overhead not worth it.<br><br>
+                Janet Pattison — Lt. Col. USAF Ret., Top Secret/SCI clearance, 20 years in the most tightly controlled procurement environment in the DoD — is the most qualified federal channel owner SpitzLift has ever had internally.<br><br>
+                <strong style="color:#3a9fd8">The 4-step reactivation path:</strong><br>
+                1.&nbsp; SAM.gov entity registration (2–4 weeks)<br>
+                2.&nbsp; CAGE code assignment (automatic with SAM)<br>
+                3.&nbsp; PSC 3950 positioning (hoists, cranes, derricks)<br>
+                4.&nbsp; GSA Schedule 51V application or sole-source J&amp;A via unique product specifications<br><br>
+                You have done this before. You know exactly what it requires.<br>
+                The question is not whether you can. The question is what it takes to walk back in at the level the product now deserves.
+              </div>
+            </div>
+          </div>
+
+          <!-- ── S5: COMPETITIVE WINDOW ── -->
+          <div class="ceiling-sec">
+            <div class="ceiling-sh">THE WINDOW — AND WHO IS ON THE OTHER SIDE OF IT</div>
+            <div class="ceiling-rule"></div>
+
+            <div class="c-card c-red">
+              <div class="c-title">REID Lifting — April 2025</div>
+              <div class="c-body">
+                SpitzLift's primary competitor in the portable lifting space received private equity backing via a French acquisition in April 2025.<br><br>
+                <strong style="color:#e84040">What PE backing means in practice:</strong><br>
+                Institutional capital for product development and marketing. Aggressive dealer and distributor expansion. Professional sales infrastructure. Potential federal market entry with compliance resources.<br><br>
+                This is not a warning. It is a fact.<br><br>
+                The competitive landscape changed in April 2025. The window before that capital compounds is 12–18 months.<br><br>
+                SpitzLift's product is better. SpitzLift's relationships are deeper. SpitzLift's military validation is real and documented.<br><br>
+                None of that matters if the infrastructure can't support the opportunity when it arrives.
+              </div>
+            </div>
+
+            <div class="c-card c-amber">
+              <div class="c-title">The West Coast Territory</div>
+              <div class="c-body">
+                Daniel Spitsbergen — West Coast Regional Sales Manager — departed July 2024 after 11 years.<br><br>
+                No backfill has been confirmed.<br><br>
+                The West Coast territory has been potentially unstaffed for 9+ months.<br><br>
+                This is not documented anywhere on the website, the dealer locator, or any public-facing channel. Leads coming in from the West Coast are going somewhere. Where is the question.
+              </div>
+            </div>
+          </div>
+
+          <!-- ── S6: THE FULL PICTURE (inverted) ── -->
+          <div class="ceiling-sec">
+            <div class="ceiling-sh">THE FULL PICTURE</div>
+            <div class="ceiling-rule"></div>
+
+            <div class="ceiling-inv">
+              <div style="font-family:var(--condensed);font-weight:900;font-size:1.2rem;color:var(--accent);line-height:1.75;letter-spacing:.03em;margin-bottom:28px">
+                25 years. Three entities.<br>
+                ILU in Alabama. HIROK in Poway. SpitzLift Manufacturing.<br><br>
+                Aberdeen Proving Ground.<br>
+                All five branches of the U.S. Military.<br>
+                Halliburton. BNSF Railroad. Ford.<br>
+                BAE Systems. Lockheed Martin.<br><br>
+                Built on relationship selling,<br>
+                a zero-defect product,<br>
+                and the founder's personal credibility.<br><br>
+                That is not a small thing.<br>
+                That is an extraordinary thing.
+              </div>
+
+              <div style="font-size:.82rem;color:rgba(255,255,255,.8);line-height:1.9;margin-bottom:28px;padding-top:20px;border-top:1px solid rgba(255,255,255,.12)">
+                And right now, today, every one of those relationships is being supported by:<br><br>
+                <span style="color:rgba(255,255,255,.55)">A 3/10 digital infrastructure.<br>
+                An email inbox that catches every lead.<br>
+                A CRM that is 7 of 8 disconnected.<br>
+                A federal credential that expired 15 years ago still on the website.<br>
+                A security vulnerability that has been open for weeks since it was disclosed.<br>
+                A West Coast territory that may have been unstaffed for 9 months.<br>
+                An ad budget running to nowhere.</span><br><br>
+                The product earned a seat at the table with the biggest companies in the world.<br><br>
+                The infrastructure is what's keeping SpitzLift from the next level.
+              </div>
+
+              <div style="font-size:.87rem;color:var(--accent);line-height:1.9;margin-bottom:32px;padding-top:20px;border-top:1px solid rgba(232,160,32,.2)">
+                This is not a failing company.<br><br>
+                This is a successful company that built something extraordinary and is now operating on infrastructure that cannot support where it deserves to go.<br><br>
+                The ceiling is real. It is specific. And it is removable.<br><br>
+                The question is not whether SpitzLift can afford to fix this.<br><br>
+                The question is how long it can afford not to — while the window is open and the competition just got funded.
+              </div>
+
+              <div style="text-align:center;font-family:var(--condensed);font-weight:900;font-size:1.4rem;color:var(--accent);letter-spacing:.05em;line-height:1.7;padding-top:28px;border-top:1px solid rgba(232,160,32,.2)">
+                The relationships are there.<br>
+                The credibility is there.<br>
+                The product is there.<br><br>
+                The infrastructure is the only thing left to build.
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /ceiling-wrap -->
+      </div><!-- /sec-ceiling -->
+
     </div><!-- /cmd-grid -->
       </div><!-- /cmd-main -->
     </div><!-- /cmd-outer -->
@@ -2818,7 +3135,8 @@ const SIDEBAR_DEFS = {
     { id: 'sec-ds',  label: '⚡ DECISION SEQUENCE' },
     { id: 'sec-08',  label: '08 · DISCOVERY Q\'S' },
     { id: 'sec-09',  label: '09 · OBJECTIONS' },
-    { id: 'sec-14',  label: '14 · SECOND CALL' }
+    { id: 'sec-14',  label: '14 · SECOND CALL' },
+    { id: 'sec-ceiling', label: '⚡ THE CEILING' }
   ],
   intel: [
     { id: 'sec-01',  label: '01 · COMPANY INTEL' },
