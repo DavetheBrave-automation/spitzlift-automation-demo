@@ -586,6 +586,7 @@ body{background:#ffffff;color:#1a1a2e;font-family:'Barlow',sans-serif;font-weigh
 .cmd-grid[data-active="call"] .sec[data-tab="call"]{display:flex}
 .cmd-grid[data-active="intel"] .sec[data-tab="intel"]{display:flex}
 .cmd-grid[data-active="nfe"] .sec[data-tab="nfe"]{display:flex}
+.cmd-grid[data-active="ceiling"] .sec[data-tab="ceiling"]{display:flex}
 
 /* ─── HEADER CALL CHIP ─── */
 .hdr-chip{
@@ -643,6 +644,7 @@ body{background:#ffffff;color:#1a1a2e;font-family:'Barlow',sans-serif;font-weigh
   <!-- ─── CMD TABS ─── -->
   <div id="cmd-tabs">
     <button class="cmd-tab active" data-tab="call" onclick="switchTab('call')">📞 CALL READY</button>
+    <button class="cmd-tab" data-tab="ceiling" onclick="switchTab('ceiling')">⚡ THE CEILING</button>
     <button class="cmd-tab" data-tab="intel" onclick="switchTab('intel')">🔍 INTEL</button>
     <button class="cmd-tab" data-tab="nfe" onclick="switchTab('nfe')">🏗️ NFE LLC</button>
   </div>
@@ -2434,7 +2436,7 @@ body{background:#ffffff;color:#1a1a2e;font-family:'Barlow',sans-serif;font-weigh
       </div><!-- /sec 14 -->
 
       <!-- ── SEC CEILING: ⚡ THE CEILING ── -->
-      <div class="sec span3" data-tab="call" id="sec-ceiling">
+      <div class="sec span3" data-tab="ceiling" id="sec-ceiling">
         <div class="sec-head" style="background:#1a1a2e;border-bottom:2px solid #2a2a4a">
           <span style="font-family:var(--condensed);font-weight:900;font-size:1.1rem;color:var(--accent);letter-spacing:.06em">⚡ THE CEILING</span>
           <span style="font-family:var(--mono);font-size:.6rem;color:rgba(255,255,255,.4);margin-left:14px;letter-spacing:.06em">COMMAND MODE ONLY · NOT VISIBLE TO CLIENT · 30-MINUTE VIDEO CALL REFERENCE · THIS IS THE CULMINATION</span>
@@ -3135,7 +3137,9 @@ const SIDEBAR_DEFS = {
     { id: 'sec-ds',  label: '⚡ DECISION SEQUENCE' },
     { id: 'sec-08',  label: '08 · DISCOVERY Q\'S' },
     { id: 'sec-09',  label: '09 · OBJECTIONS' },
-    { id: 'sec-14',  label: '14 · SECOND CALL' },
+    { id: 'sec-14',  label: '14 · SECOND CALL' }
+  ],
+  ceiling: [
     { id: 'sec-ceiling', label: '⚡ THE CEILING' }
   ],
   intel: [
@@ -3174,7 +3178,7 @@ function renderSidebar(tab) {
   sidebar.innerHTML = '';
   const label = document.createElement('div');
   label.className = 'snav-group';
-  label.textContent = tab === 'call' ? 'CALL READY' : tab === 'intel' ? 'INTEL' : 'NFE LLC';
+  label.textContent = tab === 'call' ? 'CALL READY' : tab === 'ceiling' ? 'THE CEILING' : tab === 'intel' ? 'INTEL' : 'NFE LLC';
   sidebar.appendChild(label);
   (SIDEBAR_DEFS[tab] || []).forEach(item => {
     const a = document.createElement('a');
